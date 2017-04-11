@@ -1,0 +1,17 @@
+#$ TOOL ispLEVER 3.0
+#$ DATE Mon Jul 08 22:10:34 2013
+#$ TITLE c4to16.bls 
+#$ MODULE c4to16
+#$ PINS 21 A1 A0 A3 A2 EN D15 D14 D13 D12 D11 D10 D9 D8 D7 D6 D5 D4 D3 D2 D1 D0
+#$ NODES 4 N_1 N_2 N_3 N_4
+#$ INTERFACE l_dec4e  7 EN'i'  S0'i'  S1'i'  Z0'o'  Z1'o'  Z2'o'  Z3'o' 
+#$ INSTANCE I12 l_dec4e 7 EN A2 A3 N_4 N_3 N_2 N_1
+#$ INSTANCE I2 l_dec4e 7 N_1 A0 A1 D12 D13 D14 D15
+#$ INSTANCE I3 l_dec4e 7 N_2 A0 A1 D8 D9 D10 D11
+#$ INSTANCE I4 l_dec4e 7 N_3 A0 A1 D4 D5 D6 D7
+#$ INSTANCE I5 l_dec4e 7 N_4 A0 A1 D0 D1 D2 D3
+
+.model C4TO16
+.inputs
+.outputs
+.end

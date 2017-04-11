@@ -1,0 +1,27 @@
+// 
+// Software Version 8.2
+// Targeted Device : ispLSI1032E-70LJ84
+// Platform : Windows NT 5.1
+// Date : Wed Jul 10 10:13:29 2013
+// Elapsed Time : 00:00:00
+// 
+                     GND        SYS          1
+                     P01        OUT          5
+                 RE_PRGM         IN          6
+                      EN         IN          8
+                     VCC        SYS         21
+                     GND        SYS         22
+                   RESET        SYS         24
+                  RE_CPU         IN         29
+                     DI0         IN         41
+                     GND        SYS         43
+                     P03        OUT         45
+                     P00        OUT         46
+                    PRGM         IN         47
+                     P02        OUT         49
+                     DI1         IN         51
+                     GND        SYS         64
+                     VCC        SYS         65
+                     DI2         IN         74
+                     DI3         IN         75
+                     CLK         IN         83

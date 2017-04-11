@@ -1,0 +1,6 @@
+. main main.sch d:\mine\isplever\litemcu4\main.sch
+I12.I16 addswc4 addswc4.sch d:\mine\isplever\litemcu4\addswc4.sch
+I4.I22 c4to16 c4to16.sch d:\mine\isplever\litemcu4\c4to16.sch
+I12 cpu cpu.sch d:\mine\isplever\litemcu4\cpu.sch
+I4 rom rom.sch d:\mine\isplever\litemcu4\rom.sch
+I12.I72 c3to8 c3to8.sch d:\mine\isplever\litemcu4\c3to8.sch

@@ -1,0 +1,53 @@
+#$ TOOL SCH2BLF 3.0.17.51 
+#$ TITLE addswc4.bls 
+#$ MODULE addswc4 
+#$ PINS 6  SW0 SW1 SW2 SW3 RE CLK
+#$ NODES 4 N_11 N_10 N_6 N_7 
+#$ NODES 1 I9>CAO
+#$ NODES 12 I7>Z3 I7>Z2 I7>Z1 I7>Z0 I7>S1 I9>Q1 I7>S0 I9>Q0 I9>CLK \
+#   I9>CD I7>A0 I9>CAI
+#$ EXTERNAL cbu12 6 CAI'i' CD'i' CLK'i' CAO'o' Q0'o' Q1'o'
+#$ EXTERNAL dmux4 7 A0'i' S0'i' S1'i' Z0'o' Z1'o' Z2'o' Z3'o'
+#$ INTERFACE g_2nand 3 A'i' B'i' YN'o'
+#$ INTERFACE vcc 1 x'o'
+#$ INSTANCE I9 cbu12 6 I9>CAI I9>CD I9>CLK I9>CAO I9>Q0 I9>Q1
+#$ INSTANCE I7 dmux4 7 I7>A0 I7>S0 I7>S1 I7>Z0 I7>Z1 I7>Z2 I7>Z3
+#$ PRIMITIVE I10 g_2nand 3 CLK CLK N_11
+#$ PRIMITIVE I6 vcc 1 N_10
+.model addswc4
+
+.inputs  I7>Z3.BLIF I7>Z2.BLIF I7>Z1.BLIF I7>Z0.BLIF N_6.BLIF \
+   I9>Q1.BLIF N_7.BLIF I9>Q0.BLIF N_11.BLIF RE.BLIF N_10.BLIF
+.outputs  SW3 SW2 SW1 SW0 N_6 I7>S1 N_7 I7>S0 I9>CLK I9>CD I7>A0 \
+   I9>CAI
+.names I7>Z3.BLIF SW3
+1 1
+
+.names I7>Z2.BLIF SW2
+1 1
+
+.names I7>Z1.BLIF SW1
+1 1
+
+.names I7>Z0.BLIF SW0
+1 1
+
+.names N_6.BLIF I7>S1
+1 1
+.names I9>Q1.BLIF N_6
+1 1
+
+.names N_7.BLIF I7>S0
+1 1
+.names I9>Q0.BLIF N_7
+1 1
+
+.names N_11.BLIF I9>CLK
+1 1
+.names RE.BLIF I9>CD
+1 1
+.names N_10.BLIF I7>A0
+1 1
+.names N_10.BLIF I9>CAI
+1 1
+.end

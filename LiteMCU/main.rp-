@@ -1,0 +1,2324 @@
+ispEXPERT Compiler Release 0.16.51, May 20 2002 13:06:40
+
+
+Design Parameters
+-----------------
+
+EFFORT:                         MEDIUM (2)
+IGNORE_FIXED_PIN:               OFF
+MAX_GLB_IN:                     16
+MAX_GLB_OUT:                    4
+OUTPUT_FORM:                    VERILOG, VHDL
+OS_VERSION:                     Windows NT 5.1
+PARAM_FILE:                     'z:\mine\isplever\litemcu4\ispxpert'
+PIN_FILE:                       'z:\mine\isplever\litemcu4\main.xpn'
+STRATEGY:                       DELAY
+TIMING_ANALYZER:                ON 
+USE_GLOBAL_RESET:               ON
+
+
+Design Specification
+--------------------
+
+Design:                         main
+Part:                           ispLSI1032E-70LJ84
+
+
+ISP:                            ON
+ISP_EXCEPT_Y2:                  OFF
+PULL:                           UP
+SECURITY:                       OFF
+SLOWSLEW:                       OFF
+
+
+Number of Critical Pins:        0
+Number of Free Pins:            13
+Number of Locked Pins:          0
+Number of Reserved Pins:        0
+
+
+Input Pins
+
+    Pin Name                Pin Attribute
+
+        CLK                     PULLUP
+        DI0                     PULLUP
+        DI1                     PULLUP
+        DI2                     PULLUP
+        DI3                     PULLUP
+        EN                      PULLUP
+        PRGM                    PULLUP
+        RE_CPU                  PULLUP
+        RE_PRGM                 PULLUP
+
+
+Output Pins
+
+    Pin Name                Pin Attribute
+
+        P00                     PULLUP
+        P01                     PULLUP
+        P02                     PULLUP
+        P03                     PULLUP
+
+
+Pre-Route Design Statistics
+---------------------------
+
+Number of Macrocells:           84
+Number of GLBs:                 30
+Number of I/Os:                 13
+Number of Nets:                 91
+
+Number of Free Inputs:          9
+Number of Free Outputs:         4
+Number of Free Three-States:    0
+Number of Free Bidi's:          0
+
+Number of Locked Input IOCs:    0
+Number of Locked DIs:           0
+Number of Locked Outputs:       0
+Number of Locked Three-States:  0
+Number of Locked Bidi's:        0
+
+Number of CRIT Outputs:         0
+Number of Global OEs:           0
+Number of External Clocks:      0
+
+
+GLB Utilization (Out of 32):	93%
+I/O Utilization (Out of 68):	19%
+Net Utilization (Out of 196):	46%
+
+
+Nets with Fanout of  1:         24
+Nets with Fanout of  2:         33
+Nets with Fanout of  3:         5
+Nets with Fanout of  4:         2
+Nets with Fanout of  6:         7
+Nets with Fanout of  8:         4
+Nets with Fanout of  9:         4
+Nets with Fanout of 10:         6
+Nets with Fanout of 14:         1
+Nets with Fanout of 17:         2
+Nets with Fanout of 18:         1
+Nets with Fanout of 19:         2
+
+Average Fanout per Net:         4.25
+
+
+GLBs with  5 Input(s):          1
+GLBs with  8 Input(s):          2
+GLBs with  9 Input(s):          2
+GLBs with 10 Input(s):          1
+GLBs with 11 Input(s):          7
+GLBs with 12 Input(s):          3
+GLBs with 14 Input(s):          2
+GLBs with 15 Input(s):          1
+GLBs with 16 Input(s):          9
+GLBs with 17 Input(s):          2
+
+Average Inputs per GLB:         12.77
+
+
+GLBs with  1 Output(s):         3
+GLBs with  2 Output(s):         11
+GLBs with  3 Output(s):         5
+GLBs with  4 Output(s):         11
+
+Average Outputs per GLB:        2.80
+
+
+Number of GLB Registers:        61
+Number of IOC Registers:        0
+
+
+Post-Route Design Implementation
+--------------------------------
+
+Number of Macrocells:		84
+Number of GLBs:			32
+Number of IOCs:			13
+Number of DIs:			0
+Number of GLB Levels:		3
+
+
+Clock GLB glb00, C0
+
+    9 Input(s)
+        (CLK.O, CLKX, I4), (DI2.O, DI2X, I2), (DI3.O, DI3X, I8), 
+        (glb01.O0, N_37, I15), (glb02.O0, N_38_part2, I11), (glb17.O2, 
+        N_39, I14), (glb17.O1, N_40, I13), (PRGM.O, PRGMX, I9), 
+        (RE_PRGM.O, RE_PRGMX, I12)
+    4 Output(s)
+        (D0_N_49, O2), (D0_N_41, O3), (D0_N_3_C, O0), (D0_N_116_C, O1)
+    6 Product Term(s)
+
+    Output D0_N_49
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI3X
+        1 Fanout(s)
+            glb03_part2.I6
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_49.D = DI3X
+        D0_N_49.C = CLKX & N_37 & PRGMX & !N_39 & !N_38_part2 & !N_40
+        D0_N_49.R = RE_PRGMX
+
+    Output D0_N_41
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, DI2X, RE_PRGMX
+        2 Fanout(s)
+            glb06.I3, glb07.I12
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_41.D = DI2X
+        D0_N_41.C = CLKX & N_37 & PRGMX & !N_39 & !N_38_part2 & !N_40
+        D0_N_41.R = RE_PRGMX
+
+    Output D0_N_3_C
+
+        6 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39
+        4 Fanout(s)
+            glb04.CLK1, glb03_part1.CLK1, glb06.CLK1, glb05.CLK1
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_3_C = CLKX & N_38_part2 & N_39 & PRGMX & !N_37 & !N_40
+
+    Output D0_N_116_C
+
+        6 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39
+        4 Fanout(s)
+            glb12.CLK2, glb08.CLK2, glb07.CLK2, glb09.CLK2
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_116_C = CLKX & PRGMX & !N_39 & !N_38_part2 & !N_37 & !N_40
+
+
+GLB glb01, A4
+
+    16 Input(s)
+        (glb01.O0, N_37, I16), (glb02.O0, N_38_part2, I4), (glb17.O2, 
+        N_39, I1), (glb17.O1, N_40, I2), (glb17.O0, N_40_C, I3), 
+        (glb15.O1, P0_N_176, I9), (glb15.O0, P0_N_177, I8), (glb16.O2, 
+        P0_N_178, I6), (glb16.O1, P0_N_179, I5), (glb25.O0, 
+        P0_N_195, I12), (glb26.O0, P0_N_212, I0), (glb29.O3, 
+        P0_N_214, I15), (RE_CPU.O, RE_CPUX, I7), (glb11.O1, 
+        AND_1372, I13), (glb13.O2, OR_871, I10), (glb13.O3, 
+        OR_872, I11)
+    1 Output(s)
+        (N_37, O0)
+    17 Product Term(s)
+
+    Output N_37
+
+        16 Input(s)
+            OR_871, AND_1372, RE_CPUX, N_38_part2, N_40, N_37, P0_N_214,
+            N_40_C, N_39, P0_N_212, P0_N_179, P0_N_195, P0_N_178,
+            P0_N_177, P0_N_176, OR_872
+        18 Fanout(s)
+            glb03_part2.I0, glb24.I0, glb22.I0, glb01.I16, glb23.I0,
+            glb18.I0, glb19_part2.I0, glb04.I4, glb06.I4, glb00.I15,
+            glb08.I15, glb07.I11, glb09.I15, glb05.I11, glb25.I15,
+            glb19_part1.I15, glb21.I15, glb20.I15
+        15 Product Term(s)
+        2 GLB Level(s)
+
+        N_37.D = (P0_N_195 & P0_N_214 & !P0_N_212
+            # N_37 & !N_40 & !P0_N_195
+            # N_37 & !N_39 & !P0_N_195
+            # N_37 & !N_38_part2 & !P0_N_195
+            # N_38_part2 & N_39 & N_40 & !N_37 & !P0_N_195
+            # P0_N_177 & P0_N_178 & P0_N_195 & P0_N_212 & AND_1372
+            # P0_N_195 & P0_N_212 & AND_1372 & !P0_N_178 & !P0_N_177
+            # P0_N_178 & P0_N_195 & P0_N_212 & !P0_N_177 & !P0_N_176
+            & !P0_N_179
+            # P0_N_177 & P0_N_195 & P0_N_212 & !P0_N_178 & !P0_N_176
+            & !P0_N_179
+            # P0_N_176 & P0_N_177 & P0_N_178 & P0_N_195 & P0_N_212
+            & OR_871
+            # P0_N_177 & P0_N_178 & P0_N_179 & P0_N_195 & P0_N_212
+            & OR_871
+            # P0_N_176 & P0_N_195 & P0_N_212 & !P0_N_178 & !P0_N_177
+            & OR_871
+            # P0_N_179 & P0_N_195 & P0_N_212 & !P0_N_178 & !P0_N_177
+            & OR_871
+            # P0_N_178 & P0_N_195 & P0_N_212 & !OR_872 & !AND_1372
+            & !P0_N_177
+            # P0_N_177 & P0_N_195 & P0_N_212 & !OR_872 & !P0_N_178
+            & !AND_1372)
+        N_37.C = N_40_C
+        N_37.R = RE_CPUX
+
+
+GLB glb02, D1
+
+    16 Input(s)
+        (glb02.O0, N_38_part2, I16), (glb17.O2, N_39, I14), (glb17.O1, 
+        N_40, I13), (glb17.O0, N_40_C, I7), (glb15.O2, P0_N_174, I5), 
+        (glb14.O0, P0_N_175_part2, I12), (glb15.O1, P0_N_176, I6), 
+        (glb16.O1, P0_N_179, I10), (glb26.O2, P0_N_180, I9), (glb16.O0, 
+        P0_N_181, I11), (glb25.O0, P0_N_195, I3), (glb26.O0, 
+        P0_N_212, I15), (glb29.O2, P0_N_216, I1), (RE_CPU.O, 
+        RE_CPUX, I8), (glb11.O1, AND_1372, I2), (glb13.O3, 
+        OR_872, I4)
+    3 Output(s)
+        (P01_PIN, O2), (N_38_part2, O0), (N_38_part1, O3)
+    18 Product Term(s)
+
+    Output P01_PIN
+
+        4 Input(s)
+            P0_N_174, P0_N_181, P0_N_180, P0_N_175_part2
+        1 Fanout(s)
+            P01.IR
+        4 Product Term(s)
+        1 GLB Level(s)
+
+        P01_PIN = (P0_N_180 & !P0_N_174
+            # P0_N_180 & !P0_N_181
+            # P0_N_174 & P0_N_181 & !P0_N_180)
+            $ P0_N_175_part2
+
+    Output N_38_part2
+
+        16 Input(s)
+            AND_1372, P0_N_174, RE_CPUX, N_38_part2, P0_N_216, N_40,
+            N_40_C, N_39, P0_N_212, P0_N_179, P0_N_195, P0_N_181,
+            P0_N_180, P0_N_176, OR_872, P0_N_175_part2
+        13 Fanout(s)
+            glb03_part2.I4, glb24.I4, glb22.I4, glb01.I4, glb23.I4,
+            glb18.I4, glb19_part2.I4, glb06.I15, glb00.I11, glb02.I16,
+            glb19_part1.I11, glb21.I11, glb20.I11
+        12 Product Term(s)
+        2 GLB Level(s)
+
+        N_38_part2.D = (N_38_part2 & !N_40 & !P0_N_195
+            # N_38_part2 & !N_39 & !P0_N_195
+            # P0_N_195 & P0_N_216 & !P0_N_212
+            # N_39 & N_40 & !N_38_part2 & !P0_N_195
+            # P0_N_175_part2 & P0_N_180 & P0_N_195 & P0_N_212 & AND_1372
+            # P0_N_176 & P0_N_195 & P0_N_212 & !OR_872 & !AND_1372
+            # P0_N_179 & P0_N_195 & P0_N_212 & !OR_872 & !AND_1372
+            # P0_N_175_part2 & P0_N_180 & P0_N_195 & P0_N_212 & !P0_N_176
+            & !P0_N_179
+            # P0_N_174 & P0_N_175_part2 & P0_N_181 & P0_N_195 & P0_N_212
+            & AND_1372
+            # P0_N_174 & P0_N_180 & P0_N_181 & P0_N_195 & P0_N_212
+            & AND_1372
+            # P0_N_174 & P0_N_175_part2 & P0_N_181 & P0_N_195 & P0_N_212
+            & !P0_N_176 & !P0_N_179
+            # P0_N_174 & P0_N_180 & P0_N_181 & P0_N_195 & P0_N_212
+            & !P0_N_176 & !P0_N_179)
+        N_38_part2.C = N_40_C
+        N_38_part2.R = RE_CPUX
+
+    Output N_38_part1
+
+        16 Input(s)
+            AND_1372, P0_N_174, RE_CPUX, N_38_part2, P0_N_216, N_40,
+            N_40_C, N_39, P0_N_212, P0_N_179, P0_N_195, P0_N_181,
+            P0_N_180, P0_N_176, OR_872, P0_N_175_part2
+        6 Fanout(s)
+            glb04.I7, glb08.I3, glb07.I3, glb09.I3, glb05.I3, glb25.I3
+        12 Product Term(s)
+        2 GLB Level(s)
+
+        N_38_part1.D = (N_38_part2 & !N_40 & !P0_N_195
+            # N_38_part2 & !N_39 & !P0_N_195
+            # P0_N_195 & P0_N_216 & !P0_N_212
+            # N_39 & N_40 & !N_38_part2 & !P0_N_195
+            # P0_N_175_part2 & P0_N_180 & P0_N_195 & P0_N_212 & AND_1372
+            # P0_N_176 & P0_N_195 & P0_N_212 & !OR_872 & !AND_1372
+            # P0_N_179 & P0_N_195 & P0_N_212 & !OR_872 & !AND_1372
+            # P0_N_175_part2 & P0_N_180 & P0_N_195 & P0_N_212 & !P0_N_176
+            & !P0_N_179
+            # P0_N_174 & P0_N_175_part2 & P0_N_181 & P0_N_195 & P0_N_212
+            & AND_1372
+            # P0_N_174 & P0_N_180 & P0_N_181 & P0_N_195 & P0_N_212
+            & AND_1372
+            # P0_N_174 & P0_N_175_part2 & P0_N_181 & P0_N_195 & P0_N_212
+            & !P0_N_176 & !P0_N_179
+            # P0_N_174 & P0_N_180 & P0_N_181 & P0_N_195 & P0_N_212
+            & !P0_N_176 & !P0_N_179)
+        N_38_part1.C = N_40_C
+        N_38_part1.R = RE_CPUX
+
+
+GLB glb03_part1, B5
+
+    2 Input(s)
+        (DI2.O, DI2X, I6), (RE_PRGM.O, RE_PRGMX, I3)
+    1 Output(s)
+        (D0_N_39, O1)
+    2 Product Term(s)
+
+    Output D0_N_39
+
+        2 Input(s)
+            DI2X, RE_PRGMX
+        2 Fanout(s)
+            glb06.I14, glb07.I1
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_39.D = DI2X
+        D0_N_39.C = D0_N_3_C
+        D0_N_39.R = RE_PRGMX
+
+
+GLB glb03_part2, A0
+
+    14 Input(s)
+        (glb19_part2.O3, D0_N_100, I7), (glb06.O0, D0_N_101, I3), 
+        (glb20.O3, D0_N_102, I11), (glb21.O1, D0_N_104, I14), 
+        (glb22.O1, D0_N_105, I13), (glb18.O2, D0_N_106, I1), (glb12.O1, 
+        D0_N_113, I5), (glb23.O3, D0_N_127, I12), (glb00.O2, 
+        D0_N_49, I6), (glb24.O1, D0_N_50, I2), (glb01.O0, N_37, I0), 
+        (glb02.O0, N_38_part2, I4), (glb17.O2, N_39, I10), (glb17.O1, 
+        N_40, I9)
+    1 Output(s)
+        (N_41, O0)
+    10 Product Term(s)
+
+    Output N_41
+
+        14 Input(s)
+            D0_N_127, D0_N_113, N_38_part2, D0_N_100, D0_N_101, N_40,
+            N_37, D0_N_102, D0_N_49, N_39, D0_N_104, D0_N_50, D0_N_105,
+            D0_N_106
+        1 Fanout(s)
+            glb29.I0
+        10 Product Term(s)
+        1 GLB Level(s)
+
+        N_41 = (D0_N_100 & N_38_part2 & N_39 & N_40 & !N_37
+            # D0_N_101 & N_38_part2 & N_39 & !N_37 & !N_40
+            # D0_N_102 & N_38_part2 & N_40 & !N_39 & !N_37
+            # D0_N_104 & N_39 & N_40 & !N_38_part2 & !N_37
+            # D0_N_105 & N_39 & !N_38_part2 & !N_37 & !N_40
+            # D0_N_106 & N_40 & !N_39 & !N_38_part2 & !N_37
+            # D0_N_113 & !N_39 & !N_38_part2 & !N_37 & !N_40
+            # D0_N_127 & N_38_part2 & !N_39 & !N_37 & !N_40
+            # D0_N_49 & N_37 & !N_39 & !N_38_part2 & !N_40
+            # D0_N_50 & N_37 & N_40 & !N_39 & !N_38_part2)
+
+
+GLB glb04, B3
+
+    16 Input(s)
+        (glb18.O3, D0_N_10, I0), (glb22.O2, D0_N_11, I10), (glb08.O1, 
+        D0_N_115, I5), (glb21.O3, D0_N_12, I12), (glb23.O2, 
+        D0_N_13, I13), (glb20.O0, D0_N_14, I8), (glb05.O1, 
+        D0_N_15, I2), (glb19_part1.O2, D0_N_16, I6), (glb24.O3, 
+        D0_N_18, I11), (glb25.O2, D0_N_99, I14), (DI0.O, DI0X, I15), 
+        (glb01.O0, N_37, I4), (glb02.O3, N_38_part1, I7), (glb17.O2, 
+        N_39, I1), (glb17.O1, N_40, I9), (RE_PRGM.O, RE_PRGMX, I3)
+    2 Output(s)
+        (OR_1392, O0), (D0_N_3, O1)
+    12 Product Term(s)
+
+    Output OR_1392
+
+        14 Input(s)
+            N_38_part1, D0_N_11, D0_N_10, D0_N_99, D0_N_115, N_40, N_37,
+            D0_N_18, N_39, D0_N_16, D0_N_15, D0_N_14, D0_N_13, D0_N_12
+        1 Fanout(s)
+            glb28.I7
+        10 Product Term(s)
+        1 GLB Level(s)
+
+        OR_1392 = (D0_N_10 & N_40 & !N_39 & !N_38_part1 & !N_37
+            # D0_N_11 & N_39 & !N_38_part1 & !N_37 & !N_40
+            # D0_N_115 & !N_39 & !N_38_part1 & !N_37 & !N_40
+            # D0_N_12 & N_39 & N_40 & !N_38_part1 & !N_37
+            # D0_N_13 & N_38_part1 & !N_39 & !N_37 & !N_40
+            # D0_N_14 & N_38_part1 & N_40 & !N_39 & !N_37
+            # D0_N_15 & N_38_part1 & N_39 & !N_37 & !N_40
+            # D0_N_16 & N_38_part1 & N_39 & N_40 & !N_37
+            # D0_N_18 & N_37 & N_40 & !N_39 & !N_38_part1
+            # D0_N_99 & N_37 & !N_39 & !N_38_part1 & !N_40)
+
+    Output D0_N_3
+
+        2 Input(s)
+            RE_PRGMX, DI0X
+        2 Fanout(s)
+            glb08.I2, glb09.I2
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_3.D = DI0X
+        D0_N_3.C = D0_N_3_C
+        D0_N_3.R = RE_PRGMX
+
+
+GLB glb05, D2
+
+    16 Input(s)
+        (glb18.O3, D0_N_10, I15), (glb22.O2, D0_N_11, I5), (glb08.O1, 
+        D0_N_115, I10), (glb21.O3, D0_N_12, I8), (glb23.O2, 
+        D0_N_13, I9), (glb20.O0, D0_N_14, I7), (glb05.O1, 
+        D0_N_15, I16), (glb19_part1.O2, D0_N_16, I13), (glb24.O3, 
+        D0_N_18, I4), (glb25.O2, D0_N_99, I1), (DI1.O, DI1X, I2), 
+        (glb01.O0, N_37, I11), (glb02.O3, N_38_part1, I3), (glb17.O2, 
+        N_39, I14), (glb17.O1, N_40, I6), (RE_PRGM.O, RE_PRGMX, I12)
+    2 Output(s)
+        (OR_1393, O0), (D0_N_15, O1)
+    12 Product Term(s)
+
+    Output OR_1393
+
+        14 Input(s)
+            N_38_part1, D0_N_11, D0_N_10, D0_N_99, D0_N_115, N_40, N_37,
+            D0_N_18, N_39, D0_N_16, D0_N_15, D0_N_14, D0_N_13, D0_N_12
+        1 Fanout(s)
+            glb29.I8
+        10 Product Term(s)
+        1 GLB Level(s)
+
+        OR_1393 = (D0_N_10 & N_40 & !N_39 & !N_38_part1 & !N_37
+            # D0_N_11 & N_39 & !N_38_part1 & !N_37 & !N_40
+            # D0_N_115 & !N_39 & !N_38_part1 & !N_37 & !N_40
+            # D0_N_12 & N_39 & N_40 & !N_38_part1 & !N_37
+            # D0_N_13 & N_38_part1 & !N_39 & !N_37 & !N_40
+            # D0_N_14 & N_38_part1 & N_40 & !N_39 & !N_37
+            # D0_N_15 & N_38_part1 & N_39 & !N_37 & !N_40
+            # D0_N_16 & N_38_part1 & N_39 & N_40 & !N_37
+            # D0_N_18 & N_37 & N_40 & !N_39 & !N_38_part1
+            # D0_N_99 & N_37 & !N_39 & !N_38_part1 & !N_40)
+
+    Output D0_N_15
+
+        2 Input(s)
+            DI1X, RE_PRGMX
+        2 Fanout(s)
+            glb04.I2, glb05.I16
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_15.D = DI1X
+        D0_N_15.C = D0_N_3_C
+        D0_N_15.R = RE_PRGMX
+
+
+GLB glb06, B6
+
+    16 Input(s)
+        (glb09.O1, D0_N_114, I1), (glb18.O1, D0_N_34, I2), (glb22.O3, 
+        D0_N_35, I11), (glb21.O2, D0_N_36, I6), (glb23.O1, 
+        D0_N_37, I5), (glb20.O1, D0_N_38, I13), (glb03_part1.O1, 
+        D0_N_39, I14), (glb19_part1.O0, D0_N_40, I0), (glb00.O3, 
+        D0_N_41, I3), (glb24.O0, D0_N_42, I8), (DI3.O, DI3X, I12), 
+        (glb01.O0, N_37, I4), (glb02.O0, N_38_part2, I15), (glb17.O2, 
+        N_39, I10), (glb17.O1, N_40, I9), (RE_PRGM.O, RE_PRGMX, I7)
+    2 Output(s)
+        (OR_1394, O3), (D0_N_101, O0)
+    12 Product Term(s)
+
+    Output OR_1394
+
+        14 Input(s)
+            D0_N_42, D0_N_39, N_38_part2, D0_N_41, D0_N_38, D0_N_114,
+            D0_N_40, D0_N_37, N_40, N_37, D0_N_36, D0_N_35, N_39,
+            D0_N_34
+        1 Fanout(s)
+            glb28.I15
+        10 Product Term(s)
+        1 GLB Level(s)
+
+        OR_1394 = (D0_N_114 & !N_39 & !N_38_part2 & !N_37 & !N_40
+            # D0_N_34 & N_40 & !N_39 & !N_38_part2 & !N_37
+            # D0_N_35 & N_39 & !N_38_part2 & !N_37 & !N_40
+            # D0_N_36 & N_39 & N_40 & !N_38_part2 & !N_37
+            # D0_N_37 & N_38_part2 & !N_39 & !N_37 & !N_40
+            # D0_N_38 & N_38_part2 & N_40 & !N_39 & !N_37
+            # D0_N_39 & N_38_part2 & N_39 & !N_37 & !N_40
+            # D0_N_40 & N_38_part2 & N_39 & N_40 & !N_37
+            # D0_N_41 & N_37 & !N_39 & !N_38_part2 & !N_40
+            # D0_N_42 & N_37 & N_40 & !N_39 & !N_38_part2)
+
+    Output D0_N_101
+
+        2 Input(s)
+            RE_PRGMX, DI3X
+        1 Fanout(s)
+            glb03_part2.I3
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_101.D = DI3X
+        D0_N_101.C = D0_N_3_C
+        D0_N_101.R = RE_PRGMX
+
+
+GLB glb07, C7
+
+    16 Input(s)
+        (glb09.O1, D0_N_114, I14), (glb18.O1, D0_N_34, I13), (glb22.O3, 
+        D0_N_35, I4), (glb21.O2, D0_N_36, I9), (glb23.O1, 
+        D0_N_37, I10), (glb20.O1, D0_N_38, I2), (glb03_part1.O1, 
+        D0_N_39, I1), (glb19_part1.O0, D0_N_40, I15), (glb00.O3, 
+        D0_N_41, I12), (glb24.O0, D0_N_42, I7), (DI0.O, DI0X, I0), 
+        (glb01.O0, N_37, I11), (glb02.O3, N_38_part1, I3), (glb17.O2, 
+        N_39, I5), (glb17.O1, N_40, I6), (RE_PRGM.O, RE_PRGMX, I8)
+    2 Output(s)
+        (OR_1395, O0), (D0_N_116, O1)
+    12 Product Term(s)
+
+    Output OR_1395
+
+        14 Input(s)
+            N_38_part1, D0_N_42, D0_N_39, D0_N_41, D0_N_38, D0_N_114,
+            D0_N_40, D0_N_37, N_40, N_37, D0_N_36, D0_N_35, N_39,
+            D0_N_34
+        1 Fanout(s)
+            glb29.I12
+        10 Product Term(s)
+        1 GLB Level(s)
+
+        OR_1395 = (D0_N_114 & !N_39 & !N_38_part1 & !N_37 & !N_40
+            # D0_N_34 & N_40 & !N_39 & !N_38_part1 & !N_37
+            # D0_N_35 & N_39 & !N_38_part1 & !N_37 & !N_40
+            # D0_N_36 & N_39 & N_40 & !N_38_part1 & !N_37
+            # D0_N_37 & N_38_part1 & !N_39 & !N_37 & !N_40
+            # D0_N_38 & N_38_part1 & N_40 & !N_39 & !N_37
+            # D0_N_39 & N_38_part1 & N_39 & !N_37 & !N_40
+            # D0_N_40 & N_38_part1 & N_39 & N_40 & !N_37
+            # D0_N_41 & N_37 & !N_39 & !N_38_part1 & !N_40
+            # D0_N_42 & N_37 & N_40 & !N_39 & !N_38_part1)
+
+    Output D0_N_116
+
+        2 Input(s)
+            RE_PRGMX, DI0X
+        2 Fanout(s)
+            glb08.I6, glb09.I6
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_116.D = DI0X
+        D0_N_116.C = D0_N_116_C
+        D0_N_116.R = RE_PRGMX
+
+
+GLB glb08, C5
+
+    16 Input(s)
+        (glb07.O1, D0_N_116, I6), (glb19_part2.O1, D0_N_2, I10), 
+        (glb04.O1, D0_N_3, I2), (glb24.O2, D0_N_31, I14), (glb20.O2, 
+        D0_N_4, I1), (glb23.O0, D0_N_5, I11), (glb21.O0, D0_N_6, I0), 
+        (glb22.O0, D0_N_7, I7), (glb18.O0, D0_N_8, I12), (glb25.O3, 
+        D0_N_98, I4), (DI1.O, DI1X, I9), (glb01.O0, N_37, I15), 
+        (glb02.O3, N_38_part1, I3), (glb17.O2, N_39, I5), (glb17.O1, 
+        N_40, I13), (RE_PRGM.O, RE_PRGMX, I8)
+    2 Output(s)
+        (OR_1396, O0), (D0_N_115, O1)
+    12 Product Term(s)
+
+    Output OR_1396
+
+        14 Input(s)
+            N_38_part1, D0_N_2, D0_N_3, D0_N_4, N_40, N_37, D0_N_98,
+            D0_N_5, D0_N_116, D0_N_6, N_39, D0_N_7, D0_N_8, D0_N_31
+        1 Fanout(s)
+            glb28.I0
+        10 Product Term(s)
+        1 GLB Level(s)
+
+        OR_1396 = (D0_N_116 & !N_39 & !N_38_part1 & !N_37 & !N_40
+            # D0_N_2 & N_38_part1 & N_39 & N_40 & !N_37
+            # D0_N_3 & N_38_part1 & N_39 & !N_37 & !N_40
+            # D0_N_31 & N_37 & N_40 & !N_39 & !N_38_part1
+            # D0_N_4 & N_38_part1 & N_40 & !N_39 & !N_37
+            # D0_N_5 & N_38_part1 & !N_39 & !N_37 & !N_40
+            # D0_N_6 & N_39 & N_40 & !N_38_part1 & !N_37
+            # D0_N_7 & N_39 & !N_38_part1 & !N_37 & !N_40
+            # D0_N_8 & N_40 & !N_39 & !N_38_part1 & !N_37
+            # D0_N_98 & N_37 & !N_39 & !N_38_part1 & !N_40)
+
+    Output D0_N_115
+
+        2 Input(s)
+            DI1X, RE_PRGMX
+        2 Fanout(s)
+            glb04.I5, glb05.I10
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_115.D = DI1X
+        D0_N_115.C = D0_N_116_C
+        D0_N_115.R = RE_PRGMX
+
+
+GLB glb09, D0
+
+    16 Input(s)
+        (glb07.O1, D0_N_116, I6), (glb19_part2.O1, D0_N_2, I10), 
+        (glb04.O1, D0_N_3, I2), (glb24.O2, D0_N_31, I14), (glb20.O2, 
+        D0_N_4, I1), (glb23.O0, D0_N_5, I11), (glb21.O0, D0_N_6, I0), 
+        (glb22.O0, D0_N_7, I7), (glb18.O0, D0_N_8, I12), (glb25.O3, 
+        D0_N_98, I4), (DI2.O, DI2X, I9), (glb01.O0, N_37, I15), 
+        (glb02.O3, N_38_part1, I3), (glb17.O2, N_39, I5), (glb17.O1, 
+        N_40, I13), (RE_PRGM.O, RE_PRGMX, I8)
+    2 Output(s)
+        (OR_1397, O0), (D0_N_114, O1)
+    12 Product Term(s)
+
+    Output OR_1397
+
+        14 Input(s)
+            N_38_part1, D0_N_2, D0_N_3, D0_N_4, N_40, N_37, D0_N_98,
+            D0_N_5, D0_N_116, D0_N_6, N_39, D0_N_7, D0_N_8, D0_N_31
+        1 Fanout(s)
+            glb29.I4
+        10 Product Term(s)
+        1 GLB Level(s)
+
+        OR_1397 = (D0_N_116 & !N_39 & !N_38_part1 & !N_37 & !N_40
+            # D0_N_2 & N_38_part1 & N_39 & N_40 & !N_37
+            # D0_N_3 & N_38_part1 & N_39 & !N_37 & !N_40
+            # D0_N_31 & N_37 & N_40 & !N_39 & !N_38_part1
+            # D0_N_4 & N_38_part1 & N_40 & !N_39 & !N_37
+            # D0_N_5 & N_38_part1 & !N_39 & !N_37 & !N_40
+            # D0_N_6 & N_39 & N_40 & !N_38_part1 & !N_37
+            # D0_N_7 & N_39 & !N_38_part1 & !N_37 & !N_40
+            # D0_N_8 & N_40 & !N_39 & !N_38_part1 & !N_37
+            # D0_N_98 & N_37 & !N_39 & !N_38_part1 & !N_40)
+
+    Output D0_N_114
+
+        2 Input(s)
+            DI2X, RE_PRGMX
+        2 Fanout(s)
+            glb06.I1, glb07.I14
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_114.D = DI2X
+        D0_N_114.C = D0_N_116_C
+        D0_N_114.R = RE_PRGMX
+
+
+GLB glb10, C4
+
+    12 Input(s)
+        (glb15.O2, P0_N_174, I5), (glb14.O0, P0_N_175_part2, I12), 
+        (glb15.O1, P0_N_176, I6), (glb15.O0, P0_N_177, I7), (glb16.O2, 
+        P0_N_178, I9), (glb16.O1, P0_N_179, I10), (glb26.O2, 
+        P0_N_180, I13), (glb16.O0, P0_N_181, I11), (glb26.O0, 
+        P0_N_212, I15), (glb29.O3, P0_N_214, I0), (glb11.O1, 
+        AND_1372, I2), (glb13.O3, OR_872, I4)
+    1 Output(s)
+        (OR_1400, O0)
+    19 Product Term(s)
+
+    Output OR_1400
+
+        12 Input(s)
+            AND_1372, P0_N_174, P0_N_214, P0_N_212, P0_N_179, P0_N_181,
+            P0_N_178, P0_N_180, P0_N_177, P0_N_176, OR_872,
+            P0_N_175_part2
+        1 Fanout(s)
+            glb16.I11
+        19 Product Term(s)
+        2 GLB Level(s)
+
+        OR_1400 = (P0_N_214 & !P0_N_212
+            # P0_N_177 & P0_N_178 & P0_N_212 & AND_1372
+            # P0_N_212 & AND_1372 & !P0_N_178 & !P0_N_177
+            # P0_N_178 & P0_N_212 & !P0_N_177 & !P0_N_176 & !P0_N_179
+            # P0_N_177 & P0_N_212 & !P0_N_178 & !P0_N_176 & !P0_N_179
+            # P0_N_178 & P0_N_212 & !OR_872 & !AND_1372 & !P0_N_177
+            # P0_N_177 & P0_N_212 & !OR_872 & !P0_N_178 & !AND_1372
+            # P0_N_175_part2 & P0_N_176 & P0_N_177 & P0_N_178 & P0_N_180
+            & P0_N_212
+            # P0_N_175_part2 & P0_N_177 & P0_N_178 & P0_N_179 & P0_N_180
+            & P0_N_212
+            # P0_N_175_part2 & P0_N_176 & P0_N_180 & P0_N_212 & !P0_N_178
+            & !P0_N_177
+            # P0_N_175_part2 & P0_N_179 & P0_N_180 & P0_N_212 & !P0_N_178
+            & !P0_N_177
+            # P0_N_174 & P0_N_175_part2 & P0_N_176 & P0_N_177 & P0_N_178
+            & P0_N_181 & P0_N_212
+            # P0_N_174 & P0_N_176 & P0_N_177 & P0_N_178 & P0_N_180
+            & P0_N_181 & P0_N_212
+            # P0_N_174 & P0_N_175_part2 & P0_N_177 & P0_N_178 & P0_N_179
+            & P0_N_181 & P0_N_212
+            # P0_N_174 & P0_N_177 & P0_N_178 & P0_N_179 & P0_N_180
+            & P0_N_181 & P0_N_212
+            # P0_N_174 & P0_N_175_part2 & P0_N_176 & P0_N_181 & P0_N_212
+            & !P0_N_178 & !P0_N_177
+            # P0_N_174 & P0_N_176 & P0_N_180 & P0_N_181 & P0_N_212
+            & !P0_N_178 & !P0_N_177
+            # P0_N_174 & P0_N_175_part2 & P0_N_179 & P0_N_181 & P0_N_212
+            & !P0_N_178 & !P0_N_177
+            # P0_N_174 & P0_N_179 & P0_N_180 & P0_N_181 & P0_N_212
+            & !P0_N_178 & !P0_N_177)
+
+
+GLB glb11, C3
+
+    12 Input(s)
+        (glb15.O2, P0_N_174, I5), (glb14.O0, P0_N_175_part2, I12), 
+        (glb15.O1, P0_N_176, I6), (glb15.O0, P0_N_177, I7), (glb16.O2, 
+        P0_N_178, I9), (glb16.O1, P0_N_179, I10), (glb26.O2, 
+        P0_N_180, I13), (glb16.O0, P0_N_181, I11), (glb26.O0, 
+        P0_N_212, I15), (glb29.O3, P0_N_214, I0), (glb11.O1, 
+        AND_1372, I16), (glb13.O3, OR_872, I4)
+    2 Output(s)
+        (OR_1401, O0), (AND_1372, O1)
+    20 Product Term(s)
+
+    Output OR_1401
+
+        12 Input(s)
+            AND_1372, P0_N_174, P0_N_214, P0_N_212, P0_N_179, P0_N_181,
+            P0_N_178, P0_N_180, P0_N_177, P0_N_176, OR_872,
+            P0_N_175_part2
+        1 Fanout(s)
+            glb15.I12
+        19 Product Term(s)
+        2 GLB Level(s)
+
+        OR_1401 = (P0_N_214 & !P0_N_212
+            # P0_N_177 & P0_N_178 & P0_N_212 & AND_1372
+            # P0_N_212 & AND_1372 & !P0_N_178 & !P0_N_177
+            # P0_N_178 & P0_N_212 & !P0_N_177 & !P0_N_176 & !P0_N_179
+            # P0_N_177 & P0_N_212 & !P0_N_178 & !P0_N_176 & !P0_N_179
+            # P0_N_178 & P0_N_212 & !OR_872 & !AND_1372 & !P0_N_177
+            # P0_N_177 & P0_N_212 & !OR_872 & !P0_N_178 & !AND_1372
+            # P0_N_175_part2 & P0_N_176 & P0_N_177 & P0_N_178 & P0_N_180
+            & P0_N_212
+            # P0_N_175_part2 & P0_N_177 & P0_N_178 & P0_N_179 & P0_N_180
+            & P0_N_212
+            # P0_N_175_part2 & P0_N_176 & P0_N_180 & P0_N_212 & !P0_N_178
+            & !P0_N_177
+            # P0_N_175_part2 & P0_N_179 & P0_N_180 & P0_N_212 & !P0_N_178
+            & !P0_N_177
+            # P0_N_174 & P0_N_175_part2 & P0_N_176 & P0_N_177 & P0_N_178
+            & P0_N_181 & P0_N_212
+            # P0_N_174 & P0_N_176 & P0_N_177 & P0_N_178 & P0_N_180
+            & P0_N_181 & P0_N_212
+            # P0_N_174 & P0_N_175_part2 & P0_N_177 & P0_N_178 & P0_N_179
+            & P0_N_181 & P0_N_212
+            # P0_N_174 & P0_N_177 & P0_N_178 & P0_N_179 & P0_N_180
+            & P0_N_181 & P0_N_212
+            # P0_N_174 & P0_N_175_part2 & P0_N_176 & P0_N_181 & P0_N_212
+            & !P0_N_178 & !P0_N_177
+            # P0_N_174 & P0_N_176 & P0_N_180 & P0_N_181 & P0_N_212
+            & !P0_N_178 & !P0_N_177
+            # P0_N_174 & P0_N_175_part2 & P0_N_179 & P0_N_181 & P0_N_212
+            & !P0_N_178 & !P0_N_177
+            # P0_N_174 & P0_N_179 & P0_N_180 & P0_N_181 & P0_N_212
+            & !P0_N_178 & !P0_N_177)
+
+    Output AND_1372
+
+        2 Input(s)
+            P0_N_179, P0_N_176
+        8 Fanout(s)
+            glb01.I13, glb12.I13, glb13.I13, glb15.I13, glb16.I2,
+            glb11.I16, glb10.I2, glb02.I2
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        AND_1372 = P0_N_176 & P0_N_179
+
+
+GLB glb12, B0
+
+    12 Input(s)
+        (DI3.O, DI3X, I7), (glb15.O2, P0_N_174, I10), (glb14.O0, 
+        P0_N_175_part2, I8), (glb15.O1, P0_N_176, I9), (glb15.O0, 
+        P0_N_177, I12), (glb16.O2, P0_N_178, I6), (glb16.O1, 
+        P0_N_179, I5), (glb26.O2, P0_N_180, I2), (glb16.O0, 
+        P0_N_181, I4), (RE_PRGM.O, RE_PRGMX, I3), (glb11.O1, 
+        AND_1372, I13), (glb13.O3, OR_872, I0)
+    2 Output(s)
+        (P03_PIN, O0), (D0_N_113, O1)
+    20 Product Term(s)
+
+    Output P03_PIN
+
+        10 Input(s)
+            AND_1372, P0_N_174, P0_N_179, P0_N_181, P0_N_178, P0_N_180,
+            P0_N_177, P0_N_176, OR_872, P0_N_175_part2
+        1 Fanout(s)
+            P03.IR
+        18 Product Term(s)
+        2 GLB Level(s)
+
+        P03_PIN = (P0_N_177 & P0_N_178 & AND_1372
+            # AND_1372 & !P0_N_178 & !P0_N_177
+            # P0_N_178 & !P0_N_177 & !P0_N_176 & !P0_N_179
+            # P0_N_177 & !P0_N_178 & !P0_N_176 & !P0_N_179
+            # P0_N_178 & !OR_872 & !AND_1372 & !P0_N_177
+            # P0_N_177 & !OR_872 & !P0_N_178 & !AND_1372
+            # P0_N_175_part2 & P0_N_176 & P0_N_177 & P0_N_178 & P0_N_180
+            # P0_N_175_part2 & P0_N_177 & P0_N_178 & P0_N_179 & P0_N_180
+            # P0_N_175_part2 & P0_N_176 & P0_N_180 & !P0_N_178
+            & !P0_N_177
+            # P0_N_175_part2 & P0_N_179 & P0_N_180 & !P0_N_178
+            & !P0_N_177
+            # P0_N_174 & P0_N_175_part2 & P0_N_176 & P0_N_177 & P0_N_178
+            & P0_N_181
+            # P0_N_174 & P0_N_176 & P0_N_177 & P0_N_178 & P0_N_180
+            & P0_N_181
+            # P0_N_174 & P0_N_175_part2 & P0_N_177 & P0_N_178 & P0_N_179
+            & P0_N_181
+            # P0_N_174 & P0_N_177 & P0_N_178 & P0_N_179 & P0_N_180
+            & P0_N_181
+            # P0_N_174 & P0_N_175_part2 & P0_N_176 & P0_N_181 & !P0_N_178
+            & !P0_N_177
+            # P0_N_174 & P0_N_176 & P0_N_180 & P0_N_181 & !P0_N_178
+            & !P0_N_177
+            # P0_N_174 & P0_N_175_part2 & P0_N_179 & P0_N_181 & !P0_N_178
+            & !P0_N_177
+            # P0_N_174 & P0_N_179 & P0_N_180 & P0_N_181 & !P0_N_178
+            & !P0_N_177)
+
+    Output D0_N_113
+
+        2 Input(s)
+            RE_PRGMX, DI3X
+        1 Fanout(s)
+            glb03_part2.I5
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_113.D = DI3X
+        D0_N_113.C = D0_N_116_C
+        D0_N_113.R = RE_PRGMX
+
+
+GLB glb13, B2
+
+    8 Input(s)
+        (glb15.O2, P0_N_174, I10), (glb14.O3, P0_N_175_part1, I0), 
+        (glb15.O1, P0_N_176, I9), (glb16.O1, P0_N_179, I5), (glb26.O2, 
+        P0_N_180, I2), (glb16.O0, P0_N_181, I4), (glb11.O1, 
+        AND_1372, I13), (glb13.O3, OR_872, I17)
+    4 Output(s)
+        (P02_PIN, O0), (P00_PIN, O1), (OR_872, O3), (OR_871, O2)
+    13 Product Term(s)
+
+    Output P02_PIN
+
+        8 Input(s)
+            AND_1372, P0_N_174, P0_N_179, P0_N_181, P0_N_180, P0_N_176,
+            P0_N_175_part1, OR_872
+        1 Fanout(s)
+            P02.IR
+        8 Product Term(s)
+        2 GLB Level(s)
+
+        P02_PIN = (P0_N_175_part1 & P0_N_180 & AND_1372
+            # P0_N_176 & !OR_872 & !AND_1372
+            # P0_N_179 & !OR_872 & !AND_1372
+            # P0_N_175_part1 & P0_N_180 & !P0_N_176 & !P0_N_179
+            # P0_N_174 & P0_N_175_part1 & P0_N_181 & AND_1372
+            # P0_N_174 & P0_N_180 & P0_N_181 & AND_1372
+            # P0_N_174 & P0_N_175_part1 & P0_N_181 & !P0_N_176
+            & !P0_N_179
+            # P0_N_174 & P0_N_180 & P0_N_181 & !P0_N_176 & !P0_N_179)
+
+    Output P00_PIN
+
+        2 Input(s)
+            P0_N_174, P0_N_181
+        1 Fanout(s)
+            P00.IR
+        2 Product Term(s)
+        1 GLB Level(s)
+
+        P00_PIN = P0_N_181 & !P0_N_174
+            # P0_N_174 & !P0_N_181
+
+    Output OR_872
+
+        4 Input(s)
+            P0_N_174, P0_N_181, P0_N_180, P0_N_175_part1
+        8 Fanout(s)
+            glb01.I11, glb12.I0, glb13.I17, glb15.I11, glb16.I4,
+            glb11.I4, glb10.I4, glb02.I4
+        3 Product Term(s)
+        1 GLB Level(s)
+
+        OR_872 = (P0_N_175_part1 & P0_N_180
+            # P0_N_174 & P0_N_175_part1 & P0_N_181
+            # P0_N_174 & P0_N_180 & P0_N_181)
+
+    Output OR_871
+
+        4 Input(s)
+            P0_N_174, P0_N_181, P0_N_180, P0_N_175_part1
+        1 Fanout(s)
+            glb01.I10
+        3 Product Term(s)
+        1 GLB Level(s)
+
+        OR_871 = (P0_N_175_part1 & P0_N_180
+            # P0_N_174 & P0_N_175_part1 & P0_N_181
+            # P0_N_174 & P0_N_180 & P0_N_181)
+
+
+GLB glb14, C6
+
+    10 Input(s)
+        (glb15.O2, P0_N_174, I5), (glb14.O0, P0_N_175_part2, I16), 
+        (glb25.O1, P0_N_177_C, I6), (glb26.O2, P0_N_180, I9), 
+        (glb16.O0, P0_N_181, I11), (glb29.O1, P0_N_217, I2), (glb28.O2, 
+        P0_N_238, I14), (glb28.O1, P0_N_239, I13), (glb28.O0, 
+        P0_N_240, I12), (RE_CPU.O, RE_CPUX, I8)
+    2 Output(s)
+        (P0_N_175_part2, O0), (P0_N_175_part1, O3)
+    11 Product Term(s)
+
+    Output P0_N_175_part2
+
+        10 Input(s)
+            P0_N_174, RE_CPUX, P0_N_217, P0_N_239, P0_N_181, P0_N_238,
+            P0_N_180, P0_N_240, P0_N_177_C, P0_N_175_part2
+        6 Fanout(s)
+            glb12.I8, glb16.I12, glb11.I12, glb10.I12, glb14.I16,
+            glb02.I12
+        9 Product Term(s)
+        2 GLB Level(s)
+
+        P0_N_175_part2.D = (!P0_N_238 & !P0_N_239 & !P0_N_240 & !P0_N_181
+            & !P0_N_175_part2
+            # P0_N_174 & P0_N_175_part2 & P0_N_181 & !P0_N_239
+            & !P0_N_240
+            # !P0_N_238 & !P0_N_239 & !P0_N_240 & !P0_N_174
+            & !P0_N_175_part2
+            # P0_N_174 & P0_N_181 & P0_N_238
+            # P0_N_217 & P0_N_240 & !P0_N_238
+            # P0_N_217 & P0_N_239 & !P0_N_238)
+            $ (P0_N_180 & P0_N_238 & !P0_N_175_part2
+            # P0_N_175_part2 & P0_N_238 & !P0_N_180
+            # !P0_N_238 & !P0_N_239 & !P0_N_240 & !P0_N_180)
+        P0_N_175_part2.C = P0_N_177_C
+        P0_N_175_part2.R = RE_CPUX
+
+    Output P0_N_175_part1
+
+        10 Input(s)
+            P0_N_174, RE_CPUX, P0_N_217, P0_N_239, P0_N_181, P0_N_238,
+            P0_N_180, P0_N_240, P0_N_177_C, P0_N_175_part2
+        3 Fanout(s)
+            glb13.I0, glb26.I0, glb15.I0
+        9 Product Term(s)
+        2 GLB Level(s)
+
+        P0_N_175_part1.D = (!P0_N_238 & !P0_N_239 & !P0_N_240 & !P0_N_181
+            & !P0_N_175_part2
+            # P0_N_174 & P0_N_175_part2 & P0_N_181 & !P0_N_239
+            & !P0_N_240
+            # !P0_N_238 & !P0_N_239 & !P0_N_240 & !P0_N_174
+            & !P0_N_175_part2
+            # P0_N_174 & P0_N_181 & P0_N_238
+            # P0_N_217 & P0_N_240 & !P0_N_238
+            # P0_N_217 & P0_N_239 & !P0_N_238)
+            $ (P0_N_180 & P0_N_238 & !P0_N_175_part2
+            # P0_N_175_part2 & P0_N_238 & !P0_N_180
+            # !P0_N_238 & !P0_N_239 & !P0_N_240 & !P0_N_180)
+        P0_N_175_part1.C = P0_N_177_C
+        P0_N_175_part1.R = RE_CPUX
+
+
+GLB glb15, B7
+
+    17 Input(s)
+        (glb15.O2, P0_N_174, I17), (glb14.O3, P0_N_175_part1, I0), 
+        (glb15.O1, P0_N_176, I16), (glb25.O1, P0_N_177_C, I9), 
+        (glb16.O1, P0_N_179, I5), (glb26.O2, P0_N_180, I6), (glb16.O0, 
+        P0_N_181, I15), (glb26.O0, P0_N_212, I4), (glb29.O2, 
+        P0_N_216, I10), (glb29.O0, P0_N_218, I8), (glb28.O2, 
+        P0_N_238, I1), (glb28.O1, P0_N_239, I2), (glb28.O0, 
+        P0_N_240, I3), (RE_CPU.O, RE_CPUX, I7), (glb11.O1, 
+        AND_1372, I13), (glb11.O0, OR_1401, I12), (glb13.O3, 
+        OR_872, I11)
+    3 Output(s)
+        (P0_N_177, O0), (P0_N_176, O1), (P0_N_174, O2)
+    18 Product Term(s)
+
+    Output P0_N_177
+
+        3 Input(s)
+            RE_CPUX, OR_1401, P0_N_177_C
+        4 Fanout(s)
+            glb01.I8, glb12.I12, glb11.I7, glb10.I7
+        1 Product Term(s)
+        3 GLB Level(s)
+
+        P0_N_177.D = OR_1401
+        P0_N_177.C = P0_N_177_C
+        P0_N_177.R = RE_CPUX
+
+    Output P0_N_176
+
+        12 Input(s)
+            AND_1372, P0_N_174, RE_CPUX, P0_N_216, P0_N_212, P0_N_179,
+            P0_N_181, P0_N_180, P0_N_176, P0_N_175_part1, OR_872,
+            P0_N_177_C
+        8 Fanout(s)
+            glb01.I9, glb12.I9, glb13.I9, glb15.I16, glb16.I6, glb11.I6,
+            glb10.I6, glb02.I6
+        9 Product Term(s)
+        2 GLB Level(s)
+
+        P0_N_176.D = (P0_N_216 & !P0_N_212
+            # P0_N_175_part1 & P0_N_180 & P0_N_212 & AND_1372
+            # P0_N_176 & P0_N_212 & !OR_872 & !AND_1372
+            # P0_N_179 & P0_N_212 & !OR_872 & !AND_1372
+            # P0_N_175_part1 & P0_N_180 & P0_N_212 & !P0_N_176
+            & !P0_N_179
+            # P0_N_174 & P0_N_175_part1 & P0_N_181 & P0_N_212 & AND_1372
+            # P0_N_174 & P0_N_180 & P0_N_181 & P0_N_212 & AND_1372
+            # P0_N_174 & P0_N_175_part1 & P0_N_181 & P0_N_212 & !P0_N_176
+            & !P0_N_179
+            # P0_N_174 & P0_N_180 & P0_N_181 & P0_N_212 & !P0_N_176
+            & !P0_N_179)
+        P0_N_176.C = P0_N_177_C
+        P0_N_176.R = RE_CPUX
+
+    Output P0_N_174
+
+        8 Input(s)
+            P0_N_218, P0_N_174, RE_CPUX, P0_N_239, P0_N_181, P0_N_238,
+            P0_N_240, P0_N_177_C
+        9 Fanout(s)
+            glb12.I10, glb13.I10, glb26.I10, glb15.I17, glb16.I5,
+            glb11.I5, glb10.I5, glb14.I5, glb02.I5
+        6 Product Term(s)
+        2 GLB Level(s)
+
+        P0_N_174.D = (P0_N_218 & P0_N_239 & !P0_N_238
+            # P0_N_218 & P0_N_240 & !P0_N_238
+            # P0_N_181 & P0_N_238 & !P0_N_174
+            # P0_N_174 & P0_N_238 & !P0_N_181
+            # P0_N_181 & !P0_N_239 & !P0_N_240 & !P0_N_174
+            # P0_N_174 & !P0_N_239 & !P0_N_240 & !P0_N_181)
+        P0_N_174.C = P0_N_177_C
+        P0_N_174.R = RE_CPUX
+
+
+GLB glb16, C1
+
+    17 Input(s)
+        (glb15.O2, P0_N_174, I5), (glb14.O0, P0_N_175_part2, I12), 
+        (glb15.O1, P0_N_176, I6), (glb16.O1, P0_N_179, I16), (glb26.O2, 
+        P0_N_180, I9), (glb16.O0, P0_N_181, I0), (glb26.O1, 
+        P0_N_181_C, I10), (glb26.O0, P0_N_212, I15), (glb29.O2, 
+        P0_N_216, I1), (glb29.O0, P0_N_218, I3), (glb28.O2, 
+        P0_N_238, I14), (glb28.O1, P0_N_239, I13), (glb28.O0, 
+        P0_N_240, I7), (RE_CPU.O, RE_CPUX, I8), (glb11.O1, 
+        AND_1372, I2), (glb10.O0, OR_1400, I11), (glb13.O3, 
+        OR_872, I4)
+    3 Output(s)
+        (P0_N_181, O0), (P0_N_179, O1), (P0_N_178, O2)
+    18 Product Term(s)
+
+    Output P0_N_181
+
+        8 Input(s)
+            P0_N_218, P0_N_174, RE_CPUX, P0_N_181_C, P0_N_239, P0_N_181,
+            P0_N_238, P0_N_240
+        9 Fanout(s)
+            glb12.I4, glb13.I4, glb26.I15, glb15.I15, glb16.I0,
+            glb11.I11, glb10.I11, glb14.I11, glb02.I11
+        6 Product Term(s)
+        2 GLB Level(s)
+
+        P0_N_181.D = (P0_N_218 & P0_N_239 & !P0_N_238
+            # P0_N_218 & P0_N_240 & !P0_N_238
+            # P0_N_181 & P0_N_238 & !P0_N_174
+            # P0_N_174 & P0_N_238 & !P0_N_181
+            # P0_N_181 & !P0_N_239 & !P0_N_240 & !P0_N_174
+            # P0_N_174 & !P0_N_239 & !P0_N_240 & !P0_N_181)
+        P0_N_181.C = P0_N_181_C
+        P0_N_181.R = RE_CPUX
+
+    Output P0_N_179
+
+        12 Input(s)
+            AND_1372, P0_N_174, RE_CPUX, P0_N_216, P0_N_181_C, P0_N_212,
+            P0_N_179, P0_N_181, P0_N_180, P0_N_176, OR_872,
+            P0_N_175_part2
+        8 Fanout(s)
+            glb01.I5, glb12.I5, glb13.I5, glb15.I5, glb16.I16, glb11.I10,
+            glb10.I10, glb02.I10
+        9 Product Term(s)
+        2 GLB Level(s)
+
+        P0_N_179.D = (P0_N_216 & !P0_N_212
+            # P0_N_175_part2 & P0_N_180 & P0_N_212 & AND_1372
+            # P0_N_176 & P0_N_212 & !OR_872 & !AND_1372
+            # P0_N_179 & P0_N_212 & !OR_872 & !AND_1372
+            # P0_N_175_part2 & P0_N_180 & P0_N_212 & !P0_N_176
+            & !P0_N_179
+            # P0_N_174 & P0_N_175_part2 & P0_N_181 & P0_N_212 & AND_1372
+            # P0_N_174 & P0_N_180 & P0_N_181 & P0_N_212 & AND_1372
+            # P0_N_174 & P0_N_175_part2 & P0_N_181 & P0_N_212 & !P0_N_176
+            & !P0_N_179
+            # P0_N_174 & P0_N_180 & P0_N_181 & P0_N_212 & !P0_N_176
+            & !P0_N_179)
+        P0_N_179.C = P0_N_181_C
+        P0_N_179.R = RE_CPUX
+
+    Output P0_N_178
+
+        3 Input(s)
+            RE_CPUX, P0_N_181_C, OR_1400
+        4 Fanout(s)
+            glb01.I6, glb12.I6, glb11.I9, glb10.I9
+        1 Product Term(s)
+        3 GLB Level(s)
+
+        P0_N_178.D = OR_1400
+        P0_N_178.C = P0_N_181_C
+        P0_N_178.R = RE_CPUX
+
+
+GLB glb17, C2
+
+    14 Input(s)
+        (CLK.O, CLKX, I4), (EN.O, ENX, I10), (glb27.O1, F0_N_6, I1), 
+        (glb27.O0, F0_N_7, I11), (glb17.O2, N_39, I16), (glb17.O1, 
+        N_40, I17), (glb17.O0, N_40_C, I12), (glb29.O1, P0_N_217, I6), 
+        (glb29.O0, P0_N_218, I3), (glb28.O2, P0_N_238, I14), (glb28.O1, 
+        P0_N_239, I13), (glb28.O0, P0_N_240, I7), (PRGM.O, PRGMX, I9), 
+        (RE_CPU.O, RE_CPUX, I8)
+    3 Output(s)
+        (N_40_C, O0), (N_40, O1), (N_39, O2)
+    16 Product Term(s)
+
+    Output N_40_C
+
+        8 Input(s)
+            ENX, CLKX, PRGMX, P0_N_239, F0_N_7, P0_N_238, F0_N_6,
+            P0_N_240
+        3 Fanout(s)
+            glb01.I3, glb17.I12, glb02.I7
+        5 Product Term(s)
+        1 GLB Level(s)
+
+        N_40_C = (PRGMX & !CLKX
+            # PRGMX & !ENX
+            # CLKX & ENX & F0_N_7 & !F0_N_6 & !PRGMX
+            # CLKX & ENX & F0_N_6 & !F0_N_7 & !PRGMX
+            # CLKX & ENX & P0_N_240 & !F0_N_6 & !P0_N_238 & !P0_N_239
+            & !PRGMX)
+
+    Output N_40
+
+        12 Input(s)
+            P0_N_218, ENX, CLKX, RE_CPUX, PRGMX, N_40, N_40_C, P0_N_239,
+            F0_N_7, P0_N_238, F0_N_6, P0_N_240
+        20 Fanout(s)
+            glb03_part2.I9, glb24.I9, glb22.I9, glb01.I2, glb23.I9,
+            glb18.I9, glb19_part2.I2, glb04.I9, glb06.I9, glb00.I13,
+            glb17.I17, glb08.I13, glb07.I6, glb09.I13, glb02.I13,
+            glb05.I6, glb25.I13, glb19_part1.I6, glb21.I6, glb20.I6
+        3 Product Term(s)
+        2 GLB Level(s)
+
+        N_40.D = (!N_40
+            # CLKX & ENX & !F0_N_7 & P0_N_218 & P0_N_240 & !F0_N_6
+            & !P0_N_238 & !P0_N_239 & !PRGMX)
+            $ CLKX & ENX & !F0_N_7 & P0_N_240 & !F0_N_6 & !P0_N_238
+            & !P0_N_239 & !PRGMX & !N_40 & !P0_N_218
+        N_40.C = N_40_C
+        N_40.R = RE_CPUX
+
+    Output N_39
+
+        13 Input(s)
+            ENX, CLKX, RE_CPUX, P0_N_217, PRGMX, N_40, N_40_C, N_39,
+            P0_N_239, F0_N_7, P0_N_238, F0_N_6, P0_N_240
+        20 Fanout(s)
+            glb03_part2.I10, glb24.I1, glb22.I1, glb01.I1, glb23.I1,
+            glb18.I1, glb19_part2.I1, glb04.I1, glb06.I10, glb00.I14,
+            glb17.I16, glb08.I5, glb07.I5, glb09.I5, glb02.I14,
+            glb05.I14, glb25.I14, glb19_part1.I14, glb21.I14, glb20.I14
+        6 Product Term(s)
+        2 GLB Level(s)
+
+        N_39.D = (N_39 & !N_40
+            # CLKX & ENX & !F0_N_7 & N_39 & P0_N_240 & !F0_N_6
+            & !P0_N_238 & !P0_N_239 & !PRGMX
+            # CLKX & ENX & !F0_N_7 & P0_N_217 & P0_N_240 & !F0_N_6
+            & !P0_N_238 & !P0_N_239 & !PRGMX & !N_40
+            # CLKX & ENX & !F0_N_7 & N_40 & P0_N_240 & !F0_N_6
+            & !P0_N_238 & !P0_N_239 & !PRGMX & !P0_N_217)
+            $ (N_40 & !N_39
+            # CLKX & ENX & !F0_N_7 & N_39 & P0_N_240 & !F0_N_6
+            & !P0_N_238 & !P0_N_239 & !PRGMX & !P0_N_217)
+        N_39.C = N_40_C
+        N_39.R = RE_CPUX
+
+
+GLB glb18, A6
+
+    11 Input(s)
+        (CLK.O, CLKX, I11), (DI0.O, DI0X, I15), (DI1.O, DI1X, I6), 
+        (DI2.O, DI2X, I13), (DI3.O, DI3X, I7), (glb01.O0, N_37, I0), 
+        (glb02.O0, N_38_part2, I4), (glb17.O2, N_39, I1), (glb17.O1, 
+        N_40, I9), (PRGM.O, PRGMX, I2), (RE_PRGM.O, RE_PRGMX, I3)
+    4 Output(s)
+        (D0_N_8, O0), (D0_N_34, O1), (D0_N_106, O2), (D0_N_10, O3)
+    6 Product Term(s)
+
+    Output D0_N_8
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI0X
+        2 Fanout(s)
+            glb08.I12, glb09.I12
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_8.D = DI0X
+        D0_N_8.C = CLKX & N_40 & PRGMX & !N_39 & !N_38_part2 & !N_37
+        D0_N_8.R = RE_PRGMX
+
+    Output D0_N_34
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, DI2X, RE_PRGMX
+        2 Fanout(s)
+            glb06.I2, glb07.I13
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_34.D = DI2X
+        D0_N_34.C = CLKX & N_40 & PRGMX & !N_39 & !N_38_part2 & !N_37
+        D0_N_34.R = RE_PRGMX
+
+    Output D0_N_106
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI3X
+        1 Fanout(s)
+            glb03_part2.I1
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_106.D = DI3X
+        D0_N_106.C = CLKX & N_40 & PRGMX & !N_39 & !N_38_part2 & !N_37
+        D0_N_106.R = RE_PRGMX
+
+    Output D0_N_10
+
+        8 Input(s)
+            CLKX, N_38_part2, DI1X, PRGMX, N_40, N_37, N_39, RE_PRGMX
+        2 Fanout(s)
+            glb04.I0, glb05.I15
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_10.D = DI1X
+        D0_N_10.C = CLKX & N_40 & PRGMX & !N_39 & !N_38_part2 & !N_37
+        D0_N_10.R = RE_PRGMX
+
+
+GLB glb19_part1, D4
+
+    9 Input(s)
+        (CLK.O, CLKX, I4), (DI2.O, DI2X, I2), (glb01.O0, N_37, I15), 
+        (glb02.O0, N_38_part2, I11), (glb17.O2, N_39, I14), (glb17.O1, 
+        N_40, I6), (PRGM.O, PRGMX, I13), (RE_PRGM.O, RE_PRGMX, I12), 
+        (DI1.O, DI1X, I9)
+    2 Output(s)
+        (D0_N_40, O0), (D0_N_16, O2)
+    4 Product Term(s)
+
+    Output D0_N_40
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, DI2X, RE_PRGMX
+        2 Fanout(s)
+            glb06.I0, glb07.I15
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_40.D = DI2X
+        D0_N_40.C = CLKX & N_38_part2 & N_39 & N_40 & PRGMX & !N_37
+        D0_N_40.R = RE_PRGMX
+
+    Output D0_N_16
+
+        8 Input(s)
+            CLKX, N_38_part2, DI1X, PRGMX, N_40, N_37, N_39, RE_PRGMX
+        2 Fanout(s)
+            glb04.I6, glb05.I13
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_16.D = DI1X
+        D0_N_16.C = CLKX & N_38_part2 & N_39 & N_40 & PRGMX & !N_37
+        D0_N_16.R = RE_PRGMX
+
+
+GLB glb19_part2, B1
+
+    9 Input(s)
+        (CLK.O, CLKX, I11), (DI0.O, DI0X, I15), (glb01.O0, N_37, I0), 
+        (glb02.O0, N_38_part2, I4), (glb17.O2, N_39, I1), (glb17.O1, 
+        N_40, I2), (PRGM.O, PRGMX, I6), (RE_PRGM.O, RE_PRGMX, I3), 
+        (DI3.O, DI3X, I7)
+    2 Output(s)
+        (D0_N_2, O1), (D0_N_100, O3)
+    4 Product Term(s)
+
+    Output D0_N_2
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI0X
+        2 Fanout(s)
+            glb08.I10, glb09.I10
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_2.D = DI0X
+        D0_N_2.C = CLKX & N_38_part2 & N_39 & N_40 & PRGMX & !N_37
+        D0_N_2.R = RE_PRGMX
+
+    Output D0_N_100
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI3X
+        1 Fanout(s)
+            glb03_part2.I7
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_100.D = DI3X
+        D0_N_100.C = CLKX & N_38_part2 & N_39 & N_40 & PRGMX & !N_37
+        D0_N_100.R = RE_PRGMX
+
+
+GLB glb20, D7
+
+    11 Input(s)
+        (CLK.O, CLKX, I4), (DI0.O, DI0X, I0), (DI1.O, DI1X, I9), 
+        (DI2.O, DI2X, I2), (DI3.O, DI3X, I8), (glb01.O0, N_37, I15), 
+        (glb02.O0, N_38_part2, I11), (glb17.O2, N_39, I14), (glb17.O1, 
+        N_40, I6), (PRGM.O, PRGMX, I13), (RE_PRGM.O, RE_PRGMX, I12)
+    4 Output(s)
+        (D0_N_4, O2), (D0_N_38, O1), (D0_N_14, O0), (D0_N_102, O3)
+    6 Product Term(s)
+
+    Output D0_N_4
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI0X
+        2 Fanout(s)
+            glb08.I1, glb09.I1
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_4.D = DI0X
+        D0_N_4.C = CLKX & N_38_part2 & N_40 & PRGMX & !N_39 & !N_37
+        D0_N_4.R = RE_PRGMX
+
+    Output D0_N_38
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, DI2X, RE_PRGMX
+        2 Fanout(s)
+            glb06.I13, glb07.I2
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_38.D = DI2X
+        D0_N_38.C = CLKX & N_38_part2 & N_40 & PRGMX & !N_39 & !N_37
+        D0_N_38.R = RE_PRGMX
+
+    Output D0_N_14
+
+        8 Input(s)
+            CLKX, N_38_part2, DI1X, PRGMX, N_40, N_37, N_39, RE_PRGMX
+        2 Fanout(s)
+            glb04.I8, glb05.I7
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_14.D = DI1X
+        D0_N_14.C = CLKX & N_38_part2 & N_40 & PRGMX & !N_39 & !N_37
+        D0_N_14.R = RE_PRGMX
+
+    Output D0_N_102
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI3X
+        1 Fanout(s)
+            glb03_part2.I11
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_102.D = DI3X
+        D0_N_102.C = CLKX & N_38_part2 & N_40 & PRGMX & !N_39 & !N_37
+        D0_N_102.R = RE_PRGMX
+
+
+GLB glb21, D5
+
+    11 Input(s)
+        (CLK.O, CLKX, I4), (DI0.O, DI0X, I0), (DI1.O, DI1X, I9), 
+        (DI2.O, DI2X, I2), (DI3.O, DI3X, I8), (glb01.O0, N_37, I15), 
+        (glb02.O0, N_38_part2, I11), (glb17.O2, N_39, I14), (glb17.O1, 
+        N_40, I6), (PRGM.O, PRGMX, I13), (RE_PRGM.O, RE_PRGMX, I12)
+    4 Output(s)
+        (D0_N_6, O0), (D0_N_36, O2), (D0_N_12, O3), (D0_N_104, O1)
+    6 Product Term(s)
+
+    Output D0_N_6
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI0X
+        2 Fanout(s)
+            glb08.I0, glb09.I0
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_6.D = DI0X
+        D0_N_6.C = CLKX & N_39 & N_40 & PRGMX & !N_38_part2 & !N_37
+        D0_N_6.R = RE_PRGMX
+
+    Output D0_N_36
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, DI2X, RE_PRGMX
+        2 Fanout(s)
+            glb06.I6, glb07.I9
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_36.D = DI2X
+        D0_N_36.C = CLKX & N_39 & N_40 & PRGMX & !N_38_part2 & !N_37
+        D0_N_36.R = RE_PRGMX
+
+    Output D0_N_12
+
+        8 Input(s)
+            CLKX, N_38_part2, DI1X, PRGMX, N_40, N_37, N_39, RE_PRGMX
+        2 Fanout(s)
+            glb04.I12, glb05.I8
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_12.D = DI1X
+        D0_N_12.C = CLKX & N_39 & N_40 & PRGMX & !N_38_part2 & !N_37
+        D0_N_12.R = RE_PRGMX
+
+    Output D0_N_104
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI3X
+        1 Fanout(s)
+            glb03_part2.I14
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_104.D = DI3X
+        D0_N_104.C = CLKX & N_39 & N_40 & PRGMX & !N_38_part2 & !N_37
+        D0_N_104.R = RE_PRGMX
+
+
+GLB glb22, A3
+
+    11 Input(s)
+        (CLK.O, CLKX, I11), (DI0.O, DI0X, I15), (DI1.O, DI1X, I6), 
+        (DI2.O, DI2X, I13), (DI3.O, DI3X, I7), (glb01.O0, N_37, I0), 
+        (glb02.O0, N_38_part2, I4), (glb17.O2, N_39, I1), (glb17.O1, 
+        N_40, I9), (PRGM.O, PRGMX, I2), (RE_PRGM.O, RE_PRGMX, I3)
+    4 Output(s)
+        (D0_N_7, O0), (D0_N_35, O3), (D0_N_11, O2), (D0_N_105, O1)
+    6 Product Term(s)
+
+    Output D0_N_7
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI0X
+        2 Fanout(s)
+            glb08.I7, glb09.I7
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_7.D = DI0X
+        D0_N_7.C = CLKX & N_39 & PRGMX & !N_38_part2 & !N_37 & !N_40
+        D0_N_7.R = RE_PRGMX
+
+    Output D0_N_35
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, DI2X, RE_PRGMX
+        2 Fanout(s)
+            glb06.I11, glb07.I4
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_35.D = DI2X
+        D0_N_35.C = CLKX & N_39 & PRGMX & !N_38_part2 & !N_37 & !N_40
+        D0_N_35.R = RE_PRGMX
+
+    Output D0_N_11
+
+        8 Input(s)
+            CLKX, N_38_part2, DI1X, PRGMX, N_40, N_37, N_39, RE_PRGMX
+        2 Fanout(s)
+            glb04.I10, glb05.I5
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_11.D = DI1X
+        D0_N_11.C = CLKX & N_39 & PRGMX & !N_38_part2 & !N_37 & !N_40
+        D0_N_11.R = RE_PRGMX
+
+    Output D0_N_105
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI3X
+        1 Fanout(s)
+            glb03_part2.I13
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_105.D = DI3X
+        D0_N_105.C = CLKX & N_39 & PRGMX & !N_38_part2 & !N_37 & !N_40
+        D0_N_105.R = RE_PRGMX
+
+
+GLB glb23, A5
+
+    11 Input(s)
+        (CLK.O, CLKX, I11), (DI0.O, DI0X, I15), (DI1.O, DI1X, I6), 
+        (DI2.O, DI2X, I13), (DI3.O, DI3X, I7), (glb01.O0, N_37, I0), 
+        (glb02.O0, N_38_part2, I4), (glb17.O2, N_39, I1), (glb17.O1, 
+        N_40, I9), (PRGM.O, PRGMX, I2), (RE_PRGM.O, RE_PRGMX, I3)
+    4 Output(s)
+        (D0_N_5, O0), (D0_N_37, O1), (D0_N_13, O2), (D0_N_127, O3)
+    6 Product Term(s)
+
+    Output D0_N_5
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI0X
+        2 Fanout(s)
+            glb08.I11, glb09.I11
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_5.D = DI0X
+        D0_N_5.C = CLKX & N_38_part2 & PRGMX & !N_39 & !N_37 & !N_40
+        D0_N_5.R = RE_PRGMX
+
+    Output D0_N_37
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, DI2X, RE_PRGMX
+        2 Fanout(s)
+            glb06.I5, glb07.I10
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_37.D = DI2X
+        D0_N_37.C = CLKX & N_38_part2 & PRGMX & !N_39 & !N_37 & !N_40
+        D0_N_37.R = RE_PRGMX
+
+    Output D0_N_13
+
+        8 Input(s)
+            CLKX, N_38_part2, DI1X, PRGMX, N_40, N_37, N_39, RE_PRGMX
+        2 Fanout(s)
+            glb04.I13, glb05.I9
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_13.D = DI1X
+        D0_N_13.C = CLKX & N_38_part2 & PRGMX & !N_39 & !N_37 & !N_40
+        D0_N_13.R = RE_PRGMX
+
+    Output D0_N_127
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI3X
+        1 Fanout(s)
+            glb03_part2.I12
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_127.D = DI3X
+        D0_N_127.C = CLKX & N_38_part2 & PRGMX & !N_39 & !N_37 & !N_40
+        D0_N_127.R = RE_PRGMX
+
+
+GLB glb24, A2
+
+    11 Input(s)
+        (CLK.O, CLKX, I11), (DI0.O, DI0X, I15), (DI1.O, DI1X, I6), 
+        (DI2.O, DI2X, I13), (DI3.O, DI3X, I7), (glb01.O0, N_37, I0), 
+        (glb02.O0, N_38_part2, I4), (glb17.O2, N_39, I1), (glb17.O1, 
+        N_40, I9), (PRGM.O, PRGMX, I2), (RE_PRGM.O, RE_PRGMX, I3)
+    4 Output(s)
+        (D0_N_50, O1), (D0_N_42, O0), (D0_N_31, O2), (D0_N_18, O3)
+    6 Product Term(s)
+
+    Output D0_N_50
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI3X
+        1 Fanout(s)
+            glb03_part2.I2
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_50.D = DI3X
+        D0_N_50.C = CLKX & N_37 & N_40 & PRGMX & !N_39 & !N_38_part2
+        D0_N_50.R = RE_PRGMX
+
+    Output D0_N_42
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, DI2X, RE_PRGMX
+        2 Fanout(s)
+            glb06.I8, glb07.I7
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_42.D = DI2X
+        D0_N_42.C = CLKX & N_37 & N_40 & PRGMX & !N_39 & !N_38_part2
+        D0_N_42.R = RE_PRGMX
+
+    Output D0_N_31
+
+        8 Input(s)
+            CLKX, N_38_part2, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI0X
+        2 Fanout(s)
+            glb08.I14, glb09.I14
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_31.D = DI0X
+        D0_N_31.C = CLKX & N_37 & N_40 & PRGMX & !N_39 & !N_38_part2
+        D0_N_31.R = RE_PRGMX
+
+    Output D0_N_18
+
+        8 Input(s)
+            CLKX, N_38_part2, DI1X, PRGMX, N_40, N_37, N_39, RE_PRGMX
+        2 Fanout(s)
+            glb04.I11, glb05.I4
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_18.D = DI1X
+        D0_N_18.C = CLKX & N_37 & N_40 & PRGMX & !N_39 & !N_38_part2
+        D0_N_18.R = RE_PRGMX
+
+
+GLB glb25, D3
+
+    15 Input(s)
+        (CLK.O, CLKX, I4), (DI0.O, DI0X, I0), (DI1.O, DI1X, I2), (EN.O, 
+        ENX, I10), (glb27.O1, F0_N_6, I1), (glb27.O0, F0_N_7, I11), 
+        (glb01.O0, N_37, I15), (glb02.O3, N_38_part1, I3), (glb17.O2, 
+        N_39, I14), (glb17.O1, N_40, I13), (glb28.O2, P0_N_238, I5), 
+        (glb28.O1, P0_N_239, I6), (glb28.O0, P0_N_240, I12), (PRGM.O, 
+        PRGMX, I9), (RE_PRGM.O, RE_PRGMX, I8)
+    4 Output(s)
+        (P0_N_195, O0), (P0_N_177_C, O1), (D0_N_99, O2), (D0_N_98, O3)
+    7 Product Term(s)
+
+    Output P0_N_195
+
+        8 Input(s)
+            ENX, CLKX, PRGMX, P0_N_239, F0_N_7, P0_N_238, F0_N_6,
+            P0_N_240
+        2 Fanout(s)
+            glb01.I12, glb02.I3
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        P0_N_195 = CLKX & ENX & !F0_N_7 & P0_N_240 & !F0_N_6 & !P0_N_238
+            & !P0_N_239 & !PRGMX
+
+    Output P0_N_177_C
+
+        7 Input(s)
+            ENX, CLKX, P0_N_239, F0_N_7, P0_N_238, F0_N_6, P0_N_240
+        2 Fanout(s)
+            glb15.I9, glb14.I6
+        2 Product Term(s)
+        1 GLB Level(s)
+
+        P0_N_177_C = CLKX & ENX & !F0_N_7 & P0_N_239 & P0_N_240 & !F0_N_6
+            & !P0_N_238
+            # CLKX & ENX & !F0_N_7 & P0_N_238 & P0_N_240 & !F0_N_6
+            & !P0_N_239
+
+    Output D0_N_99
+
+        8 Input(s)
+            N_38_part1, CLKX, DI1X, PRGMX, N_40, N_37, N_39, RE_PRGMX
+        2 Fanout(s)
+            glb04.I14, glb05.I1
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_99.D = DI1X
+        D0_N_99.C = CLKX & N_37 & PRGMX & !N_39 & !N_38_part1 & !N_40
+        D0_N_99.R = RE_PRGMX
+
+    Output D0_N_98
+
+        8 Input(s)
+            N_38_part1, CLKX, PRGMX, N_40, N_37, N_39, RE_PRGMX, DI0X
+        2 Fanout(s)
+            glb08.I4, glb09.I4
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        D0_N_98.D = DI0X
+        D0_N_98.C = CLKX & N_37 & PRGMX & !N_39 & !N_38_part1 & !N_40
+        D0_N_98.R = RE_PRGMX
+
+
+GLB glb26, B4
+
+    14 Input(s)
+        (CLK.O, CLKX, I11), (EN.O, ENX, I5), (glb27.O1, F0_N_6, I14), 
+        (glb27.O0, F0_N_7, I4), (glb15.O2, P0_N_174, I10), (glb14.O3, 
+        P0_N_175_part1, I0), (glb26.O2, P0_N_180, I17), (glb16.O0, 
+        P0_N_181, I15), (glb26.O1, P0_N_181_C, I16), (glb29.O1, 
+        P0_N_217, I9), (glb28.O2, P0_N_238, I1), (glb28.O1, 
+        P0_N_239, I2), (glb28.O0, P0_N_240, I3), (RE_CPU.O, 
+        RE_CPUX, I7)
+    3 Output(s)
+        (P0_N_212, O0), (P0_N_181_C, O1), (P0_N_180, O2)
+    14 Product Term(s)
+
+    Output P0_N_212
+
+        3 Input(s)
+            P0_N_239, P0_N_238, P0_N_240
+        6 Fanout(s)
+            glb01.I0, glb15.I4, glb16.I15, glb11.I15, glb10.I15,
+            glb02.I15
+        2 Product Term(s)
+        1 GLB Level(s)
+
+        P0_N_212 = (P0_N_238
+            # !P0_N_239 & !P0_N_240)
+
+    Output P0_N_181_C
+
+        7 Input(s)
+            ENX, CLKX, P0_N_239, F0_N_7, P0_N_238, F0_N_6, P0_N_240
+        2 Fanout(s)
+            glb26.I16, glb16.I10
+        2 Product Term(s)
+        1 GLB Level(s)
+
+        P0_N_181_C = (CLKX & ENX & !F0_N_7 & P0_N_239 & !F0_N_6
+            & !P0_N_238 & !P0_N_240
+            # CLKX & ENX & !F0_N_7 & P0_N_238 & !F0_N_6 & !P0_N_239
+            & !P0_N_240)
+
+    Output P0_N_180
+
+        10 Input(s)
+            P0_N_174, RE_CPUX, P0_N_217, P0_N_181_C, P0_N_239, P0_N_181,
+            P0_N_238, P0_N_180, P0_N_240, P0_N_175_part1
+        9 Fanout(s)
+            glb12.I2, glb13.I2, glb26.I17, glb15.I6, glb16.I9, glb11.I13,
+            glb10.I13, glb14.I9, glb02.I9
+        8 Product Term(s)
+        2 GLB Level(s)
+
+        P0_N_180.D = (P0_N_174 & P0_N_181 & !P0_N_238 & !P0_N_239
+            & !P0_N_240
+            # P0_N_217 & P0_N_240 & !P0_N_238
+            # P0_N_175_part1 & P0_N_238 & !P0_N_180
+            # P0_N_180 & P0_N_238 & !P0_N_175_part1
+            # P0_N_217 & P0_N_239 & !P0_N_238)
+            $ (P0_N_174 & P0_N_181 & P0_N_238
+            # P0_N_180 & !P0_N_238 & !P0_N_239 & !P0_N_240
+            & !P0_N_175_part1
+            # P0_N_175_part1 & !P0_N_238 & !P0_N_239 & !P0_N_240
+            & !P0_N_180)
+        P0_N_180.C = P0_N_181_C
+        P0_N_180.R = RE_CPUX
+
+
+GLB glb27, A1
+
+    5 Input(s)
+        (CLK.O, CLKX, I11), (EN.O, ENX, I5), (glb27.O1, F0_N_6, I17), 
+        (glb27.O0, F0_N_7, I16), (RE_CPU.O, RE_CPUX, I3)
+    2 Output(s)
+        (F0_N_7, O0), (F0_N_6, O1)
+    5 Product Term(s)
+
+    Output F0_N_7
+
+        4 Input(s)
+            ENX, CLKX, RE_CPUX, F0_N_7
+        6 Fanout(s)
+            glb27.I16, glb29.I15, glb26.I4, glb17.I11, glb25.I11,
+            glb28.I11
+        1 Product Term(s)
+        1 GLB Level(s)
+
+        F0_N_7.D = !F0_N_7
+        !F0_N_7.C = CLKX & ENX
+        F0_N_7.R = RE_CPUX
+
+    Output F0_N_6
+
+        5 Input(s)
+            ENX, CLKX, RE_CPUX, F0_N_7, F0_N_6
+        6 Fanout(s)
+            glb27.I17, glb29.I14, glb26.I14, glb17.I1, glb25.I1,
+            glb28.I1
+        2 Product Term(s)
+        1 GLB Level(s)
+
+        F0_N_6.D = F0_N_7 & !F0_N_6
+            # F0_N_6 & !F0_N_7
+        !F0_N_6.C = CLKX & ENX
+        F0_N_6.R = RE_CPUX
+
+
+GLB glb28, D6
+
+    8 Input(s)
+        (CLK.O, CLKX, I4), (EN.O, ENX, I10), (glb27.O1, F0_N_6, I1), 
+        (glb27.O0, F0_N_7, I11), (RE_CPU.O, RE_CPUX, I12), (glb04.O0, 
+        OR_1392, I7), (glb06.O3, OR_1394, I15), (glb08.O0, 
+        OR_1396, I0)
+    3 Output(s)
+        (P0_N_240, O0), (P0_N_239, O1), (P0_N_238, O2)
+    5 Product Term(s)
+
+    Output P0_N_240
+
+        6 Input(s)
+            ENX, CLKX, RE_CPUX, OR_1396, F0_N_7, F0_N_6
+        6 Fanout(s)
+            glb26.I3, glb15.I3, glb16.I7, glb17.I7, glb14.I12, glb25.I12
+        1 Product Term(s)
+        2 GLB Level(s)
+
+        P0_N_240.D = OR_1396
+        P0_N_240.C = CLKX & ENX & F0_N_7 & !F0_N_6
+        P0_N_240.R = RE_CPUX
+
+    Output P0_N_239
+
+        6 Input(s)
+            ENX, CLKX, OR_1392, RE_CPUX, F0_N_7, F0_N_6
+        6 Fanout(s)
+            glb26.I2, glb15.I2, glb16.I13, glb17.I13, glb14.I13,
+            glb25.I6
+        1 Product Term(s)
+        2 GLB Level(s)
+
+        P0_N_239.D = OR_1392
+        P0_N_239.C = CLKX & ENX & F0_N_7 & !F0_N_6
+        P0_N_239.R = RE_CPUX
+
+    Output P0_N_238
+
+        6 Input(s)
+            ENX, CLKX, RE_CPUX, OR_1394, F0_N_7, F0_N_6
+        6 Fanout(s)
+            glb26.I1, glb15.I1, glb16.I14, glb17.I14, glb14.I14,
+            glb25.I5
+        1 Product Term(s)
+        2 GLB Level(s)
+
+        P0_N_238.D = OR_1394
+        P0_N_238.C = CLKX & ENX & F0_N_7 & !F0_N_6
+        P0_N_238.R = RE_CPUX
+
+
+GLB glb29, A7
+
+    9 Input(s)
+        (CLK.O, CLKX, I11), (EN.O, ENX, I5), (glb27.O1, F0_N_6, I14), 
+        (glb27.O0, F0_N_7, I15), (glb03_part2.O0, N_41, I0), (RE_CPU.O, 
+        RE_CPUX, I3), (glb05.O0, OR_1393, I8), (glb07.O0, 
+        OR_1395, I12), (glb09.O0, OR_1397, I4)
+    4 Output(s)
+        (P0_N_218, O0), (P0_N_217, O1), (P0_N_216, O2), (P0_N_214, O3)
+    6 Product Term(s)
+
+    Output P0_N_218
+
+        6 Input(s)
+            ENX, CLKX, RE_CPUX, OR_1397, F0_N_7, F0_N_6
+        3 Fanout(s)
+            glb15.I8, glb16.I3, glb17.I3
+        1 Product Term(s)
+        2 GLB Level(s)
+
+        P0_N_218.D = OR_1397
+        P0_N_218.C = CLKX & ENX & F0_N_6 & !F0_N_7
+        P0_N_218.R = RE_CPUX
+
+    Output P0_N_217
+
+        6 Input(s)
+            ENX, CLKX, RE_CPUX, OR_1393, F0_N_7, F0_N_6
+        3 Fanout(s)
+            glb26.I9, glb17.I6, glb14.I2
+        1 Product Term(s)
+        2 GLB Level(s)
+
+        P0_N_217.D = OR_1393
+        P0_N_217.C = CLKX & ENX & F0_N_6 & !F0_N_7
+        P0_N_217.R = RE_CPUX
+
+    Output P0_N_216
+
+        6 Input(s)
+            ENX, CLKX, RE_CPUX, OR_1395, F0_N_7, F0_N_6
+        3 Fanout(s)
+            glb15.I10, glb16.I1, glb02.I1
+        1 Product Term(s)
+        2 GLB Level(s)
+
+        P0_N_216.D = OR_1395
+        P0_N_216.C = CLKX & ENX & F0_N_6 & !F0_N_7
+        P0_N_216.R = RE_CPUX
+
+    Output P0_N_214
+
+        6 Input(s)
+            ENX, CLKX, RE_CPUX, N_41, F0_N_7, F0_N_6
+        3 Fanout(s)
+            glb01.I15, glb11.I0, glb10.I0
+        1 Product Term(s)
+        2 GLB Level(s)
+
+        P0_N_214.D = N_41
+        P0_N_214.C = CLKX & ENX & F0_N_6 & !F0_N_7
+        P0_N_214.R = RE_CPUX
+
+
+Input CLK, IO47
+
+    Output CLKX
+        15 Fanout(s)
+            glb27.I11, glb24.I11, glb22.I11, glb23.I11, glb18.I11,
+            glb29.I11, glb19_part2.I11, glb26.I11, glb00.I4, glb17.I4,
+            glb25.I4, glb19_part1.I4, glb21.I4, glb28.I4, glb20.I4
+
+
+Input DI0, IO15
+
+    Output DI0X
+        10 Fanout(s)
+            glb24.I15, glb22.I15, glb23.I15, glb18.I15, glb19_part2.I15,
+            glb04.I15, glb07.I0, glb25.I0, glb21.I0, glb20.I0
+
+
+Input DI1, IO22
+
+    Output DI1X
+        10 Fanout(s)
+            glb24.I6, glb22.I6, glb23.I6, glb18.I6, glb08.I9, glb05.I2,
+            glb25.I2, glb19_part1.I9, glb21.I9, glb20.I9
+
+
+Input DI2, IO38
+
+    Output DI2X
+        10 Fanout(s)
+            glb24.I13, glb22.I13, glb23.I13, glb18.I13, glb03_part1.I6,
+            glb00.I2, glb09.I9, glb19_part1.I2, glb21.I2, glb20.I2
+
+
+Input DI3, IO39
+
+    Output DI3X
+        10 Fanout(s)
+            glb24.I7, glb22.I7, glb23.I7, glb18.I7, glb12.I7,
+            glb19_part2.I7, glb06.I12, glb00.I8, glb21.I8, glb20.I8
+
+
+Input EN, IO53
+
+    Output ENX
+        6 Fanout(s)
+            glb27.I5, glb29.I5, glb26.I5, glb17.I10, glb25.I10,
+            glb28.I10
+
+
+Output P00, IO17
+
+    Input (glb13.O1, P00_PIN)
+
+    P00 = P00_PIN
+
+
+Output P01, IO50
+
+    Input (glb02.O2, P01_PIN)
+
+    P01 = P01_PIN
+
+
+Output P02, IO20
+
+    Input (glb13.O0, P02_PIN)
+
+    P02 = P02_PIN
+
+
+Output P03, IO16
+
+    Input (glb12.O0, P03_PIN)
+
+    P03 = P03_PIN
+
+
+Input PRGM, IO18
+
+    Output PRGMX
+        11 Fanout(s)
+            glb24.I2, glb22.I2, glb23.I2, glb18.I2, glb19_part2.I6,
+            glb00.I9, glb17.I9, glb25.I9, glb19_part1.I13, glb21.I13,
+            glb20.I13
+
+
+Input RE_CPU, IO3
+
+    Output RE_CPUX
+        10 Fanout(s)
+            glb27.I3, glb01.I7, glb29.I3, glb26.I7, glb15.I7, glb16.I8,
+            glb17.I8, glb14.I8, glb02.I8, glb28.I12
+
+
+Input RE_PRGM, IO51
+
+    Output RE_PRGMX
+        18 Fanout(s)
+            glb24.I3, glb22.I3, glb23.I3, glb18.I3, glb12.I3,
+            glb19_part2.I3, glb04.I3, glb03_part1.I3, glb06.I7,
+            glb00.I12, glb08.I8, glb07.I8, glb09.I8, glb05.I12, glb25.I8,
+            glb19_part1.I12, glb21.I12, glb20.I12
+
+
+Clock Assignments
+
+    Net Name		    Clock Assignment
+
+        D0_N_116_C              Internal CLK2
+        D0_N_3_C                Internal CLK1
+
+
+GLB and GLB Output Statistics
+
+    GLB Name, Location      GLB Statistics          GLB Output Statistics
+    GLB Output Name         Ins, Outs, PTs          Ins, FOs, PTs, Levels, PTSABP
+
+        glb00, C0                9,  4,  6          
+            D0_N_116_C                                   6,  4,  1,  1, 1PT 
+            D0_N_3_C                                     6,  4,  1,  1, 1PT 
+            D0_N_41                                      8,  2,  1,  1, 1PT 
+            D0_N_49                                      8,  1,  1,  1, 1PT 
+
+        glb01, A4               16,  1, 17          
+            N_37                                        16, 18, 15,  2, -   
+
+        glb02, D1               16,  3, 18          
+            N_38_part1                                  16,  6, 12,  2, -   
+            N_38_part2                                  16, 13, 12,  2, -   
+            P01_PIN                                      4,  1,  4,  1, -   
+
+        glb03_part1, B5          2,  1,  2          
+            D0_N_39                                      2,  2,  1,  1, 1PT 
+
+        glb03_part2, A0         14,  1, 10          
+            N_41                                        14,  1, 10,  1, -   
+
+        glb04, B3               16,  2, 12          
+            D0_N_3                                       2,  2,  1,  1, 1PT 
+            OR_1392                                     14,  1, 10,  1, -   
+
+        glb05, D2               16,  2, 12          
+            D0_N_15                                      2,  2,  1,  1, 1PT 
+            OR_1393                                     14,  1, 10,  1, -   
+
+        glb06, B6               16,  2, 12          
+            D0_N_101                                     2,  1,  1,  1, 1PT 
+            OR_1394                                     14,  1, 10,  1, -   
+
+        glb07, C7               16,  2, 12          
+            D0_N_116                                     2,  2,  1,  1, 1PT 
+            OR_1395                                     14,  1, 10,  1, -   
+
+        glb08, C5               16,  2, 12          
+            D0_N_115                                     2,  2,  1,  1, 1PT 
+            OR_1396                                     14,  1, 10,  1, -   
+
+        glb09, D0               16,  2, 12          
+            D0_N_114                                     2,  2,  1,  1, 1PT 
+            OR_1397                                     14,  1, 10,  1, -   
+
+        glb10, C4               12,  1, 19          
+            OR_1400                                     12,  1, 19,  2, -   
+
+        glb11, C3               12,  2, 20          
+            AND_1372                                     2,  8,  1,  1, 1PT 
+            OR_1401                                     12,  1, 19,  2, -   
+
+        glb12, B0               12,  2, 20          
+            D0_N_113                                     2,  1,  1,  1, 1PT 
+            P03_PIN                                     10,  1, 18,  2, -   
+
+        glb13, B2                8,  4, 13          
+            OR_871                                       4,  1,  3,  1, -   
+            OR_872                                       4,  8,  3,  1, -   
+            P00_PIN                                      2,  1,  2,  1, 4PT 
+            P02_PIN                                      8,  1,  8,  2, -   
+
+        glb14, C6               10,  2, 11          
+            P0_N_175_part1                              10,  3,  9,  2, -   
+            P0_N_175_part2                              10,  6,  9,  2, -   
+
+        glb15, B7               17,  3, 18          
+            P0_N_174                                     8,  9,  6,  2, -   
+            P0_N_176                                    12,  8,  9,  2, -   
+            P0_N_177                                     3,  4,  1,  3, 1PT 
+
+        glb16, C1               17,  3, 18          
+            P0_N_178                                     3,  4,  1,  3, 1PT 
+            P0_N_179                                    12,  8,  9,  2, -   
+            P0_N_181                                     8,  9,  6,  2, -   
+
+        glb17, C2               14,  3, 16          
+            N_39                                        13, 20,  6,  2, -   
+            N_40                                        12, 20,  3,  2, -   
+            N_40_C                                       8,  3,  5,  1, -   
+
+        glb18, A6               11,  4,  6          
+            D0_N_10                                      8,  2,  1,  1, 1PT 
+            D0_N_106                                     8,  1,  1,  1, 1PT 
+            D0_N_34                                      8,  2,  1,  1, 1PT 
+            D0_N_8                                       8,  2,  1,  1, 1PT 
+
+        glb19_part1, D4          9,  2,  4          
+            D0_N_16                                      8,  2,  1,  1, 1PT 
+            D0_N_40                                      8,  2,  1,  1, 1PT 
+
+        glb19_part2, B1          9,  2,  4          
+            D0_N_100                                     8,  1,  1,  1, 1PT 
+            D0_N_2                                       8,  2,  1,  1, 1PT 
+
+        glb20, D7               11,  4,  6          
+            D0_N_102                                     8,  1,  1,  1, 1PT 
+            D0_N_14                                      8,  2,  1,  1, 1PT 
+            D0_N_38                                      8,  2,  1,  1, 1PT 
+            D0_N_4                                       8,  2,  1,  1, 1PT 
+
+        glb21, D5               11,  4,  6          
+            D0_N_104                                     8,  1,  1,  1, 1PT 
+            D0_N_12                                      8,  2,  1,  1, 1PT 
+            D0_N_36                                      8,  2,  1,  1, 1PT 
+            D0_N_6                                       8,  2,  1,  1, 1PT 
+
+        glb22, A3               11,  4,  6          
+            D0_N_105                                     8,  1,  1,  1, 1PT 
+            D0_N_11                                      8,  2,  1,  1, 1PT 
+            D0_N_35                                      8,  2,  1,  1, 1PT 
+            D0_N_7                                       8,  2,  1,  1, 1PT 
+
+        glb23, A5               11,  4,  6          
+            D0_N_127                                     8,  1,  1,  1, 1PT 
+            D0_N_13                                      8,  2,  1,  1, 1PT 
+            D0_N_37                                      8,  2,  1,  1, 1PT 
+            D0_N_5                                       8,  2,  1,  1, 1PT 
+
+        glb24, A2               11,  4,  6          
+            D0_N_18                                      8,  2,  1,  1, 1PT 
+            D0_N_31                                      8,  2,  1,  1, 1PT 
+            D0_N_42                                      8,  2,  1,  1, 1PT 
+            D0_N_50                                      8,  1,  1,  1, 1PT 
+
+        glb25, D3               15,  4,  7          
+            D0_N_98                                      8,  2,  1,  1, 1PT 
+            D0_N_99                                      8,  2,  1,  1, 1PT 
+            P0_N_177_C                                   7,  2,  2,  1, 4PT 
+            P0_N_195                                     8,  2,  1,  1, 1PT 
+
+        glb26, B4               14,  3, 14          
+            P0_N_180                                    10,  9,  8,  2, -   
+            P0_N_181_C                                   7,  2,  2,  1, -   
+            P0_N_212                                     3,  6,  2,  1, -   
+
+        glb27, A1                5,  2,  5          
+            F0_N_6                                       5,  6,  2,  1, 4PT 
+            F0_N_7                                       4,  6,  1,  1, 1PT 
+
+        glb28, D6                8,  3,  5          
+            P0_N_238                                     6,  6,  1,  2, 1PT 
+            P0_N_239                                     6,  6,  1,  2, 1PT 
+            P0_N_240                                     6,  6,  1,  2, 1PT 
+
+        glb29, A7                9,  4,  6          
+            P0_N_214                                     6,  3,  1,  2, 1PT 
+            P0_N_216                                     6,  3,  1,  2, 1PT 
+            P0_N_217                                     6,  3,  1,  2, 1PT 
+            P0_N_218                                     6,  3,  1,  2, 1PT 
+
+
+Maximum-Level Trace
+
+    GLB Level, Name, Ins    GLB Output Name
+
+        3, glb15, 18            P0_N_177            
+        2, glb11                 OR_1401             
+        1, glb26                  P0_N_212            
+        1, glb11                  AND_1372            
+        1, glb13                  OR_872              
+
+        3, glb16, 18            P0_N_178            
+        2, glb10                 OR_1400             
+        1, glb26                  P0_N_212            
+        1, glb11                  AND_1372            
+        1, glb13                  OR_872              
+
+
+Pin Assignments
+
+    Pin Name                Pin Assignment          Pin Type, Pin Attribute
+
+        P01                     5                       Output, PULLUP
+        RE_PRGM                 6                       Input, PULLUP
+        EN                      8                       Input, PULLUP
+        RE_CPU                  29                      Input, PULLUP
+        DI0                     41                      Input, PULLUP
+        P03                     45                      Output, PULLUP
+        P00                     46                      Output, PULLUP
+        PRGM                    47                      Input, PULLUP
+        P02                     49                      Output, PULLUP
+        DI1                     51                      Input, PULLUP
+        DI2                     74                      Input, PULLUP
+        DI3                     75                      Input, PULLUP
+        CLK                     83                      Input, PULLUP
+
+
+Design process management completed successfully

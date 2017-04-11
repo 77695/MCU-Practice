@@ -1,0 +1,40 @@
+#$ TOOL SCH2BLF 3.0.17.51 
+#$ TITLE reg4.bls 
+#$ MODULE reg4 
+#$ PINS 10  Q3 Q2 Q1 Q0 RE D3 D2 D1 D0 CLK
+#$ NODES 10 I1>Q3 I1>Q2 I1>Q1 I1>Q0 I1>D3 I1>D2 I1>D1 I1>D0 I1>CLK \
+#   I1>CD
+#$ EXTERNAL fd24 10 CD'i' CLK'i' D0'i' D1'i' D2'i' D3'i' Q0'o' Q1'o' \
+#   Q2'o' Q3'o'
+#$ INSTANCE I1 fd24 10 I1>CD I1>CLK I1>D0 I1>D1 I1>D2 I1>D3 I1>Q0 \
+#   I1>Q1 I1>Q2 I1>Q3
+.model reg4
+
+.inputs  I1>Q3.BLIF I1>Q2.BLIF I1>Q1.BLIF I1>Q0.BLIF D3.BLIF D2.BLIF \
+   D1.BLIF D0.BLIF CLK.BLIF RE.BLIF
+.outputs  Q3 Q2 Q1 Q0 I1>D3 I1>D2 I1>D1 I1>D0 I1>CLK I1>CD
+.names I1>Q3.BLIF Q3
+1 1
+
+.names I1>Q2.BLIF Q2
+1 1
+
+.names I1>Q1.BLIF Q1
+1 1
+
+.names I1>Q0.BLIF Q0
+1 1
+
+.names D3.BLIF I1>D3
+1 1
+.names D2.BLIF I1>D2
+1 1
+.names D1.BLIF I1>D1
+1 1
+.names D0.BLIF I1>D0
+1 1
+.names CLK.BLIF I1>CLK
+1 1
+.names RE.BLIF I1>CD
+1 1
+.end

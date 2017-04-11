@@ -1,0 +1,12 @@
+#$ TOOL ispLEVER 3.0
+#$ DATE Mon Jul 08 14:26:54 2013
+#$ TITLE reg4.bls 
+#$ MODULE reg4
+#$ PINS 10 Q3 Q2 Q1 Q0 RE D3 D2 D1 D0 CLK
+#$ INTERFACE l_fd24  10 CD'i'  CLK'i'  D0'i'  D1'i'  D2'i'  D3'i'  Q0'o'  Q1'o'  Q2'o'  Q3'o' 
+#$ INSTANCE I1 l_fd24 10 RE CLK D0 D1 D2 D3 Q0 Q1 Q2 Q3
+
+.model REG4
+.inputs
+.outputs
+.end

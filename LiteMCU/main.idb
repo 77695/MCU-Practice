@@ -1,0 +1,13 @@
+1 0.16.51
+-i z:\mine\isplever\litemcu4\main.laf -if laf -p ispLSI1032E-70LJ84 -of vhdl -of verilog -s d -e 2 -z -m 16 -n 4 -ta on -y z:\mine\isplever\litemcu4\main.xpn -r z:\mine\isplever\litemcu4\ispxpert.par 
+z:\mine\isplever\litemcu4\ispxpert.par 1373422411 Wed Jul 10 10:13:31 2013
+main.ppn 1373422412 Wed Jul 10 10:13:32 2013
+main.fxp 1373422412 Wed Jul 10 10:13:32 2013
+z:\mine\isplever\litemcu4\main.laf 1373386248 Wed Jul 10 00:10:48 2013
+>  z:\mine\isplever\litemcu4\main.xpn
+// PART: 	ispLSI1032E-70LJ84
+// FORMAT: 	PINNAME		PINTYPE	LOCK	PULLUP	SLOWSLEW	OPENDRAIN	OUTDELAY	VOLTAGE	CRIT
+
+// FORMAT: 	NETNAME		CLK		PRESERVE	ECP	GROUP		XOR	ELP	ETP
+
+// FORMAT: 	SYMNAME		PROTECT	REGTYPE

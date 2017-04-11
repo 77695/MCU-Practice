@@ -1,0 +1,20 @@
+JDF B
+// Created by Version 3.0 
+PROJECT Untitled
+DESIGN main Normal
+DEVKIT ispLSI1032E-70LJ84
+ENTRY ABEL/Schematic
+STIMULUS test1.abv
+MODULE cpu.sch
+MODSTYLE cpu Normal
+MODULE addswc4.sch
+MODSTYLE addswc4 Normal
+MODULE c4to16.sch
+MODSTYLE c4to16 Normal
+MODULE rom.sch
+MODSTYLE rom Normal
+MODULE c3to8.sch
+MODSTYLE c3to8 Normal
+MODULE main.sch
+MODSTYLE main Normal
+SYNTHESIS_TOOL Exemplar

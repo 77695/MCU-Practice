@@ -1,0 +1,1 @@
+C:\ispTOOLS\ispcomp\bin\dpm.exe -i "z:\mine\isplever\litemcu4\main.laf" -if laf -p ispLSI1032E-70LJ84 -of vhdl -of verilog -s d -e 2 -z -m 16 -n 4 -ta on -y "z:\mine\isplever\litemcu4\main.xpn" -r "z:\mine\isplever\litemcu4\ispxpert.par" 

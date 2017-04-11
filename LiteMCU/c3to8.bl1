@@ -1,0 +1,16 @@
+#$ TOOL ispLEVER 3.0
+#$ DATE Tue Jul 09 14:10:18 2013
+#$ TITLE c3to8.bls 
+#$ MODULE c3to8
+#$ PINS 11 A1 A0 D7 D6 D5 D4 D3 D2 D1 D0 A2
+#$ NODES 2 N_1 N_2
+#$ INTERFACE l_dec2  3 S0'i'  Z0'o'  Z1'o' 
+#$ INTERFACE l_dec4e  7 EN'i'  S0'i'  S1'i'  Z0'o'  Z1'o'  Z2'o'  Z3'o' 
+#$ INSTANCE I1 l_dec2 3 A2 N_2 N_1
+#$ INSTANCE I2 l_dec4e 7 N_1 A0 A1 D4 D5 D6 D7
+#$ INSTANCE I3 l_dec4e 7 N_2 A0 A1 D0 D1 D2 D3
+
+.model C3TO8
+.inputs
+.outputs
+.end

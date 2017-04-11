@@ -1,0 +1,1277 @@
+#$ TOOL ispLEVER 3.0
+#$ DATE Wed Jul 10 00:10:44 2013
+#$ TITLE main.bls 
+#$ MODULE main
+#$ PINS 13 RE_PRGM RE_CPU P00'o'  P01'o'  P02'o'  P03'o'  PRGM DI3 DI2 DI1 DI0 EN CLK
+#$ NODES 68 N_37+'o'  N_38+'o'  N_39+'o'  N_40+'o'  N_41'o'  N_42'o'  N_43'o'  N_44'o'  I12/N_238+'o'  I12/N_239+'o'  I12/N_240+'o'  I12/N_214+'o'  I12/N_216+'o'  I12/N_217+'o'  I12/N_218+'o'  \
+#  I12/N_212'o'  I12/N_195'o'  I12/N_174+'o'  I12/N_175+'o'  I12/N_176+'o'  I12/N_177+'o'  I12/N_178+'o'  I12/N_179+'o'  I12/N_180+'o'  I12/N_181+'o'  I12/I16/N_6+'o'  I12/I16/N_7+'o'  \
+#  I4/N_128'o'  I4/N_127+'o'  I4/N_113+'o'  I4/N_114+'o'  I4/N_115+'o'  I4/N_116+'o'  I4/N_98+'o'  I4/N_99+'o'  I4/N_100+'o'  I4/N_101+'o'  I4/N_102+'o'  I4/N_104+'o'  I4/N_105+'o'  I4/N_106+'o'  \
+#  I4/N_49+'o'  I4/N_50+'o'  I4/N_34+'o'  I4/N_35+'o'  I4/N_36+'o'  I4/N_37+'o'  I4/N_38+'o'  I4/N_39+'o'  I4/N_40+'o'  I4/N_41+'o'  I4/N_42+'o'  I4/N_10+'o'  I4/N_11+'o'  I4/N_12+'o'  I4/N_13+'o'  \
+#  I4/N_14+'o'  I4/N_15+'o'  I4/N_16+'o'  I4/N_18+'o'  I4/N_31+'o'  I4/N_2+'o'  I4/N_3+'o'  I4/N_4+'o'  I4/N_5+'o'  I4/N_6+'o'  I4/N_7+'o'  I4/N_8+'o' 
+
+.model MAIN
+.inputs CLK.BLIF PRGM.BLIF EN.BLIF N_44.BLIF N_43.BLIF N_42.BLIF N_41.BLIF \
+RE_CPU.BLIF P00.BLIF P01.BLIF P02.BLIF P03.BLIF N_40.FB N_39.FB N_38.FB \
+N_37.FB I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF I12/N_214.BLIF \
+I12/N_216.BLIF I12/N_217.BLIF I12/N_218.BLIF I12/N_212.BLIF I12/N_195.BLIF \
+I12/N_174.BLIF I12/N_175.BLIF I12/N_176.BLIF I12/N_177.BLIF I12/N_178.BLIF \
+I12/N_179.BLIF I12/N_180.BLIF I12/N_181.BLIF I12/I16/N_6.FB I12/I16/N_6.BLIF \
+I12/I16/N_7.FB I12/I16/N_7.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF \
+DI0.BLIF DI1.BLIF DI2.BLIF DI3.BLIF RE_PRGM.BLIF I4/N_128.BLIF I4/N_127.BLIF \
+I4/N_113.BLIF I4/N_114.BLIF I4/N_115.BLIF I4/N_116.BLIF I4/N_98.BLIF \
+I4/N_99.BLIF I4/N_100.BLIF I4/N_101.BLIF I4/N_102.BLIF I4/N_104.BLIF \
+I4/N_105.BLIF I4/N_106.BLIF I4/N_49.BLIF I4/N_50.BLIF I4/N_34.BLIF \
+I4/N_35.BLIF I4/N_36.BLIF I4/N_37.BLIF I4/N_38.BLIF I4/N_39.BLIF I4/N_40.BLIF \
+I4/N_41.BLIF I4/N_42.BLIF I4/N_10.BLIF I4/N_11.BLIF I4/N_12.BLIF I4/N_13.BLIF \
+I4/N_14.BLIF I4/N_15.BLIF I4/N_16.BLIF I4/N_18.BLIF I4/N_31.BLIF I4/N_2.BLIF \
+I4/N_3.BLIF I4/N_4.BLIF I4/N_5.BLIF I4/N_6.BLIF I4/N_7.BLIF I4/N_8.BLIF
+.outputs P00 P01 P02 P03 N_40.SP N_40.REG N_40.AR N_40.C N_39.SP N_39.REG \
+N_39.AR N_39.C N_38.SP N_38.REG N_38.AR N_38.C N_37.SP N_37.REG N_37.AR N_37.C \
+I12/N_238.AR I12/N_238.D I12/N_238.C I12/N_239.AR I12/N_239.D I12/N_239.C \
+I12/N_240.AR I12/N_240.D I12/N_240.C I12/N_214.AR I12/N_214.D I12/N_214.C \
+I12/N_216.AR I12/N_216.D I12/N_216.C I12/N_217.AR I12/N_217.D I12/N_217.C \
+I12/N_218.AR I12/N_218.D I12/N_218.C I12/N_212 I12/N_195 I12/N_174.AR \
+I12/N_174.D I12/N_174.C I12/N_175.AR I12/N_175.D I12/N_175.C I12/N_176.AR \
+I12/N_176.D I12/N_176.C I12/N_177.AR I12/N_177.D I12/N_177.C I12/N_178.AR \
+I12/N_178.D I12/N_178.C I12/N_179.AR I12/N_179.D I12/N_179.C I12/N_180.AR \
+I12/N_180.D I12/N_180.C I12/N_181.AR I12/N_181.D I12/N_181.C I12/I16/N_6.REG \
+I12/I16/N_6.AR I12/I16/N_6.C I12/I16/N_7.REG I12/I16/N_7.AR I12/I16/N_7.C N_44 \
+N_43 N_42 N_41 I4/N_128 I4/N_127.AR I4/N_127.D I4/N_127.C I4/N_113.AR \
+I4/N_113.D I4/N_113.C I4/N_114.AR I4/N_114.D I4/N_114.C I4/N_115.AR I4/N_115.D \
+I4/N_115.C I4/N_116.AR I4/N_116.D I4/N_116.C I4/N_98.AR I4/N_98.D I4/N_98.C \
+I4/N_99.AR I4/N_99.D I4/N_99.C I4/N_100.AR I4/N_100.D I4/N_100.C I4/N_101.AR \
+I4/N_101.D I4/N_101.C I4/N_102.AR I4/N_102.D I4/N_102.C I4/N_104.AR I4/N_104.D \
+I4/N_104.C I4/N_105.AR I4/N_105.D I4/N_105.C I4/N_106.AR I4/N_106.D I4/N_106.C \
+I4/N_49.AR I4/N_49.D I4/N_49.C I4/N_50.AR I4/N_50.D I4/N_50.C I4/N_34.AR \
+I4/N_34.D I4/N_34.C I4/N_35.AR I4/N_35.D I4/N_35.C I4/N_36.AR I4/N_36.D \
+I4/N_36.C I4/N_37.AR I4/N_37.D I4/N_37.C I4/N_38.AR I4/N_38.D I4/N_38.C \
+I4/N_39.AR I4/N_39.D I4/N_39.C I4/N_40.AR I4/N_40.D I4/N_40.C I4/N_41.AR \
+I4/N_41.D I4/N_41.C I4/N_42.AR I4/N_42.D I4/N_42.C I4/N_10.AR I4/N_10.D \
+I4/N_10.C I4/N_11.AR I4/N_11.D I4/N_11.C I4/N_12.AR I4/N_12.D I4/N_12.C \
+I4/N_13.AR I4/N_13.D I4/N_13.C I4/N_14.AR I4/N_14.D I4/N_14.C I4/N_15.AR \
+I4/N_15.D I4/N_15.C I4/N_16.AR I4/N_16.D I4/N_16.C I4/N_18.AR I4/N_18.D \
+I4/N_18.C I4/N_31.AR I4/N_31.D I4/N_31.C I4/N_2.AR I4/N_2.D I4/N_2.C I4/N_3.AR \
+I4/N_3.D I4/N_3.C I4/N_4.AR I4/N_4.D I4/N_4.C I4/N_5.AR I4/N_5.D I4/N_5.C \
+I4/N_6.AR I4/N_6.D I4/N_6.C I4/N_7.AR I4/N_7.D I4/N_7.C I4/N_8.AR I4/N_8.D \
+I4/N_8.C
+.names I12/N_181.BLIF I12/N_174.BLIF P00
+10 1
+01 1
+00 0
+11 0
+.names I12/N_180.BLIF I12/N_175.BLIF I12/N_181.BLIF I12/N_174.BLIF P01
+100- 1
+010- 1
+0011 1
+1111 1
+10-0 1
+01-0 1
+000- 0
+110- 0
+1011 0
+0111 0
+00-0 0
+11-0 0
+.names I12/N_179.BLIF I12/N_176.BLIF I12/N_180.BLIF I12/N_175.BLIF \
+I12/N_181.BLIF I12/N_174.BLIF P02
+0011-- 1
+1111-- 1
+10-00- 1
+01-00- 1
+100-0- 1
+010-0- 1
+00-111 1
+11-111 1
+001-11 1
+111-11 1
+1000-- 1
+0100-- 1
+10-0-0 1
+01-0-0 1
+100--0 1
+010--0 1
+1011-- 0
+0111-- 0
+00-00- 0
+11-00- 0
+000-0- 0
+110-0- 0
+10-111 0
+01-111 0
+101-11 0
+011-11 0
+0000-- 0
+1100-- 0
+00-0-0 0
+11-0-0 0
+000--0 0
+110--0 0
+.names I12/N_178.BLIF I12/N_177.BLIF I12/N_179.BLIF I12/N_176.BLIF \
+I12/N_180.BLIF I12/N_175.BLIF I12/N_181.BLIF I12/N_174.BLIF P03
+00-111-- 1
+11-111-- 1
+001-11-- 1
+111-11-- 1
+00-1-111 1
+11-1-111 1
+001--111 1
+111--111 1
+00-11-11 1
+11-11-11 1
+001-1-11 1
+111-1-11 1
+10-0-00- 1
+01-0-00- 1
+100--00- 1
+010--00- 1
+10-00-0- 1
+01-00-0- 1
+100-0-0- 1
+010-0-0- 1
+10-000-- 1
+01-000-- 1
+100-00-- 1
+010-00-- 1
+0011---- 1
+1111---- 1
+10-0-0-0 1
+01-0-0-0 1
+100--0-0 1
+010--0-0 1
+10-00--0 1
+01-00--0 1
+100-0--0 1
+010-0--0 1
+1000---- 1
+0100---- 1
+10-111-- 0
+01-111-- 0
+101-11-- 0
+011-11-- 0
+10-1-111 0
+01-1-111 0
+101--111 0
+011--111 0
+10-11-11 0
+01-11-11 0
+101-1-11 0
+011-1-11 0
+00-0-00- 0
+11-0-00- 0
+000--00- 0
+110--00- 0
+00-00-0- 0
+11-00-0- 0
+000-0-0- 0
+110-0-0- 0
+00-000-- 0
+11-000-- 0
+000-00-- 0
+110-00-- 0
+1011---- 0
+0111---- 0
+00-0-0-0 0
+11-0-0-0 0
+000--0-0 0
+110--0-0 0
+00-00--0 0
+11-00--0 0
+000-0--0 0
+110-0--0 0
+0000---- 0
+1100---- 0
+.names P00.BLIF N_40.FB I12/N_218.BLIF I12/N_212.BLIF I12/N_195.BLIF N_40.REG
+--101 1
+1--11 1
+-0--0 1
+--001 0
+0--11 0
+-1--0 0
+.names P01.BLIF N_40.FB N_39.FB I12/N_217.BLIF I12/N_212.BLIF I12/N_195.BLIF \
+N_39.REG
+-10--0 1
+-01--0 1
+---101 1
+1---11 1
+-00--0 0
+-11--0 0
+---001 0
+0---11 0
+.names P02.BLIF N_40.FB N_39.FB N_38.FB I12/N_216.BLIF I12/N_212.BLIF \
+I12/N_195.BLIF N_38.REG
+-110--0 1
+----101 1
+1----11 1
+--01--0 1
+-0-1--0 1
+-111--0 0
+----001 0
+0----11 0
+--00--0 0
+-0-0--0 0
+.names P03.BLIF N_40.FB N_39.FB N_38.FB N_37.FB I12/N_214.BLIF I12/N_212.BLIF \
+I12/N_195.BLIF N_37.REG
+-1110--0 1
+-----101 1
+1-----11 1
+---01--0 1
+--0-1--0 1
+-0--1--0 1
+-1111--0 0
+-----001 0
+0-----11 0
+---00--0 0
+--0-0--0 0
+-0--0--0 0
+.names I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF I12/N_212
+-00 1
+1-- 1
+01- 0
+0-1 0
+.names CLK.BLIF PRGM.BLIF EN.BLIF I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF \
+I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_195
+10100100 1
+------1- 0
+-----0-- 0
+----1--- 0
+---1---- 0
+--0----- 0
+-1------ 0
+0------- 0
+-------1 0
+.names I12/I16/N_6.FB I12/I16/N_7.FB I12/I16/N_6.REG
+10 1
+01 1
+00 0
+11 0
+.names I12/I16/N_7.FB I12/I16/N_7.REG
+0 1
+1 0
+.names N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_128.BLIF I4/N_116.BLIF \
+I4/N_98.BLIF I4/N_31.BLIF I4/N_2.BLIF I4/N_3.BLIF I4/N_4.BLIF I4/N_5.BLIF \
+I4/N_6.BLIF I4/N_7.BLIF I4/N_8.BLIF N_44
+11111---------- 1
+01111---------- 1
+10111---------- 1
+00111---------- 1
+11011---------- 1
+01011---------- 1
+0000-1--------- 1
+0001--1-------- 1
+1001---1------- 1
+1110----1------ 1
+0110-----1----- 1
+1010------1---- 1
+0010-------1--- 1
+1100--------1-- 1
+0100---------1- 1
+1000----------1 1
+11110---------- 0
+01110---------- 0
+10110---------- 0
+00110---------- 0
+11010---------- 0
+01010---------- 0
+0000-0--------- 0
+0001--0-------- 0
+1001---0------- 0
+1110----0------ 0
+0110-----0----- 0
+1010------0---- 0
+0010-------0--- 0
+1100--------0-- 0
+0100---------0- 0
+1000----------0 0
+.names N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_128.BLIF I4/N_115.BLIF \
+I4/N_99.BLIF I4/N_10.BLIF I4/N_11.BLIF I4/N_12.BLIF I4/N_13.BLIF I4/N_14.BLIF \
+I4/N_15.BLIF I4/N_16.BLIF I4/N_18.BLIF N_43
+11111---------- 1
+01111---------- 1
+10111---------- 1
+00111---------- 1
+11011---------- 1
+01011---------- 1
+0000-1--------- 1
+0001--1-------- 1
+1000---1------- 1
+0100----1------ 1
+1100-----1----- 1
+0010------1---- 1
+1010-------1--- 1
+0110--------1-- 1
+1110---------1- 1
+1001----------1 1
+11110---------- 0
+01110---------- 0
+10110---------- 0
+00110---------- 0
+11010---------- 0
+01010---------- 0
+0000-0--------- 0
+0001--0-------- 0
+1000---0------- 0
+0100----0------ 0
+1100-----0----- 0
+0010------0---- 0
+1010-------0--- 0
+0110--------0-- 0
+1110---------0- 0
+1001----------0 0
+.names N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_128.BLIF I4/N_114.BLIF \
+I4/N_34.BLIF I4/N_35.BLIF I4/N_36.BLIF I4/N_37.BLIF I4/N_38.BLIF I4/N_39.BLIF \
+I4/N_40.BLIF I4/N_41.BLIF I4/N_42.BLIF N_42
+11111---------- 1
+01111---------- 1
+10111---------- 1
+00111---------- 1
+11011---------- 1
+01011---------- 1
+0000-1--------- 1
+1000--1-------- 1
+0100---1------- 1
+1100----1------ 1
+0010-----1----- 1
+1010------1---- 1
+0110-------1--- 1
+1110--------1-- 1
+0001---------1- 1
+1001----------1 1
+11110---------- 0
+01110---------- 0
+10110---------- 0
+00110---------- 0
+11010---------- 0
+01010---------- 0
+0000-0--------- 0
+1000--0-------- 0
+0100---0------- 0
+1100----0------ 0
+0010-----0----- 0
+1010------0---- 0
+0110-------0--- 0
+1110--------0-- 0
+0001---------0- 0
+1001----------0 0
+.names N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_128.BLIF I4/N_127.BLIF \
+I4/N_113.BLIF I4/N_100.BLIF I4/N_101.BLIF I4/N_102.BLIF I4/N_104.BLIF \
+I4/N_105.BLIF I4/N_106.BLIF I4/N_49.BLIF I4/N_50.BLIF N_41
+11111---------- 1
+01111---------- 1
+10111---------- 1
+00111---------- 1
+11011---------- 1
+01011---------- 1
+0010-1--------- 1
+0000--1-------- 1
+1110---1------- 1
+0110----1------ 1
+1010-----1----- 1
+1100------1---- 1
+0100-------1--- 1
+1000--------1-- 1
+0001---------1- 1
+1001----------1 1
+11110---------- 0
+01110---------- 0
+10110---------- 0
+00110---------- 0
+11010---------- 0
+01010---------- 0
+0010-0--------- 0
+0000--0-------- 0
+1110---0------- 0
+0110----0------ 0
+1010-----0----- 0
+1100------0---- 0
+0100-------0--- 0
+1000--------0-- 0
+0001---------0- 0
+1001----------0 0
+.names I4/N_128
+.names N_40.SP
+ 0
+.names RE_CPU.BLIF N_40.AR
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF EN.BLIF I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF \
+I12/I16/N_6.BLIF I12/I16/N_7.BLIF N_40.C
+1010010- 1
+101---10 1
+101---01 1
+-10----- 1
+01------ 1
+-0-1--00 0
+-0--1-00 0
+-0----11 0
+-0---000 0
+111----- 0
+-00----- 0
+00------ 0
+.names N_39.SP
+ 0
+.names RE_CPU.BLIF N_39.AR
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF EN.BLIF I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF \
+I12/I16/N_6.BLIF I12/I16/N_7.BLIF N_39.C
+1010010- 1
+101---10 1
+101---01 1
+-10----- 1
+01------ 1
+-0-1--00 0
+-0--1-00 0
+-0----11 0
+-0---000 0
+111----- 0
+-00----- 0
+00------ 0
+.names N_38.SP
+ 0
+.names RE_CPU.BLIF N_38.AR
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF EN.BLIF I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF \
+I12/I16/N_6.BLIF I12/I16/N_7.BLIF N_38.C
+1010010- 1
+101---10 1
+101---01 1
+-10----- 1
+01------ 1
+-0-1--00 0
+-0--1-00 0
+-0----11 0
+-0---000 0
+111----- 0
+-00----- 0
+00------ 0
+.names N_37.SP
+ 0
+.names RE_CPU.BLIF N_37.AR
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF EN.BLIF I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF \
+I12/I16/N_6.BLIF I12/I16/N_7.BLIF N_37.C
+1010010- 1
+101---10 1
+101---01 1
+-10----- 1
+01------ 1
+-0-1--00 0
+-0--1-00 0
+-0----11 0
+-0---000 0
+111----- 0
+-00----- 0
+00------ 0
+.names RE_CPU.BLIF I12/N_238.AR
+1 1
+0 0
+.names N_42.BLIF I12/N_238.D
+1 1
+0 0
+.names CLK.BLIF EN.BLIF I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_238.C
+1101 1
+--1- 0
+-0-- 0
+0--- 0
+---0 0
+.names RE_CPU.BLIF I12/N_239.AR
+1 1
+0 0
+.names N_43.BLIF I12/N_239.D
+1 1
+0 0
+.names CLK.BLIF EN.BLIF I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_239.C
+1101 1
+--1- 0
+-0-- 0
+0--- 0
+---0 0
+.names RE_CPU.BLIF I12/N_240.AR
+1 1
+0 0
+.names N_44.BLIF I12/N_240.D
+1 1
+0 0
+.names CLK.BLIF EN.BLIF I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_240.C
+1101 1
+--1- 0
+-0-- 0
+0--- 0
+---0 0
+.names RE_CPU.BLIF I12/N_214.AR
+1 1
+0 0
+.names N_41.BLIF I12/N_214.D
+1 1
+0 0
+.names CLK.BLIF EN.BLIF I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_214.C
+1110 1
+--0- 0
+-0-- 0
+0--- 0
+---1 0
+.names RE_CPU.BLIF I12/N_216.AR
+1 1
+0 0
+.names N_42.BLIF I12/N_216.D
+1 1
+0 0
+.names CLK.BLIF EN.BLIF I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_216.C
+1110 1
+--0- 0
+-0-- 0
+0--- 0
+---1 0
+.names RE_CPU.BLIF I12/N_217.AR
+1 1
+0 0
+.names N_43.BLIF I12/N_217.D
+1 1
+0 0
+.names CLK.BLIF EN.BLIF I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_217.C
+1110 1
+--0- 0
+-0-- 0
+0--- 0
+---1 0
+.names RE_CPU.BLIF I12/N_218.AR
+1 1
+0 0
+.names N_44.BLIF I12/N_218.D
+1 1
+0 0
+.names CLK.BLIF EN.BLIF I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_218.C
+1110 1
+--0- 0
+-0-- 0
+0--- 0
+---1 0
+.names RE_CPU.BLIF I12/N_174.AR
+1 1
+0 0
+.names I12/N_212.BLIF I12/N_218.BLIF P00.BLIF I12/N_174.D
+01- 1
+1-1 1
+00- 0
+1-0 0
+.names CLK.BLIF EN.BLIF I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF \
+I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_174.C
+1110100 1
+1101100 1
+--00--- 0
+--11--- 0
+-----1- 0
+----0-- 0
+-0----- 0
+0------ 0
+------1 0
+.names RE_CPU.BLIF I12/N_175.AR
+1 1
+0 0
+.names I12/N_212.BLIF I12/N_217.BLIF P01.BLIF I12/N_175.D
+01- 1
+1-1 1
+00- 0
+1-0 0
+.names CLK.BLIF EN.BLIF I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF \
+I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_175.C
+1110100 1
+1101100 1
+--00--- 0
+--11--- 0
+-----1- 0
+----0-- 0
+-0----- 0
+0------ 0
+------1 0
+.names RE_CPU.BLIF I12/N_176.AR
+1 1
+0 0
+.names I12/N_212.BLIF I12/N_216.BLIF P02.BLIF I12/N_176.D
+01- 1
+1-1 1
+00- 0
+1-0 0
+.names CLK.BLIF EN.BLIF I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF \
+I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_176.C
+1110100 1
+1101100 1
+--00--- 0
+--11--- 0
+-----1- 0
+----0-- 0
+-0----- 0
+0------ 0
+------1 0
+.names RE_CPU.BLIF I12/N_177.AR
+1 1
+0 0
+.names I12/N_214.BLIF I12/N_212.BLIF P03.BLIF I12/N_177.D
+10- 1
+-11 1
+00- 0
+-10 0
+.names CLK.BLIF EN.BLIF I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF \
+I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_177.C
+1110100 1
+1101100 1
+--00--- 0
+--11--- 0
+-----1- 0
+----0-- 0
+-0----- 0
+0------ 0
+------1 0
+.names RE_CPU.BLIF I12/N_178.AR
+1 1
+0 0
+.names I12/N_214.BLIF I12/N_212.BLIF P03.BLIF I12/N_178.D
+10- 1
+-11 1
+00- 0
+-10 0
+.names CLK.BLIF EN.BLIF I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF \
+I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_178.C
+1110000 1
+1101000 1
+--00--- 0
+--11--- 0
+-----1- 0
+----1-- 0
+-0----- 0
+0------ 0
+------1 0
+.names RE_CPU.BLIF I12/N_179.AR
+1 1
+0 0
+.names I12/N_212.BLIF I12/N_216.BLIF P02.BLIF I12/N_179.D
+01- 1
+1-1 1
+00- 0
+1-0 0
+.names CLK.BLIF EN.BLIF I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF \
+I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_179.C
+1110000 1
+1101000 1
+--00--- 0
+--11--- 0
+-----1- 0
+----1-- 0
+-0----- 0
+0------ 0
+------1 0
+.names RE_CPU.BLIF I12/N_180.AR
+1 1
+0 0
+.names I12/N_212.BLIF I12/N_217.BLIF P01.BLIF I12/N_180.D
+01- 1
+1-1 1
+00- 0
+1-0 0
+.names CLK.BLIF EN.BLIF I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF \
+I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_180.C
+1110000 1
+1101000 1
+--00--- 0
+--11--- 0
+-----1- 0
+----1-- 0
+-0----- 0
+0------ 0
+------1 0
+.names RE_CPU.BLIF I12/N_181.AR
+1 1
+0 0
+.names I12/N_212.BLIF I12/N_218.BLIF P00.BLIF I12/N_181.D
+01- 1
+1-1 1
+00- 0
+1-0 0
+.names CLK.BLIF EN.BLIF I12/N_238.BLIF I12/N_239.BLIF I12/N_240.BLIF \
+I12/I16/N_6.BLIF I12/I16/N_7.BLIF I12/N_181.C
+1110000 1
+1101000 1
+--00--- 0
+--11--- 0
+-----1- 0
+----1-- 0
+-0----- 0
+0------ 0
+------1 0
+.names RE_CPU.BLIF I12/I16/N_6.AR
+1 1
+0 0
+.names EN.BLIF CLK.BLIF I12/I16/N_6.C
+0- 1
+-0 1
+11 0
+.names RE_CPU.BLIF I12/I16/N_7.AR
+1 1
+0 0
+.names EN.BLIF CLK.BLIF I12/I16/N_7.C
+0- 1
+-0 1
+11 0
+.names RE_PRGM.BLIF I4/N_127.AR
+1 1
+0 0
+.names DI3.BLIF I4/N_127.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_127.C
+110010 1
+----0- 0
+---1-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_113.AR
+1 1
+0 0
+.names DI3.BLIF I4/N_113.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_113.C
+110000 1
+----1- 0
+---1-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_114.AR
+1 1
+0 0
+.names DI2.BLIF I4/N_114.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_114.C
+110000 1
+----1- 0
+---1-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_115.AR
+1 1
+0 0
+.names DI1.BLIF I4/N_115.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_115.C
+110000 1
+----1- 0
+---1-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_116.AR
+1 1
+0 0
+.names DI0.BLIF I4/N_116.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_116.C
+110000 1
+----1- 0
+---1-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_98.AR
+1 1
+0 0
+.names DI0.BLIF I4/N_98.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_98.C
+110001 1
+----1- 0
+---1-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----0 0
+.names RE_PRGM.BLIF I4/N_99.AR
+1 1
+0 0
+.names DI1.BLIF I4/N_99.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_99.C
+110001 1
+----1- 0
+---1-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----0 0
+.names RE_PRGM.BLIF I4/N_100.AR
+1 1
+0 0
+.names DI3.BLIF I4/N_100.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_100.C
+111110 1
+----0- 0
+---0-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_101.AR
+1 1
+0 0
+.names DI3.BLIF I4/N_101.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_101.C
+110110 1
+----0- 0
+---0-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_102.AR
+1 1
+0 0
+.names DI3.BLIF I4/N_102.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_102.C
+111010 1
+----0- 0
+---1-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_104.AR
+1 1
+0 0
+.names DI3.BLIF I4/N_104.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_104.C
+111100 1
+----1- 0
+---0-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_105.AR
+1 1
+0 0
+.names DI3.BLIF I4/N_105.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_105.C
+110100 1
+----1- 0
+---0-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_106.AR
+1 1
+0 0
+.names DI3.BLIF I4/N_106.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_106.C
+111000 1
+----1- 0
+---1-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_49.AR
+1 1
+0 0
+.names DI3.BLIF I4/N_49.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_49.C
+110001 1
+----1- 0
+---1-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----0 0
+.names RE_PRGM.BLIF I4/N_50.AR
+1 1
+0 0
+.names DI3.BLIF I4/N_50.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_50.C
+111001 1
+----1- 0
+---1-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----0 0
+.names RE_PRGM.BLIF I4/N_34.AR
+1 1
+0 0
+.names DI2.BLIF I4/N_34.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_34.C
+111000 1
+----1- 0
+---1-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_35.AR
+1 1
+0 0
+.names DI2.BLIF I4/N_35.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_35.C
+110100 1
+----1- 0
+---0-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_36.AR
+1 1
+0 0
+.names DI2.BLIF I4/N_36.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_36.C
+111100 1
+----1- 0
+---0-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_37.AR
+1 1
+0 0
+.names DI2.BLIF I4/N_37.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_37.C
+110010 1
+----0- 0
+---1-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_38.AR
+1 1
+0 0
+.names DI2.BLIF I4/N_38.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_38.C
+111010 1
+----0- 0
+---1-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_39.AR
+1 1
+0 0
+.names DI2.BLIF I4/N_39.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_39.C
+110110 1
+----0- 0
+---0-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_40.AR
+1 1
+0 0
+.names DI2.BLIF I4/N_40.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_40.C
+111110 1
+----0- 0
+---0-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_41.AR
+1 1
+0 0
+.names DI2.BLIF I4/N_41.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_41.C
+110001 1
+----1- 0
+---1-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----0 0
+.names RE_PRGM.BLIF I4/N_42.AR
+1 1
+0 0
+.names DI2.BLIF I4/N_42.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_42.C
+111001 1
+----1- 0
+---1-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----0 0
+.names RE_PRGM.BLIF I4/N_10.AR
+1 1
+0 0
+.names DI1.BLIF I4/N_10.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_10.C
+111000 1
+----1- 0
+---1-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_11.AR
+1 1
+0 0
+.names DI1.BLIF I4/N_11.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_11.C
+110100 1
+----1- 0
+---0-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_12.AR
+1 1
+0 0
+.names DI1.BLIF I4/N_12.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_12.C
+111100 1
+----1- 0
+---0-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_13.AR
+1 1
+0 0
+.names DI1.BLIF I4/N_13.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_13.C
+110010 1
+----0- 0
+---1-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_14.AR
+1 1
+0 0
+.names DI1.BLIF I4/N_14.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_14.C
+111010 1
+----0- 0
+---1-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_15.AR
+1 1
+0 0
+.names DI1.BLIF I4/N_15.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_15.C
+110110 1
+----0- 0
+---0-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_16.AR
+1 1
+0 0
+.names DI1.BLIF I4/N_16.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_16.C
+111110 1
+----0- 0
+---0-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_18.AR
+1 1
+0 0
+.names DI1.BLIF I4/N_18.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_18.C
+111001 1
+----1- 0
+---1-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----0 0
+.names RE_PRGM.BLIF I4/N_31.AR
+1 1
+0 0
+.names DI0.BLIF I4/N_31.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_31.C
+111001 1
+----1- 0
+---1-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----0 0
+.names RE_PRGM.BLIF I4/N_2.AR
+1 1
+0 0
+.names DI0.BLIF I4/N_2.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_2.C
+111110 1
+----0- 0
+---0-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_3.AR
+1 1
+0 0
+.names DI0.BLIF I4/N_3.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_3.C
+110110 1
+----0- 0
+---0-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_4.AR
+1 1
+0 0
+.names DI0.BLIF I4/N_4.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_4.C
+111010 1
+----0- 0
+---1-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_5.AR
+1 1
+0 0
+.names DI0.BLIF I4/N_5.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_5.C
+110010 1
+----0- 0
+---1-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_6.AR
+1 1
+0 0
+.names DI0.BLIF I4/N_6.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_6.C
+111100 1
+----1- 0
+---0-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_7.AR
+1 1
+0 0
+.names DI0.BLIF I4/N_7.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_7.C
+110100 1
+----1- 0
+---0-- 0
+--1--- 0
+-0---- 0
+0----- 0
+-----1 0
+.names RE_PRGM.BLIF I4/N_8.AR
+1 1
+0 0
+.names DI0.BLIF I4/N_8.D
+1 1
+0 0
+.names CLK.BLIF PRGM.BLIF N_40.BLIF N_39.BLIF N_38.BLIF N_37.BLIF I4/N_8.C
+111000 1
+----1- 0
+---1-- 0
+--0--- 0
+-0---- 0
+0----- 0
+-----1 0
+.end

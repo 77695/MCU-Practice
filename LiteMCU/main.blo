@@ -1,0 +1,19 @@
+#$ TOOL ispLEVER 3.0
+#$ DATE Wed Jul 10 00:10:44 2013
+#$ TITLE main.bls 
+#$ MODULE main
+#$ PINS 13 RE_PRGM RE_CPU P00 P01 P02 P03 PRGM DI3 DI2 DI1 DI0 EN CLK
+#$ NODES 9 N_45'o'  N_37 N_38 N_39 N_40 N_41 N_42 N_43 N_44
+#$ INTERFACE cpu  16 CLK'i'  EN'i'  PRGM'i'  RD0'i'  RD1'i'  RD2'i'  RD3'i'  RE'i'  P00'o'  P01'o'  P02'o'  P03'o'  RA0'o'  RA1'o'  RA2'o'  RA3'o' 
+#$ INTERFACE rom  14 A0'i'  A1'i'  A2'i'  A3'i'  DI0'i'  DI1'i'  DI2'i'  DI3'i'  PCLK'i'  RE'i'  DO0'o'  DO1'o'  DO2'o'  DO3'o' 
+#$ INSTANCE I12 cpu 16 CLK EN PRGM N_44 N_43 N_42 N_41 RE_CPU P00 P01 P02 P03 N_40 N_39 N_38 N_37
+#$ INSTANCE I4 rom 14 N_40 N_39 N_38 N_37 DI0 DI1 DI2 DI3 N_45 RE_PRGM N_44 N_43 N_42 N_41
+
+.model MAIN
+.inputs CLK.BLIF PRGM.BLIF
+.outputs N_45
+.names CLK.BLIF PRGM.BLIF N_45
+11 1
+0- 0
+-0 0
+.end

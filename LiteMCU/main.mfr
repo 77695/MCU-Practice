@@ -1,0 +1,552 @@
+Frequency Analysis Report:
+-------------------------
+
+Design Name: MAIN
+Part Name: ispLSI1032E-70LJ84
+
+This report contains the maximum frequency at which the design
+can be operated. It also lists the path that determines the
+maximum frequency and the number of GLB levels. 
+The remaining internal register paths and their frequencies
+are also listed, if the source and the registers are driven
+by the same reference clock.
+
+
+Maximum Operating Frequency:    24 MHz
+
+The clock period is 41.80.
+Clock period = path delay + clock-to-output delay + setup time
+  path delay:              38.40
+  clock-to-output delay:   2.40
+  setup time:              1.00
+
+
+The following path determines the frequency: 
+
+  Startpoint: GLB_P0_N_181/Q0
+              (edge-triggered flip-flop)
+  Endpoint: GLB_P0_N_177/D0
+              (edge-triggered flip-flop)
+  No. of GLB Levels: 3
+
+Internal Register  Paths and Frequencies:
+
+  Source              Source                  Destination       Destination             Clock     Frequency   # of GLB     
+  Reference           Register                Reference         Register                Period      [MHz]     Levels       
+  Clock               Name                    Clock             Name                     [ns]     
+==----------------------------------------------------------------------------------------------------------------
+  GLB_P0_N_239        GLB_P0_N_181/Q0         GLB_P0_N_239      GLB_P0_N_177/D0          41.80     24        3    
+  GLB_P0_N_239        GLB_P0_N_181/Q0         GLB_P0_N_239      GLB_P0_N_178/D0          41.80     24        3    
+  GLB_P0_N_239        GLB_P0_N_174/Q0         GLB_P0_N_239      GLB_P0_N_177/D0          41.70     24        3    
+  GLB_P0_N_239        GLB_P0_N_180/Q0         GLB_P0_N_239      GLB_P0_N_177/D0          41.70     24        3    
+  GLB_P0_N_239        GLB_P0_N_174/Q0         GLB_P0_N_239      GLB_P0_N_178/D0          41.70     24        3    
+  GLB_P0_N_239        GLB_P0_N_180/Q0         GLB_P0_N_239      GLB_P0_N_178/D0          41.70     24        3    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_P0_N_177/D0          41.40     ----     3    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_P0_N_177/D0          41.40     ----     3    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_P0_N_177/D0          41.40     ----     3    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_P0_N_178/D0          41.40     ----     3    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_P0_N_178/D0          41.40     ----     3    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_P0_N_178/D0          41.40     ----     3    
+  GLB_P0_N_239        GLB_...art1 *1/Q0       GLB_P0_N_239      GLB_P0_N_177/D0          41.20     24        3    
+  GLB_P0_N_239        GLB_...art1 *1/Q0       GLB_P0_N_239      GLB_P0_N_178/D0          41.20     24        3    
+  GLB_P0_N_239        GLB_P0_N_176/Q0         GLB_P0_N_239      GLB_P0_N_178/D0          40.90     24        3    
+  GLB_P0_N_239        GLB_P0_N_179/Q0         GLB_P0_N_239      GLB_P0_N_178/D0          40.90     24        3    
+  GLB_P0_N_239        GLB_P0_N_176/Q0         GLB_P0_N_239      GLB_P0_N_177/D0          39.10     26        3    
+  GLB_P0_N_239        GLB_P0_N_179/Q0         GLB_P0_N_239      GLB_P0_N_177/D0          39.10     26        3    
+  GLB_P0_N_239        GLB_P0_N_181/Q0         GLB_F0_N_7        GLB_N_37/D0              29.40     ----     2    
+  GLB_P0_N_239        GLB_P0_N_181/Q0         GLB_F0_N_7        GLB_...art1 *2/D0        29.40     ----     2    
+  GLB_P0_N_239        GLB_P0_N_181/Q0         GLB_F0_N_7        GLB_...art2 *3/D0        29.40     ----     2    
+  GLB_P0_N_239        GLB_P0_N_181/Q0         GLB_P0_N_239      GLB_P0_N_176/D0          29.40     34        2    
+  GLB_P0_N_239        GLB_P0_N_181/Q0         GLB_P0_N_239      GLB_P0_N_179/D0          29.40     34        2    
+  GLB_P0_N_239        GLB_P0_N_174/Q0         GLB_F0_N_7        GLB_N_37/D0              29.30     ----     2    
+  GLB_P0_N_239        GLB_P0_N_180/Q0         GLB_F0_N_7        GLB_N_37/D0              29.30     ----     2    
+  GLB_P0_N_239        GLB_P0_N_174/Q0         GLB_F0_N_7        GLB_...art1 *2/D0        29.30     ----     2    
+  GLB_P0_N_239        GLB_P0_N_180/Q0         GLB_F0_N_7        GLB_...art1 *2/D0        29.30     ----     2    
+  GLB_P0_N_239        GLB_P0_N_174/Q0         GLB_F0_N_7        GLB_...art2 *3/D0        29.30     ----     2    
+  GLB_P0_N_239        GLB_P0_N_180/Q0         GLB_F0_N_7        GLB_...art2 *3/D0        29.30     ----     2    
+  GLB_P0_N_239        GLB_P0_N_174/Q0         GLB_P0_N_239      GLB_P0_N_176/D0          29.30     34        2    
+  GLB_P0_N_239        GLB_P0_N_180/Q0         GLB_P0_N_239      GLB_P0_N_176/D0          29.30     34        2    
+  GLB_P0_N_239        GLB_P0_N_174/Q0         GLB_P0_N_239      GLB_P0_N_179/D0          29.30     34        2    
+  GLB_P0_N_239        GLB_P0_N_180/Q0         GLB_P0_N_239      GLB_P0_N_179/D0          29.30     34        2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_F0_N_7        GLB_P0_N_214/D0          29.10     34        2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_F0_N_7        GLB_P0_N_214/D0          29.10     34        2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_F0_N_7        GLB_P0_N_216/D0          29.10     34        2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_F0_N_7        GLB_P0_N_216/D0          29.10     34        2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_F0_N_7        GLB_P0_N_217/D0          29.10     34        2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_F0_N_7        GLB_P0_N_217/D0          29.10     34        2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_F0_N_7        GLB_P0_N_218/D0          29.10     34        2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_F0_N_7        GLB_P0_N_218/D0          29.10     34        2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_F0_N_7        GLB_P0_N_238/D0          29.10     34        2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_F0_N_7        GLB_P0_N_238/D0          29.10     34        2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_F0_N_7        GLB_P0_N_239/D0          29.10     34        2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_F0_N_7        GLB_P0_N_239/D0          29.10     34        2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_F0_N_7        GLB_P0_N_240/D0          29.10     34        2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_F0_N_7        GLB_P0_N_240/D0          29.10     34        2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_F0_N_7        GLB_N_37/D0              29.00     34        2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_F0_N_7        GLB_N_37/D0              29.00     34        2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_F0_N_7        GLB_N_37/D0              29.00     34        2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_F0_N_7        GLB_...art1 *2/D0        29.00     34        2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_F0_N_7        GLB_...art1 *2/D0        29.00     34        2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_F0_N_7        GLB_...art1 *2/D0        29.00     34        2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_F0_N_7        GLB_...art2 *3/D0        29.00     34        2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_F0_N_7        GLB_...art2 *3/D0        29.00     34        2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_F0_N_7        GLB_...art2 *3/D0        29.00     34        2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_P0_N_176/D0          29.00     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_P0_N_176/D0          29.00     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_P0_N_176/D0          29.00     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_P0_N_179/D0          29.00     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_P0_N_179/D0          29.00     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_P0_N_179/D0          29.00     ----     2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_F0_N_7        GLB_P0_N_214/D0          28.90     35        2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_F0_N_7        GLB_P0_N_216/D0          28.90     35        2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_F0_N_7        GLB_P0_N_217/D0          28.90     35        2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_F0_N_7        GLB_P0_N_218/D0          28.90     35        2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_F0_N_7        GLB_P0_N_238/D0          28.90     35        2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_F0_N_7        GLB_P0_N_239/D0          28.90     35        2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_F0_N_7        GLB_P0_N_240/D0          28.90     35        2    
+  GLB_P0_N_239        GLB_...art1 *1/Q0       GLB_F0_N_7        GLB_N_37/D0              28.80     ----     2    
+  GLB_P0_N_239        GLB_...art1 *1/Q0       GLB_F0_N_7        GLB_...art1 *2/D0        28.80     ----     2    
+  GLB_P0_N_239        GLB_...art1 *1/Q0       GLB_F0_N_7        GLB_...art2 *3/D0        28.80     ----     2    
+  GLB_P0_N_239        GLB_...art1 *1/Q0       GLB_P0_N_239      GLB_P0_N_176/D0          28.80     35        2    
+  GLB_P0_N_239        GLB_...art1 *1/Q0       GLB_P0_N_239      GLB_P0_N_179/D0          28.80     35        2    
+  GLB_P0_N_239        GLB_P0_N_176/Q0         GLB_F0_N_7        GLB_N_37/D0              28.50     ----     2    
+  GLB_P0_N_239        GLB_P0_N_179/Q0         GLB_F0_N_7        GLB_N_37/D0              28.50     ----     2    
+  GLB_P0_N_239        GLB_P0_N_176/Q0         GLB_F0_N_7        GLB_...art1 *2/D0        28.50     ----     2    
+  GLB_P0_N_239        GLB_P0_N_179/Q0         GLB_F0_N_7        GLB_...art1 *2/D0        28.50     ----     2    
+  GLB_P0_N_239        GLB_P0_N_176/Q0         GLB_F0_N_7        GLB_...art2 *3/D0        28.50     ----     2    
+  GLB_P0_N_239        GLB_P0_N_179/Q0         GLB_F0_N_7        GLB_...art2 *3/D0        28.50     ----     2    
+  GLB_P0_N_239        GLB_P0_N_176/Q0         GLB_P0_N_239      GLB_P0_N_176/D0          28.50     35        2    
+  GLB_P0_N_239        GLB_P0_N_179/Q0         GLB_P0_N_239      GLB_P0_N_176/D0          28.50     35        2    
+  GLB_P0_N_239        GLB_P0_N_176/Q0         GLB_P0_N_239      GLB_P0_N_179/D0          28.50     35        2    
+  GLB_P0_N_239        GLB_P0_N_179/Q0         GLB_P0_N_239      GLB_P0_N_179/D0          28.50     35        2    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_F0_N_7        GLB_P0_N_214/D0          28.40     35        2    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_F0_N_7        GLB_P0_N_238/D0          28.40     35        2    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_N_37/D0              27.80     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_N_37/D0              27.80     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_...art1 *2/D0        27.80     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_...art1 *2/D0        27.80     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_...art2 *3/D0        27.80     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_...art2 *3/D0        27.80     ----     2    
+  GLB_F0_N_7          GLB_...art1 *2/Q0       GLB_F0_N_7        GLB_P0_N_216/D0          27.80     36        2    
+  GLB_F0_N_7          GLB_...art1 *2/Q0       GLB_F0_N_7        GLB_P0_N_217/D0          27.80     36        2    
+  GLB_F0_N_7          GLB_...art1 *2/Q0       GLB_F0_N_7        GLB_P0_N_218/D0          27.80     36        2    
+  GLB_F0_N_7          GLB_...art1 *2/Q0       GLB_F0_N_7        GLB_P0_N_239/D0          27.80     36        2    
+  GLB_F0_N_7          GLB_...art1 *2/Q0       GLB_F0_N_7        GLB_P0_N_240/D0          27.80     36        2    
+  GLB_P0_N_239        GLB_...art2 *4/Q0       GLB_P0_N_239      GLB_P0_N_177/D0          27.70     36        2    
+  GLB_P0_N_239        GLB_...art2 *4/Q0       GLB_P0_N_239      GLB_P0_N_178/D0          27.70     36        2    
+  GLB_P0_N_239        GLB_P0_N_177/Q0         GLB_P0_N_239      GLB_P0_N_177/D0          27.60     36        2    
+  GLB_P0_N_239        GLB_P0_N_178/Q0         GLB_P0_N_239      GLB_P0_N_177/D0          27.60     36        2    
+  GLB_P0_N_239        GLB_P0_N_177/Q0         GLB_P0_N_239      GLB_P0_N_178/D0          27.60     36        2    
+  GLB_P0_N_239        GLB_P0_N_178/Q0         GLB_P0_N_239      GLB_P0_N_178/D0          27.60     36        2    
+  GLB_F0_N_7          GLB_P0_N_214/Q0         GLB_P0_N_239      GLB_P0_N_177/D0          27.50     ----     2    
+  GLB_F0_N_7          GLB_P0_N_214/Q0         GLB_P0_N_239      GLB_P0_N_178/D0          27.50     ----     2    
+  GLB_N_39            GLB_D0_N_114/Q0         GLB_F0_N_7        GLB_P0_N_216/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_34/Q0          GLB_F0_N_7        GLB_P0_N_216/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_35/Q0          GLB_F0_N_7        GLB_P0_N_216/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_37/Q0          GLB_F0_N_7        GLB_P0_N_216/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_38/Q0          GLB_F0_N_7        GLB_P0_N_216/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_40/Q0          GLB_F0_N_7        GLB_P0_N_216/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_41/Q0          GLB_F0_N_7        GLB_P0_N_216/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_42/Q0          GLB_F0_N_7        GLB_P0_N_216/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_10/Q0          GLB_F0_N_7        GLB_P0_N_217/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_11/Q0          GLB_F0_N_7        GLB_P0_N_217/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_115/Q0         GLB_F0_N_7        GLB_P0_N_217/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_13/Q0          GLB_F0_N_7        GLB_P0_N_217/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_14/Q0          GLB_F0_N_7        GLB_P0_N_217/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_16/Q0          GLB_F0_N_7        GLB_P0_N_217/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_18/Q0          GLB_F0_N_7        GLB_P0_N_217/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_99/Q0          GLB_F0_N_7        GLB_P0_N_217/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_116/Q0         GLB_F0_N_7        GLB_P0_N_218/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_2/Q0           GLB_F0_N_7        GLB_P0_N_218/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_3/Q0           GLB_F0_N_7        GLB_P0_N_218/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_4/Q0           GLB_F0_N_7        GLB_P0_N_218/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_5/Q0           GLB_F0_N_7        GLB_P0_N_218/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_7/Q0           GLB_F0_N_7        GLB_P0_N_218/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_8/Q0           GLB_F0_N_7        GLB_P0_N_218/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_98/Q0          GLB_F0_N_7        GLB_P0_N_218/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_114/Q0         GLB_F0_N_7        GLB_P0_N_238/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_34/Q0          GLB_F0_N_7        GLB_P0_N_238/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_35/Q0          GLB_F0_N_7        GLB_P0_N_238/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_37/Q0          GLB_F0_N_7        GLB_P0_N_238/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_38/Q0          GLB_F0_N_7        GLB_P0_N_238/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_40/Q0          GLB_F0_N_7        GLB_P0_N_238/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_41/Q0          GLB_F0_N_7        GLB_P0_N_238/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_42/Q0          GLB_F0_N_7        GLB_P0_N_238/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_10/Q0          GLB_F0_N_7        GLB_P0_N_239/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_11/Q0          GLB_F0_N_7        GLB_P0_N_239/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_115/Q0         GLB_F0_N_7        GLB_P0_N_239/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_13/Q0          GLB_F0_N_7        GLB_P0_N_239/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_14/Q0          GLB_F0_N_7        GLB_P0_N_239/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_16/Q0          GLB_F0_N_7        GLB_P0_N_239/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_18/Q0          GLB_F0_N_7        GLB_P0_N_239/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_99/Q0          GLB_F0_N_7        GLB_P0_N_239/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_116/Q0         GLB_F0_N_7        GLB_P0_N_240/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_2/Q0           GLB_F0_N_7        GLB_P0_N_240/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_3/Q0           GLB_F0_N_7        GLB_P0_N_240/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_4/Q0           GLB_F0_N_7        GLB_P0_N_240/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_5/Q0           GLB_F0_N_7        GLB_P0_N_240/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_7/Q0           GLB_F0_N_7        GLB_P0_N_240/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_8/Q0           GLB_F0_N_7        GLB_P0_N_240/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_98/Q0          GLB_F0_N_7        GLB_P0_N_240/D0          27.40     ----     2    
+  GLB_N_39            GLB_D0_N_100/Q0         GLB_F0_N_7        GLB_P0_N_214/D0          27.30     ----     2    
+  GLB_N_39            GLB_D0_N_101/Q0         GLB_F0_N_7        GLB_P0_N_214/D0          27.30     ----     2    
+  GLB_N_39            GLB_D0_N_102/Q0         GLB_F0_N_7        GLB_P0_N_214/D0          27.30     ----     2    
+  GLB_N_39            GLB_D0_N_105/Q0         GLB_F0_N_7        GLB_P0_N_214/D0          27.30     ----     2    
+  GLB_N_39            GLB_D0_N_106/Q0         GLB_F0_N_7        GLB_P0_N_214/D0          27.30     ----     2    
+  GLB_N_39            GLB_D0_N_127/Q0         GLB_F0_N_7        GLB_P0_N_214/D0          27.30     ----     2    
+  GLB_N_39            GLB_D0_N_49/Q0          GLB_F0_N_7        GLB_P0_N_214/D0          27.30     ----     2    
+  GLB_N_39            GLB_D0_N_50/Q0          GLB_F0_N_7        GLB_P0_N_214/D0          27.30     ----     2    
+  GLB_N_39            GLB_D0_N_36/Q0          GLB_F0_N_7        GLB_P0_N_216/D0          27.10     ----     2    
+  GLB_N_39            GLB_D0_N_39/Q0          GLB_F0_N_7        GLB_P0_N_216/D0          27.10     ----     2    
+  GLB_N_39            GLB_D0_N_12/Q0          GLB_F0_N_7        GLB_P0_N_217/D0          27.10     ----     2    
+  GLB_N_39            GLB_D0_N_31/Q0          GLB_F0_N_7        GLB_P0_N_218/D0          27.10     ----     2    
+  GLB_N_39            GLB_D0_N_6/Q0           GLB_F0_N_7        GLB_P0_N_218/D0          27.10     ----     2    
+  GLB_N_39            GLB_D0_N_36/Q0          GLB_F0_N_7        GLB_P0_N_238/D0          27.10     ----     2    
+  GLB_N_39            GLB_D0_N_39/Q0          GLB_F0_N_7        GLB_P0_N_238/D0          27.10     ----     2    
+  GLB_N_39            GLB_D0_N_12/Q0          GLB_F0_N_7        GLB_P0_N_239/D0          27.10     ----     2    
+  GLB_N_39            GLB_D0_N_31/Q0          GLB_F0_N_7        GLB_P0_N_240/D0          27.10     ----     2    
+  GLB_N_39            GLB_D0_N_6/Q0           GLB_F0_N_7        GLB_P0_N_240/D0          27.10     ----     2    
+  GLB_N_39            GLB_D0_N_104/Q0         GLB_F0_N_7        GLB_P0_N_214/D0          27.00     ----     2    
+  GLB_N_39            GLB_D0_N_113/Q0         GLB_F0_N_7        GLB_P0_N_214/D0          27.00     ----     2    
+  GLB_N_39            GLB_D0_N_15/Q0          GLB_F0_N_7        GLB_P0_N_239/D0          27.00     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_F0_N_7        GLB_N_37/CLK             26.40     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_F0_N_7        GLB_N_37/CLK             26.40     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_F0_N_7        GLB_N_37/CLK             26.40     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_F0_N_7        GLB_...art1 *2/CLK       26.40     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_F0_N_7        GLB_...art1 *2/CLK       26.40     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_F0_N_7        GLB_...art1 *2/CLK       26.40     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_F0_N_7        GLB_...art2 *3/CLK       26.40     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_F0_N_7        GLB_...art2 *3/CLK       26.40     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_F0_N_7        GLB_...art2 *3/CLK       26.40     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_F0_N_7        GLB_N_39/CLK             26.40     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_F0_N_7        GLB_N_39/CLK             26.40     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_F0_N_7        GLB_N_39/CLK             26.40     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_F0_N_7        GLB_N_40/CLK             26.40     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_F0_N_7        GLB_N_40/CLK             26.40     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_F0_N_7        GLB_N_40/CLK             26.40     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_N_37/CLK             26.30     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_N_37/CLK             26.30     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_...art1 *2/CLK       26.30     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_...art1 *2/CLK       26.30     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_...art2 *3/CLK       26.30     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_...art2 *3/CLK       26.30     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_N_39/CLK             26.30     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_N_39/CLK             26.30     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_N_40/CLK             26.30     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_N_40/CLK             26.30     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_P0_N_178/CLK         26.20     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_P0_N_178/CLK         26.20     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_P0_N_178/CLK         26.20     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_P0_N_179/CLK         26.20     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_P0_N_179/CLK         26.20     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_P0_N_179/CLK         26.20     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_P0_N_181/CLK         26.20     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_P0_N_181/CLK         26.20     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_P0_N_181/CLK         26.20     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_P0_N_239      GLB_P0_N_178/CLK         26.10     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_P0_N_239      GLB_P0_N_178/CLK         26.10     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_P0_N_239      GLB_P0_N_179/CLK         26.10     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_P0_N_239      GLB_P0_N_179/CLK         26.10     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_P0_N_239      GLB_P0_N_181/CLK         26.10     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_P0_N_239      GLB_P0_N_181/CLK         26.10     ----     2    
+  GLB_N_39            GLB_D0_N_15/Q0          GLB_F0_N_7        GLB_P0_N_217/D0          25.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_P0_N_180/CLK         25.00     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_P0_N_180/CLK         25.00     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_P0_N_180/CLK         25.00     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_P0_N_239      GLB_P0_N_180/CLK         24.90     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_P0_N_239      GLB_P0_N_180/CLK         24.90     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_P0_N_174/CLK         24.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_P0_N_174/CLK         24.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_P0_N_174/CLK         24.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_...art1 *1/CLK       24.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_...art1 *1/CLK       24.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_...art1 *1/CLK       24.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_...art2 *4/CLK       24.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_...art2 *4/CLK       24.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_...art2 *4/CLK       24.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_P0_N_176/CLK         24.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_P0_N_176/CLK         24.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_P0_N_176/CLK         24.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_P0_N_177/CLK         24.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_P0_N_177/CLK         24.80     ----     2    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_P0_N_177/CLK         24.80     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_P0_N_239      GLB_P0_N_174/CLK         24.70     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_P0_N_239      GLB_P0_N_174/CLK         24.70     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_P0_N_239      GLB_...art1 *1/CLK       24.70     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_P0_N_239      GLB_...art1 *1/CLK       24.70     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_P0_N_239      GLB_...art2 *4/CLK       24.70     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_P0_N_239      GLB_...art2 *4/CLK       24.70     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_P0_N_239      GLB_P0_N_176/CLK         24.70     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_P0_N_239      GLB_P0_N_176/CLK         24.70     ----     2    
+  CLK                 GLB_F0_N_6/Q0           GLB_P0_N_239      GLB_P0_N_177/CLK         24.70     ----     2    
+  CLK                 GLB_F0_N_7/Q0           GLB_P0_N_239      GLB_P0_N_177/CLK         24.70     ----     2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_101/CLK         19.90     ----     2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_101/CLK         19.90     ----     2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_113/CLK         19.90     ----     2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_113/CLK         19.90     ----     2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_114/CLK         19.90     ----     2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_114/CLK         19.90     ----     2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_115/CLK         19.90     ----     2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_115/CLK         19.90     ----     2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_116/CLK         19.90     ----     2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_116/CLK         19.90     ----     2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_15/CLK          19.90     ----     2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_15/CLK          19.90     ----     2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_3/CLK           19.90     ----     2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_3/CLK           19.90     ----     2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_39/CLK          19.90     ----     2    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_39/CLK          19.90     ----     2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_101/CLK         19.70     ----     2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_113/CLK         19.70     ----     2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_114/CLK         19.70     ----     2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_115/CLK         19.70     ----     2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_116/CLK         19.70     ----     2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_15/CLK          19.70     ----     2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_3/CLK           19.70     ----     2    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_39/CLK          19.70     ----     2    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_101/CLK         19.20     ----     2    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_113/CLK         19.20     ----     2    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_114/CLK         19.20     ----     2    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_115/CLK         19.20     ----     2    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_116/CLK         19.20     ----     2    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_15/CLK          19.20     ----     2    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_3/CLK           19.20     ----     2    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_39/CLK          19.20     ----     2    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_F0_N_7        GLB_N_37/D0              16.70     60        1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_F0_N_7        GLB_N_37/D0              16.70     60        1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_F0_N_7        GLB_...art1 *2/D0        16.70     60        1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_F0_N_7        GLB_...art1 *2/D0        16.70     60        1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_F0_N_7        GLB_...art2 *3/D0        16.70     60        1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_F0_N_7        GLB_...art2 *3/D0        16.70     60        1    
+  GLB_P0_N_239        GLB_P0_N_181/Q0         GLB_P0_N_239      GLB_...art1 *1/D0        16.20     62        1    
+  GLB_P0_N_239        GLB_P0_N_181/Q0         GLB_P0_N_239      GLB_P0_N_180/D0          16.20     62        1    
+  GLB_P0_N_239        GLB_P0_N_174/Q0         GLB_P0_N_239      GLB_...art1 *1/D0        16.10     62        1    
+  GLB_P0_N_239        GLB_P0_N_180/Q0         GLB_P0_N_239      GLB_...art2 *4/D0        16.10     62        1    
+  GLB_P0_N_239        GLB_P0_N_174/Q0         GLB_P0_N_239      GLB_P0_N_180/D0          16.10     62        1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_F0_N_7        GLB_N_37/D0              16.00     63        1    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_F0_N_7        GLB_N_39/D0              15.90     63        1    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_F0_N_7        GLB_N_39/D0              15.90     63        1    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_F0_N_7        GLB_N_39/D0              15.90     63        1    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_...art1 *1/D0        15.90     ----     1    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_...art1 *1/D0        15.90     ----     1    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_...art1 *1/D0        15.90     ----     1    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_...art2 *4/D0        15.90     ----     1    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_...art2 *4/D0        15.90     ----     1    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_...art2 *4/D0        15.90     ----     1    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_P0_N_180/D0          15.90     ----     1    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_P0_N_180/D0          15.90     ----     1    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_P0_N_180/D0          15.90     ----     1    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_N_39/D0              15.80     ----     1    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_N_39/D0              15.80     ----     1    
+  GLB_P0_N_239        GLB_P0_N_181/Q0         GLB_P0_N_239      GLB_P0_N_174/D0          15.70     64        1    
+  GLB_P0_N_239        GLB_P0_N_181/Q0         GLB_P0_N_239      GLB_...art2 *4/D0        15.70     64        1    
+  GLB_P0_N_239        GLB_P0_N_181/Q0         GLB_P0_N_239      GLB_P0_N_181/D0          15.70     64        1    
+  GLB_F0_N_7          GLB_P0_N_217/Q0         GLB_F0_N_7        GLB_N_39/D0              15.60     64        1    
+  GLB_P0_N_239        GLB_P0_N_180/Q0         GLB_P0_N_239      GLB_...art1 *1/D0        15.60     64        1    
+  GLB_F0_N_7          GLB_P0_N_217/Q0         GLB_P0_N_239      GLB_...art1 *1/D0        15.60     ----     1    
+  GLB_P0_N_239        GLB_P0_N_174/Q0         GLB_P0_N_239      GLB_...art2 *4/D0        15.60     64        1    
+  GLB_P0_N_239        GLB_...art1 *1/Q0       GLB_P0_N_239      GLB_P0_N_180/D0          15.60     64        1    
+  GLB_P0_N_239        GLB_P0_N_174/Q0         GLB_P0_N_239      GLB_P0_N_181/D0          15.60     64        1    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_F0_N_7        GLB_N_40/D0              15.40     65        1    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_F0_N_7        GLB_N_40/D0              15.40     65        1    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_F0_N_7        GLB_N_40/D0              15.40     65        1    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_P0_N_174/D0          15.40     ----     1    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_P0_N_174/D0          15.40     ----     1    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_P0_N_174/D0          15.40     ----     1    
+  GLB_F0_N_7          GLB_P0_N_238/Q0         GLB_P0_N_239      GLB_P0_N_181/D0          15.40     ----     1    
+  GLB_F0_N_7          GLB_P0_N_239/Q0         GLB_P0_N_239      GLB_P0_N_181/D0          15.40     ----     1    
+  GLB_F0_N_7          GLB_P0_N_240/Q0         GLB_P0_N_239      GLB_P0_N_181/D0          15.40     ----     1    
+  GLB_P0_N_239        GLB_...art2 *4/Q0       GLB_F0_N_7        GLB_...art1 *2/D0        15.30     ----     1    
+  GLB_P0_N_239        GLB_...art2 *4/Q0       GLB_F0_N_7        GLB_...art2 *3/D0        15.30     ----     1    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_N_40/D0              15.30     ----     1    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_N_40/D0              15.30     ----     1    
+  GLB_P0_N_239        GLB_...art2 *4/Q0       GLB_P0_N_239      GLB_P0_N_179/D0          15.30     65        1    
+  GLB_P0_N_239        GLB_P0_N_177/Q0         GLB_F0_N_7        GLB_N_37/D0              15.20     ----     1    
+  GLB_P0_N_239        GLB_P0_N_178/Q0         GLB_F0_N_7        GLB_N_37/D0              15.20     ----     1    
+  GLB_F0_N_7          GLB_P0_N_214/Q0         GLB_F0_N_7        GLB_N_37/D0              15.10     66        1    
+  GLB_F0_N_7          GLB_P0_N_216/Q0         GLB_F0_N_7        GLB_...art1 *2/D0        15.10     66        1    
+  GLB_F0_N_7          GLB_P0_N_216/Q0         GLB_F0_N_7        GLB_...art2 *3/D0        15.10     66        1    
+  GLB_F0_N_7          GLB_P0_N_218/Q0         GLB_F0_N_7        GLB_N_40/D0              15.10     66        1    
+  GLB_F0_N_7          GLB_P0_N_218/Q0         GLB_P0_N_239      GLB_P0_N_174/D0          15.10     ----     1    
+  GLB_F0_N_7          GLB_P0_N_217/Q0         GLB_P0_N_239      GLB_...art2 *4/D0        15.10     ----     1    
+  GLB_F0_N_7          GLB_P0_N_216/Q0         GLB_P0_N_239      GLB_P0_N_176/D0          15.10     ----     1    
+  GLB_F0_N_7          GLB_P0_N_216/Q0         GLB_P0_N_239      GLB_P0_N_179/D0          15.10     ----     1    
+  GLB_F0_N_7          GLB_P0_N_217/Q0         GLB_P0_N_239      GLB_P0_N_180/D0          15.10     ----     1    
+  GLB_F0_N_7          GLB_P0_N_218/Q0         GLB_P0_N_239      GLB_P0_N_181/D0          15.10     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_10/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_10/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_100/CLK         14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_100/CLK         14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_102/CLK         14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_102/CLK         14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_104/CLK         14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_104/CLK         14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_105/CLK         14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_105/CLK         14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_106/CLK         14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_106/CLK         14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_11/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_11/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_12/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_12/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_127/CLK         14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_127/CLK         14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_13/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_13/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_14/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_14/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_16/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_16/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_18/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_18/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_2/CLK           14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_2/CLK           14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_31/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_31/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_34/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_34/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_35/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_35/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_36/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_36/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_37/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_37/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_38/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_38/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_4/CLK           14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_4/CLK           14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_40/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_40/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_41/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_41/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_42/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_42/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_49/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_49/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_5/CLK           14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_5/CLK           14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_50/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_50/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_6/CLK           14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_6/CLK           14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_7/CLK           14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_7/CLK           14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_8/CLK           14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_8/CLK           14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_98/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_98/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_N_39          GLB_D0_N_99/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_N_39          GLB_D0_N_99/CLK          14.40     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_10/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_100/CLK         14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_102/CLK         14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_104/CLK         14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_105/CLK         14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_106/CLK         14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_11/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_12/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_127/CLK         14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_13/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_14/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_16/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_18/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_2/CLK           14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_31/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_34/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_35/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_36/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_37/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_38/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_4/CLK           14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_40/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_41/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_42/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_49/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_5/CLK           14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_50/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_6/CLK           14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_7/CLK           14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_8/CLK           14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_98/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_N_39          GLB_D0_N_99/CLK          14.20     ----     1    
+  GLB_F0_N_7          GLB_N_39/Q0             GLB_F0_N_7        GLB_N_39/D0              14.20     70        1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_F0_N_7        GLB_N_39/D0              14.20     70        1    
+  GLB_P0_N_239        GLB_...art2 *4/Q0       GLB_P0_N_239      GLB_...art1 *1/D0        14.20     70        1    
+  GLB_P0_N_239        GLB_...art2 *4/Q0       GLB_P0_N_239      GLB_...art2 *4/D0        14.20     70        1    
+  GLB_P0_N_239        GLB_P0_N_180/Q0         GLB_P0_N_239      GLB_P0_N_180/D0          14.20     70        1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_10/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_100/CLK         13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_102/CLK         13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_104/CLK         13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_105/CLK         13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_106/CLK         13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_11/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_12/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_127/CLK         13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_13/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_14/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_16/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_18/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_2/CLK           13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_31/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_34/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_35/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_36/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_37/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_38/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_4/CLK           13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_40/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_41/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_42/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_49/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_5/CLK           13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_50/CLK          13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_6/CLK           13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_7/CLK           13.70     ----     1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_N_39          GLB_D0_N_8/CLK           13.70     ----     1    
+  GLB_F0_N_7          GLB_N_37/Q0             GLB_F0_N_7        GLB_N_37/D0              13.70     73        1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_F0_N_7        GLB_...art1 *2/D0        13.70     73        1    
+  GLB_F0_N_7          GLB_...art2 *3/Q0       GLB_F0_N_7        GLB_...art2 *3/D0        13.70     73        1    
+  GLB_F0_N_7          GLB_N_40/Q0             GLB_F0_N_7        GLB_N_40/D0              13.70     73        1    
+  GLB_P0_N_239        GLB_P0_N_174/Q0         GLB_P0_N_239      GLB_P0_N_174/D0          13.70     73        1    
+  GLB_F0_N_7          GLB_...art1 *2/Q0       GLB_N_39          GLB_D0_N_98/CLK          13.10     ----     1    
+  GLB_F0_N_7          GLB_...art1 *2/Q0       GLB_N_39          GLB_D0_N_99/CLK          13.10     ----     1    
+  CLK                 GLB_F0_N_7/Q0           CLK               GLB_F0_N_7/D0            13.00     77        1    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_P0_N_214/CLK         13.00     ----     1    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_P0_N_214/CLK         13.00     ----     1    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_P0_N_216/CLK         13.00     ----     1    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_P0_N_216/CLK         13.00     ----     1    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_P0_N_217/CLK         13.00     ----     1    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_P0_N_217/CLK         13.00     ----     1    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_P0_N_218/CLK         13.00     ----     1    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_P0_N_218/CLK         13.00     ----     1    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_P0_N_238/CLK         13.00     ----     1    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_P0_N_238/CLK         13.00     ----     1    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_P0_N_239/CLK         13.00     ----     1    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_P0_N_239/CLK         13.00     ----     1    
+  CLK                 GLB_F0_N_6/Q0           GLB_F0_N_7        GLB_P0_N_240/CLK         13.00     ----     1    
+  CLK                 GLB_F0_N_7/Q0           GLB_F0_N_7        GLB_P0_N_240/CLK         13.00     ----     1    
+  CLK                 GLB_F0_N_6/Q0           CLK               GLB_F0_N_6/D0            12.20     82        1    
+  CLK                 GLB_F0_N_7/Q0           CLK               GLB_F0_N_6/D0            12.20     82        1    
+==-------------------------------------------------------------------------------------------
+
+Index Name Table
+==----------------------------------------
+    *1  GLB_P0_N_175_part1
+    *2  GLB_N_38_part1
+    *3  GLB_N_38_part2
+    *4  GLB_P0_N_175_part2
+==----------------------------------------
+
+Information for flip-flop:
+
+  Global reset-to-output delay:   6.80
+  Clock-to-output maximum delay: 2.40
+  Clock-to-output minimum delay: 1.40
+  User reset-to-output delay:     6.80
+  Data-to-output delay:           0.00
+  Setup time:                     1.00
+  Hold time:                      8.30
+  Pulse-width time:               5.00
+
+

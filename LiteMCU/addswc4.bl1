@@ -1,0 +1,20 @@
+#$ TOOL ispLEVER 3.0
+#$ DATE Tue Jul 09 13:57:29 2013
+#$ TITLE addswc4.bls 
+#$ MODULE addswc4
+#$ PINS 6 SW0 SW1 SW2 SW3 RE CLK
+#$ NODES 5 N_11'o'  N_10'o'  N_6 N_7 I9>CAO
+#$ INTERFACE l_cbu12  6 CAI'i'  CD'i'  CLK'i'  CAO'o'  Q0'o'  Q1'o' 
+#$ INTERFACE l_dmux4  7 A0'i'  S0'i'  S1'i'  Z0'o'  Z1'o'  Z2'o'  Z3'o' 
+#$ INSTANCE I9 l_cbu12 6 N_10 RE N_11 I9>CAO N_7 N_6
+#$ INSTANCE I7 l_dmux4 7 N_10 N_7 N_6 SW0 SW1 SW2 SW3
+
+.model ADDSWC4
+.inputs CLK.BLIF
+.outputs N_11 N_10
+.names CLK.BLIF N_11
+0 1
+1 0
+.names N_10
+ 1
+.end

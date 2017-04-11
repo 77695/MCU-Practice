@@ -1,0 +1,15 @@
+#$ TOOL ispLEVER 3.0
+#$ DATE Mon Jul 08 08:50:34 2013
+#$ TITLE mux4in8.bls 
+#$ MODULE mux4in8
+#$ PINS 13 Z3 Z2 Z1 Z0 S A31 A30 A21 A20 A11 A10 A01 A00
+#$ INTERFACE l_mux2  4 A0'i'  A1'i'  S0'i'  Z0'o' 
+#$ INSTANCE I1 l_mux2 4 A30 A31 S Z3
+#$ INSTANCE I2 l_mux2 4 A20 A21 S Z2
+#$ INSTANCE I3 l_mux2 4 A10 A11 S Z1
+#$ INSTANCE I4 l_mux2 4 A00 A01 S Z0
+
+.model MUX4IN8
+.inputs
+.outputs
+.end

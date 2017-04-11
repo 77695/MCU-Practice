@@ -1,0 +1,147 @@
+Setup and Hold Report:
+---------------------
+
+Design Name: MAIN
+Part Name: ispLSI1032E-70LJ84
+
+  This report lists the setup/hold requirements for all the boundary
+  registers in the design
+
+
+Required Setup and Hold
+
+  Register Name         Data                Clock               Setup(ns)      Hold(ns)
+==-------------------------------------------------------------------------------------
+  GLB_D0_N_14           DI1                 PRGM                2.50           6.80    
+  GLB_D0_N_14           DI1                 CLK                 2.10           7.20    
+  GLB_D0_N_38           DI2                 PRGM                2.50           6.80    
+  GLB_D0_N_38           DI2                 CLK                 2.10           7.20    
+  GLB_D0_N_4            DI0                 PRGM                2.50           6.80    
+  GLB_D0_N_4            DI0                 CLK                 2.10           7.20    
+  GLB_D0_N_102          DI3                 PRGM                2.50           6.80    
+  GLB_D0_N_102          DI3                 CLK                 2.10           7.20    
+  GLB_D0_N_6            DI0                 PRGM                2.50           6.80    
+  GLB_D0_N_6            DI0                 CLK                 2.10           7.20    
+  GLB_D0_N_104          DI3                 PRGM                2.50           6.80    
+  GLB_D0_N_104          DI3                 CLK                 2.10           7.20    
+  GLB_D0_N_36           DI2                 PRGM                2.50           6.80    
+  GLB_D0_N_36           DI2                 CLK                 2.10           7.20    
+  GLB_D0_N_12           DI1                 PRGM                2.50           6.80    
+  GLB_D0_N_12           DI1                 CLK                 2.10           7.20    
+  GLB_D0_N_40           DI2                 PRGM                2.50           6.80    
+  GLB_D0_N_40           DI2                 CLK                 2.10           7.20    
+  GLB_D0_N_16           DI1                 PRGM                2.50           6.80    
+  GLB_D0_N_16           DI1                 CLK                 2.10           7.20    
+  GLB_D0_N_99           DI1                 PRGM                2.50           6.80    
+  GLB_D0_N_99           DI1                 CLK                 2.10           7.20    
+  GLB_D0_N_98           DI0                 PRGM                2.50           6.80    
+  GLB_D0_N_98           DI0                 CLK                 2.10           7.20    
+  GLB_D0_N_15           DI1                 PRGM                -3.00          12.30   
+  GLB_D0_N_15           DI1                 CLK                 -3.40          12.70   
+  GLB_...art2 *1        PRGM                PRGM                2.80           7.10    
+  GLB_...art2 *1        PRGM                CLK                 2.40           7.50    
+  GLB_...art2 *1        PRGM                EN                  3.30           6.60    
+  GLB_...art2 *1        CLK                 PRGM                3.20           6.70    
+  GLB_...art2 *1        CLK                 CLK                 2.80           7.10    
+  GLB_...art2 *1        CLK                 EN                  3.70           6.20    
+  GLB_...art2 *1        EN                  PRGM                2.30           7.60    
+  GLB_...art2 *1        EN                  CLK                 1.90           8.00    
+  GLB_...art2 *1        EN                  EN                  2.80           7.10    
+  GLB_...art1 *2        PRGM                PRGM                2.80           7.10    
+  GLB_...art1 *2        PRGM                CLK                 2.40           7.50    
+  GLB_...art1 *2        PRGM                EN                  3.30           6.60    
+  GLB_...art1 *2        CLK                 PRGM                3.20           6.70    
+  GLB_...art1 *2        CLK                 CLK                 2.80           7.10    
+  GLB_...art1 *2        CLK                 EN                  3.70           6.20    
+  GLB_...art1 *2        EN                  PRGM                2.30           7.60    
+  GLB_...art1 *2        EN                  CLK                 1.90           8.00    
+  GLB_...art1 *2        EN                  EN                  2.80           7.10    
+  GLB_D0_N_114          DI2                 PRGM                -3.00          12.30   
+  GLB_D0_N_114          DI2                 CLK                 -3.40          12.70   
+  GLB_D0_N_116          DI0                 PRGM                -3.00          12.30   
+  GLB_D0_N_116          DI0                 CLK                 -3.40          12.70   
+  GLB_D0_N_115          DI1                 PRGM                -3.00          12.30   
+  GLB_D0_N_115          DI1                 CLK                 -3.40          12.70   
+  GLB_N_40              PRGM                PRGM                -9.70          20.00   
+  GLB_N_40              PRGM                CLK                 -10.10         20.40   
+  GLB_N_40              PRGM                EN                  -9.20          19.50   
+  GLB_N_40              CLK                 PRGM                -9.30          19.60   
+  GLB_N_40              CLK                 CLK                 -9.70          20.00   
+  GLB_N_40              CLK                 EN                  -8.80          19.10   
+  GLB_N_40              EN                  PRGM                -10.20         20.50   
+  GLB_N_40              EN                  CLK                 -10.60         20.90   
+  GLB_N_40              EN                  EN                  -9.70          20.00   
+  GLB_N_39              PRGM                PRGM                -9.20          19.60   
+  GLB_N_39              PRGM                CLK                 -9.60          20.00   
+  GLB_N_39              PRGM                EN                  -8.70          19.10   
+  GLB_N_39              CLK                 PRGM                -8.80          19.20   
+  GLB_N_39              CLK                 CLK                 -9.20          19.60   
+  GLB_N_39              CLK                 EN                  -8.30          18.70   
+  GLB_N_39              EN                  PRGM                -9.70          20.10   
+  GLB_N_39              EN                  CLK                 -10.10         20.50   
+  GLB_N_39              EN                  EN                  -9.20          19.60   
+  GLB_D0_N_49           DI3                 PRGM                2.50           6.80    
+  GLB_D0_N_49           DI3                 CLK                 2.10           7.20    
+  GLB_D0_N_41           DI2                 PRGM                2.50           6.80    
+  GLB_D0_N_41           DI2                 CLK                 2.10           7.20    
+  GLB_D0_N_101          DI3                 PRGM                -3.00          12.30   
+  GLB_D0_N_101          DI3                 CLK                 -3.40          12.70   
+  GLB_D0_N_39           DI2                 PRGM                -3.00          12.30   
+  GLB_D0_N_39           DI2                 CLK                 -3.40          12.70   
+  GLB_D0_N_3            DI0                 PRGM                -3.00          12.30   
+  GLB_D0_N_3            DI0                 CLK                 -3.40          12.70   
+  GLB_D0_N_2            DI0                 PRGM                2.50           6.80    
+  GLB_D0_N_2            DI0                 CLK                 2.10           7.20    
+  GLB_D0_N_100          DI3                 PRGM                2.50           6.80    
+  GLB_D0_N_100          DI3                 CLK                 2.10           7.20    
+  GLB_D0_N_113          DI3                 PRGM                -3.00          12.30   
+  GLB_D0_N_113          DI3                 CLK                 -3.40          12.70   
+  GLB_D0_N_8            DI0                 PRGM                2.50           6.80    
+  GLB_D0_N_8            DI0                 CLK                 2.10           7.20    
+  GLB_D0_N_34           DI2                 PRGM                2.50           6.80    
+  GLB_D0_N_34           DI2                 CLK                 2.10           7.20    
+  GLB_D0_N_106          DI3                 PRGM                2.50           6.80    
+  GLB_D0_N_106          DI3                 CLK                 2.10           7.20    
+  GLB_D0_N_10           DI1                 PRGM                2.50           6.80    
+  GLB_D0_N_10           DI1                 CLK                 2.10           7.20    
+  GLB_D0_N_5            DI0                 PRGM                2.50           6.80    
+  GLB_D0_N_5            DI0                 CLK                 2.10           7.20    
+  GLB_D0_N_37           DI2                 PRGM                2.50           6.80    
+  GLB_D0_N_37           DI2                 CLK                 2.10           7.20    
+  GLB_D0_N_13           DI1                 PRGM                2.50           6.80    
+  GLB_D0_N_13           DI1                 CLK                 2.10           7.20    
+  GLB_D0_N_127          DI3                 PRGM                2.50           6.80    
+  GLB_D0_N_127          DI3                 CLK                 2.10           7.20    
+  GLB_N_37              PRGM                PRGM                2.80           7.10    
+  GLB_N_37              PRGM                CLK                 2.40           7.50    
+  GLB_N_37              PRGM                EN                  3.30           6.60    
+  GLB_N_37              CLK                 PRGM                3.20           6.70    
+  GLB_N_37              CLK                 CLK                 2.80           7.10    
+  GLB_N_37              CLK                 EN                  3.70           6.20    
+  GLB_N_37              EN                  PRGM                2.30           7.60    
+  GLB_N_37              EN                  CLK                 1.90           8.00    
+  GLB_N_37              EN                  EN                  2.80           7.10    
+  GLB_D0_N_7            DI0                 PRGM                2.50           6.80    
+  GLB_D0_N_7            DI0                 CLK                 2.10           7.20    
+  GLB_D0_N_105          DI3                 PRGM                2.50           6.80    
+  GLB_D0_N_105          DI3                 CLK                 2.10           7.20    
+  GLB_D0_N_11           DI1                 PRGM                2.50           6.80    
+  GLB_D0_N_11           DI1                 CLK                 2.10           7.20    
+  GLB_D0_N_35           DI2                 PRGM                2.50           6.80    
+  GLB_D0_N_35           DI2                 CLK                 2.10           7.20    
+  GLB_D0_N_42           DI2                 PRGM                2.50           6.80    
+  GLB_D0_N_42           DI2                 CLK                 2.10           7.20    
+  GLB_D0_N_50           DI3                 PRGM                2.50           6.80    
+  GLB_D0_N_50           DI3                 CLK                 2.10           7.20    
+  GLB_D0_N_31           DI0                 PRGM                2.50           6.80    
+  GLB_D0_N_31           DI0                 CLK                 2.10           7.20    
+  GLB_D0_N_18           DI1                 PRGM                2.50           6.80    
+  GLB_D0_N_18           DI1                 CLK                 2.10           7.20    
+==-----------------------------------------------------------------------------------
+
+Index Name Table
+==----------------------------------------
+    *1  GLB_N_38_part2
+    *2  GLB_N_38_part1
+==----------------------------------------
+

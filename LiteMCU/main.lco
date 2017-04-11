@@ -1,0 +1,77 @@
+[DEVICE]
+Family = plsi1k;
+PartNumber = ispLSI1032E-70LJ84;
+PartType = ispLSI1032E;
+Package = 84PLCC;
+Speed = 70;
+Operating_condition = COM;
+Default_Device_Io_Types = LVCMOS50,-;
+
+[REVISION]
+RCS = ;
+Parent = lc1k.lci;
+Design = main;
+DATE = 07/10/2013;
+TIME = 10:13:29;
+Source_Format = ;
+Type = ;
+Pre_Fit_Time = ;
+
+[IGNORE ASSIGNMENTS]
+
+[CLEAR ASSIGNMENTS]
+
+[BACKANNOTATE ASSIGNMENTS]
+
+[GLOBAL CONSTRAINTS]
+Security = Off;
+PULLUP = Up;
+ISP = On;
+ISP_EXCEPT_Y2 = Off;
+SLEWRATE = Off;
+
+[FITTER REPORT FORMAT]
+
+[LOCATION ASSIGNMENTS]
+RE_PRGM = pin, 6, -, -, -;
+RE_CPU = pin, 29, -, -, -;
+PRGM = pin, 47, -, -, -;
+EN = pin, 8, -, -, -;
+DI3 = pin, 75, -, -, -;
+DI2 = pin, 74, -, -, -;
+DI1 = pin, 51, -, -, -;
+DI0 = pin, 41, -, -, -;
+CLK = pin, 83, -, -, -;
+P03 = pin, 45, -, -, -;
+P02 = pin, 49, -, -, -;
+P01 = pin, 5, -, -, -;
+P00 = pin, 46, -, -, -;
+
+[PULLUP]
+Up = RE_PRGM, RE_CPU, PRGM, EN, DI3, DI2, DI1, DI0, CLK, P03, P02, P01, P00; 
+
+[SLEWRATE]
+FAST = P03, P02, P01, P00; 
+
+[IO TYPES]
+
+[OSM Bypass]
+
+[CLK]
+CLK1 = D0_N_3_C, 
+CLK2 = D0_N_116_C; 
+
+[PTSABYPASS]
+Bypass = P00_PIN, P0_N_177_C, F0_N_6; 
+
+[Fitter Results]
+I/O_Pin_Util = 20;
+I/O_Pin = 13;
+Logic_PT_Util = 53;
+Logic_PT = 341;
+Logic_MC_Util = 67;
+Logic_MC = 86;
+Occupied_PT_Util = 10;
+Occupied_PT = 66;
+GLB_input_Util = 67;
+GLB_input = 390;

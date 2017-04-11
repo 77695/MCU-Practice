@@ -1,0 +1,75 @@
+ispLEVER 3.0 Signal Name Cross Reference File
+Copyright(C), 1992-2002, Lattice Semiconductor Corp.
+All Rights Reserved.
+
+Design 'main' created Wed Jul 10 00:10:44 2013
+
+Title:  main.bls 
+
+ LEGEND:  '>'  Functional Block Port Separator
+          '/'  Hierarchy Path Separator
+          '@'  Automatically Generated Node
+
+
+Short Name                              Hierarchical Name
+----------                              -----------------
+D0_N_10                              	I4/N_10
+D0_N_100                             	I4/N_100
+D0_N_101                             	I4/N_101
+D0_N_102                             	I4/N_102
+D0_N_104                             	I4/N_104
+D0_N_105                             	I4/N_105
+D0_N_106                             	I4/N_106
+D0_N_11                              	I4/N_11
+D0_N_113                             	I4/N_113
+D0_N_114                             	I4/N_114
+D0_N_115                             	I4/N_115
+D0_N_116                             	I4/N_116
+D0_N_12                              	I4/N_12
+D0_N_127                             	I4/N_127
+D0_N_128                             	I4/N_128
+D0_N_13                              	I4/N_13
+D0_N_14                              	I4/N_14
+D0_N_15                              	I4/N_15
+D0_N_16                              	I4/N_16
+D0_N_18                              	I4/N_18
+D0_N_2                               	I4/N_2
+D0_N_3                               	I4/N_3
+D0_N_31                              	I4/N_31
+D0_N_34                              	I4/N_34
+D0_N_35                              	I4/N_35
+D0_N_36                              	I4/N_36
+D0_N_37                              	I4/N_37
+D0_N_38                              	I4/N_38
+D0_N_39                              	I4/N_39
+D0_N_4                               	I4/N_4
+D0_N_40                              	I4/N_40
+D0_N_41                              	I4/N_41
+D0_N_42                              	I4/N_42
+D0_N_49                              	I4/N_49
+D0_N_5                               	I4/N_5
+D0_N_50                              	I4/N_50
+D0_N_6                               	I4/N_6
+D0_N_7                               	I4/N_7
+D0_N_8                               	I4/N_8
+D0_N_98                              	I4/N_98
+D0_N_99                              	I4/N_99
+F0_N_6                               	I12/I16/N_6
+F0_N_7                               	I12/I16/N_7
+P0_N_174                             	I12/N_174
+P0_N_175                             	I12/N_175
+P0_N_176                             	I12/N_176
+P0_N_177                             	I12/N_177
+P0_N_178                             	I12/N_178
+P0_N_179                             	I12/N_179
+P0_N_180                             	I12/N_180
+P0_N_181                             	I12/N_181
+P0_N_195                             	I12/N_195
+P0_N_212                             	I12/N_212
+P0_N_214                             	I12/N_214
+P0_N_216                             	I12/N_216
+P0_N_217                             	I12/N_217
+P0_N_218                             	I12/N_218
+P0_N_238                             	I12/N_238
+P0_N_239                             	I12/N_239
+P0_N_240                             	I12/N_240

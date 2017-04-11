@@ -1,0 +1,16 @@
+PRGM  i
+RD0  i
+RD1  i
+RD2  i
+RD3  i
+CLK  i
+EN  i
+RE  i
+RA0  o
+RA1  o
+RA2  o
+RA3  o
+P00  o
+P01  o
+P02  o
+P03  o
