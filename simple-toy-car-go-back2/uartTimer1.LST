@@ -1,0 +1,38 @@
+C51 COMPILER V6.12  UARTTIMER1                                                             08/09/2013 18:58:18 PAGE 1   
+
+
+C51 COMPILER V6.12, COMPILATION OF MODULE UARTTIMER1
+OBJECT MODULE PLACED IN .\uartTimer1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE .\uartTimer1.c DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          #include"STC_NEW_8051.h"
+   2          #include"uartTimer1.h"
+   3          void UartInit(void)		//38400bps@11.0592MHz
+   4          						//4分频9600bps
+   5          {
+   6   1      	PCON &= 0x7F;		//波特率不倍速
+   7   1      	SCON = 0x50;		//8位数据,可变波特率
+   8   1      	AUXR |= 0x04;		//独立波特率发生器时钟为Fosc,即1T
+   9   1      	BRT = 0xF7;		//设定独立波特率发生器重装值
+  10   1      	AUXR |= 0x01;		//串口1选择独立波特率发生器为波特率发生器
+  11   1      	AUXR |= 0x10;		//启动独立波特率发生器
+  12   1      	EA=1;
+  13   1      	TI=1;
+  14   1      }
+  15          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     23    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

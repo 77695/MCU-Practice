@@ -1,0 +1,6 @@
+"main.obj",
+"uartTimer1.obj",
+"12c5a_ad.obj",
+"seg8.obj" 
+TO "main" 
+RAMSIZE(256) 

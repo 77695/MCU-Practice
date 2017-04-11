@@ -1,0 +1,526 @@
+C51 COMPILER V6.12  MAIN                                                                   08/09/2013 18:58:17 PAGE 1   
+
+
+C51 COMPILER V6.12, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE .\main.c DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          #include"STC_NEW_8051.h"
+   2          #include"defines.h"
+   3          #include"uartTimer1.h"
+   4          #include"pwm.h"
+   5          #include"stdio.h"
+   6          #include"12c5a_ad.h"
+   7          #include"seg8.h"
+   8          #include <intrins.h>
+   9          
+  10          const uint16 LROUNDMM=(213);
+  11          
+  12          #define SPEEDIN (P0&0x0f)
+  13          #define PWMINIT0 0x00
+  14          #define PWMINIT1 0x00
+  15          
+  16          
+  17          sbit SPEEDPIN0=P0^0;
+  18          sbit SPEEDPIN1=P0^1;
+  19          sbit SPEEDPIN2=P0^2;
+  20          sbit SPEEDPIN3=P0^3;
+  21          sbit CHKBLACK0=P0^4;
+  22          sbit CHKBLACK1=P0^5;
+  23          sbit CHKBLACK2=P0^6;
+  24          sbit PWMOUT0=P1^3;
+  25          sbit PWMOUT1=P1^4;
+  26          sbit KEY0=P0^7;
+  27          uint8 speedpin0_state_old=0;
+  28          uint8 speedpin1_state_old=0;
+  29          unsigned long int dist=0;
+  30          uint8 speedpin2_state_old=0;
+  31          uint8 speedpin3_state_old=0;
+  32          uint8 chkblack0_state_old=0;
+  33          uint8 chkblack1_state_old=0;
+  34          uint8 chkblack2_state_old=0;
+  35          uint16 pwm_counter=0;
+  36          const uint8 CHKBLACK_SURETIME_01MS=30;
+  37          const uint8 AHEADADJSTEP=0x0a;
+  38          const uint8 PWMSLOW=0xd9;
+  39          const uint8 PWMVERYSLOW=0xe8;
+  40          /*车轮编号
+  41           1|-前-|0
+  42            |  0 | 
+  43            |  1 |
+  44            |  2 |
+  45           3|-后-|2
+  46          	
+  47          正转0反转1
+  48          */
+  49          uint16 t4us=0;
+  50          uint16 t01ms=0;
+  51          uint8 chek=0;
+  52          idata uint16 time_buf[4][5]={{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
+  53          idata uint16 time_gap[4][4]={{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
+  54          idata uint16 time_chkblack[6][2]={{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}};
+  55          idata uint16 blackchk_time_buf[3]={0,0,0};
+C51 COMPILER V6.12  MAIN                                                                   08/09/2013 18:58:17 PAGE 2   
+
+  56          idata uint8 black_times[3]={0,0,0};
+  57          uint8 speed_pin_state=0;
+  58          uint8 car_state=0;
+  59          uint8 pwmset0=0;
+  60          uint8 pwmset1=0;
+  61          uint8 speedin;
+  62          uint16 diiiisp=0;
+  63          uint8 code dir[4][2]=
+  64          {{0x04,0x08},{0x01,0x02},{0x40,0x80},{0x10,0x20}};
+  65          void Timer0Init(void)		//100微秒@11.0592MHz
+  66          {
+  67   1      	AUXR |= 0x80;		//定时器时钟1T模式
+  68   1      	TMOD &= 0xF0;		//设置定时器模式
+  69   1      	TMOD |= 0x01;		//设置定时器模式
+  70   1      	TL0 = 0xAE;		//设置定时初值
+  71   1      	TH0 = 0xFB;		//设置定时初值
+  72   1      	TF0 = 0;		//清除TF0标志
+  73   1      	TR0 = 1;		//定时器0开始计时
+  74   1      	EA=1;
+  75   1      	ET0=1;
+  76   1      }
+  77          void Timer1Init(void)		//100微秒@11.0592MHz
+  78          {
+  79   1      	AUXR |= 0x40;		//定时器时钟1T模式
+  80   1      	TMOD &= 0x0F;		//设置定时器模式
+  81   1      	TMOD |= 0x10;		//设置定时器模式
+  82   1      	TL1 = 0xAE;		//设置定时初值
+  83   1      	TH1 = 0xFB;		//设置定时初值
+  84   1      	TF1 = 0;		//清除TF1标志
+  85   1      	TR1 = 1;		//定时器1开始计时
+  86   1      	EA=1;
+  87   1      	ET1=1;
+  88   1      }
+  89          
+  90          void Delay100ms(uint16 t)		//@11.0592MHz
+  91          {
+  92   1      	while(t--)
+  93   1      	{
+  94   2      		unsigned char i, j, k;
+  95   2      	
+  96   2      		i = 5;
+  97   2      		j = 52;
+  98   2      		k = 195;
+  99   2      		do
+ 100   2      		{
+ 101   3      			do
+ 102   3      			{
+ 103   4      				while (--k);
+ 104   4      			} while (--j);
+ 105   3      		} while (--i);
+ 106   2      	}
+ 107   1      }
+ 108          
+ 109          
+ 110          uint16 op_speed()
+ 111          {
+ 112   1      	uint8 i;
+ 113   1      	uint16 sum_time[4];
+ 114   1      	for(i=0;i<=3;i++)
+ 115   1      	{
+ 116   2      		uint8 j=0;
+ 117   2      		for(j=0;j<=3;j++)
+C51 COMPILER V6.12  MAIN                                                                   08/09/2013 18:58:17 PAGE 3   
+
+ 118   2      		{
+ 119   3      			time_gap[i][j]=((unsigned long int)time_buf[i][j+1]+0x10000-time_buf[i][j])&0xffff;
+ 120   3      		}
+ 121   2      	}
+ 122   1      	sum_time[0]=((uint16)time_gap[0][0]+time_gap[0][1]+time_gap[0][2]+time_gap[0][3]);
+ 123   1      	sum_time[1]=((uint16)time_gap[1][0]+time_gap[1][1]+time_gap[1][2]+time_gap[1][3]);
+ 124   1      	sum_time[2]=((uint16)time_gap[2][0]+time_gap[2][1]+time_gap[2][2]+time_gap[2][3]);
+ 125   1      	sum_time[3]=((uint16)time_gap[3][0]+time_gap[3][1]+time_gap[3][2]+time_gap[3][3]);
+ 126   1      	//printf("time_L:%u__time_R:%u\n",sum_time[1]+sum_time[3],sum_time[0]+sum_time[2]);
+ 127   1      	//printf("speed:%d*0.1m/s\n",LROUNDMM*80/((sum_time[0]+sum_time[1]+sum_time[2]+sum_time[3])));
+ 128   1      	return LROUNDMM*80/((sum_time[0]+sum_time[1]+sum_time[2]+sum_time[3]));
+ 129   1      }
+ 130          uint16 get_dist_dm()
+ 131          {
+ 132   1      	return (uint16)((dist*LROUNDMM/2000)%10000);
+ 133   1      }
+ 134          void init_all()
+ 135          {
+ 136   1      	P0=0xff;
+ 137   1      	//CLK_DIV=0x02;
+ 138   1      	//init_pwm();
+ 139   1      	Timer0Init();
+ 140   1      	Timer1Init();
+ 141   1      	UartInit();
+ 142   1      	AD_init();
+ 143   1      	InitSerialPortSEG8();
+ 144   1      }
+ 145          
+ 146          void main()
+ 147          {
+ 148   1      	uint16 speed=0;
+ 149   1      	uint8 distl=0;
+ 150   1      	uint8 distr=0;
+ 151   1      	uint8 went=0;
+ 152   1      	uint16 t01ms_old=0;
+ 153   1      	uint16 dist_res=0;
+ 154   1      	while(KEY0);
+ 155   1      	init_all();
+ 156   1      	printf("init ok!");
+ 157   1      
+ 158   1      	while(1)
+ 159   1      	{
+ 160   2      		if((((unsigned long int)t01ms+0x10000L-t01ms_old)&0xffff)>=5000)
+ 161   2      		{
+ 162   3      			speed=op_speed();
+ 163   3      			dist_res=get_dist_dm();
+ 164   3      			t01ms_old=t01ms;
+ 165   3      		}
+ 166   2      
+ 167   2      		//seg8Disp(diiiisp,0,2);
+ 168   2      		//seg8Disp(car_state,0,2);
+ 169   2      		//seg8Disp(distr,1,2);
+ 170   2      		//seg8Disp((black_times[0]%10)+(black_times[1]%10)*10+(black_times[2]%10)*100,1,2);
+ 171   2      		seg8Disp(speed,0,2);
+ 172   2      		seg8Disp(dist_res,1,2);
+ 173   2      		if(car_state>=0&&car_state<=9)
+ 174   2      		{
+ 175   3      			distl=get_ad(0);
+ 176   3      			distr=get_ad(1);
+ 177   3      	        if(black_times[0]>=0&&black_times[0]<=2)
+ 178   3      			{
+ 179   4      				pwmset0=0x00;
+C51 COMPILER V6.12  MAIN                                                                   08/09/2013 18:58:17 PAGE 4   
+
+ 180   4      				pwmset1=0x00;
+ 181   4      				car_state=0;
+ 182   4      			}
+ 183   3      			if(black_times[0]==3)//&&black_times[1]==2)
+ 184   3      			{
+ 185   4      				pwmset0= PWMSLOW;
+ 186   4      				pwmset1= PWMSLOW;
+ 187   4      				car_state=1;
+ 188   4      			}
+ 189   3      			if(black_times[0]==4)//&&black_times[1]==3)
+ 190   3      			{
+ 191   4      				pwmset0=0x00;
+ 192   4      				pwmset1=0x00;
+ 193   4      				car_state=0;
+ 194   4      			}
+ 195   3      			if(black_times[0]==5)
+ 196   3      			{
+ 197   4      				pwmset0=PWMSLOW;
+ 198   4      				pwmset1=PWMSLOW;
+ 199   4      				car_state=1;
+ 200   4      			}
+ 201   3      			if(black_times[0]==6)
+ 202   3      			{
+ 203   4      				pwmset0=PWMVERYSLOW;
+ 204   4      				pwmset1=PWMVERYSLOW;
+ 205   4      				car_state=2;
+ 206   4      			}
+ 207   3      			if(black_times[1]==6)
+ 208   3      			{
+ 209   4      				pwmset0=0xff;
+ 210   4      				pwmset1=0xff;
+ 211   4      				car_state=10;
+ 212   4      				Delay100ms(6);
+ 213   4      				car_state=10;
+ 214   4      				black_times[0]=0;
+ 215   4      				//pwmset0=0x00;
+ 216   4      				//pwmset1=0x00;
+ 217   4      				continue;
+ 218   4      			}
+ 219   3      	
+ 220   3      			if(distl<240)
+ 221   3      			{
+ 222   4      				pwmset1=0xff;
+ 223   4      			}else if(distr<240)
+ 224   3      			{
+ 225   4      				pwmset0=0xff;
+ 226   4      			}else if(distl>=240&&distr>=240)
+ 227   3      			{
+ 228   4      				if(car_state==0)
+ 229   4      				{
+ 230   5      					pwmset0=0x00;
+ 231   5      					pwmset1=0x00;
+ 232   5      				}else if(car_state==1)
+ 233   4      				{
+ 234   5      					pwmset0= PWMSLOW;
+ 235   5      					pwmset1= PWMSLOW;
+ 236   5      			   	}else if(car_state==2)
+ 237   4      				{
+ 238   5      					pwmset0=PWMVERYSLOW;
+ 239   5      					pwmset1=PWMVERYSLOW;
+ 240   5      				}else if(car_state==3)
+ 241   4      				{
+C51 COMPILER V6.12  MAIN                                                                   08/09/2013 18:58:17 PAGE 5   
+
+ 242   5      					pwmset0=0xff;
+ 243   5      					pwmset1=0xff;
+ 244   5      				}
+ 245   4      			}
+ 246   3      			P2=dir[0][0]|dir[2][0]|dir[1][0]|dir[3][0];
+ 247   3      		}else if(car_state>=10&&car_state<=19)
+ 248   2      		{
+ 249   3      			distr=get_ad(6);
+ 250   3      			distl=get_ad(7);
+ 251   3      			if(black_times[0]==0)
+ 252   3      			{
+ 253   4      				pwmset0=0x00;
+ 254   4      				pwmset1=0x00;
+ 255   4      				car_state=10;
+ 256   4      			}
+ 257   3      			if((!went)&&(black_times[0]==1))
+ 258   3      			{
+ 259   4      				black_times[1]=1;
+ 260   4      				black_times[2]=1;
+ 261   4      				black_times[0]=11;
+ 262   4      				went=1;
+ 263   4      			}
+ 264   3      			if(went)
+ 265   3      			{
+ 266   4      		        if(black_times[2]>=0&&black_times[2]<=2)
+ 267   4      				{
+ 268   5      					pwmset0=0x00;
+ 269   5      					pwmset1=0x00;
+ 270   5      					car_state=10;
+ 271   5      				}
+ 272   4      				if(black_times[2]==3)//&&black_times[1]==2)
+ 273   4      				{
+ 274   5      					pwmset0= PWMSLOW;
+ 275   5      					pwmset1= PWMSLOW;
+ 276   5      					car_state=11;
+ 277   5      				}
+ 278   4      				if(black_times[2]==4)//&&black_times[1]==3)
+ 279   4      				{
+ 280   5      					pwmset0=0x00;
+ 281   5      					pwmset1=0x00;
+ 282   5      					car_state=10;
+ 283   5      				}
+ 284   4      				if(black_times[2]==5)
+ 285   4      				{
+ 286   5      					pwmset0=PWMSLOW;
+ 287   5      					pwmset1=PWMSLOW;
+ 288   5      					car_state=11;
+ 289   5      				}
+ 290   4      				if(black_times[2]==6)
+ 291   4      				{
+ 292   5      					pwmset0=PWMVERYSLOW;
+ 293   5      					pwmset1=PWMVERYSLOW;
+ 294   5      					car_state=12;
+ 295   5      				}
+ 296   4      				if(black_times[1]==6)
+ 297   4      				{
+ 298   5      					pwmset0=0xff;
+ 299   5      					pwmset1=0xff;
+ 300   5      					car_state=13;
+ 301   5      					//Delay100ms(6);
+ 302   5      					//car_state=0;
+ 303   5      				}
+C51 COMPILER V6.12  MAIN                                                                   08/09/2013 18:58:17 PAGE 6   
+
+ 304   4      			}
+ 305   3      	
+ 306   3      			if(distl<240)
+ 307   3      			{
+ 308   4      				pwmset1=0xff;
+ 309   4      			}else if(distr<240)
+ 310   3      			{
+ 311   4      				pwmset0=0xff;
+ 312   4      			}else if(distl>=240&&distr>=240)
+ 313   3      			{
+ 314   4      				if(car_state==10)
+ 315   4      				{
+ 316   5      					pwmset0=0x00;
+ 317   5      					pwmset1=0x00;
+ 318   5      				}else if(car_state==11)
+ 319   4      				{
+ 320   5      					pwmset0= PWMSLOW;
+ 321   5      					pwmset1= PWMSLOW;
+ 322   5      			   	}else if(car_state==12)
+ 323   4      				{
+ 324   5      					pwmset0=PWMVERYSLOW;
+ 325   5      					pwmset1=PWMVERYSLOW;
+ 326   5      				}else if(car_state==13)
+ 327   4      				{
+ 328   5      					pwmset0=0xff;
+ 329   5      					pwmset1=0xff;
+ 330   5      				}
+ 331   4      			}
+ 332   3      			P2=dir[0][1]|dir[2][1]|dir[1][1]|dir[3][1];
+ 333   3      		}
+ 334   2      		
+ 335   2      	}
+ 336   1      }
+ 337          
+ 338          void timer0()interrupt 1
+ 339          {
+ 340   1      	t01ms++;
+ 341   1      	TL0 = 0xAE;		//设置定时初值
+ 342   1      	TH0 = 0xFB;		//设置定时初值
+ 343   1      }
+ 344          void timer1()interrupt 3
+ 345          {
+ 346   1      	uint8 speedpin0=SPEEDPIN0;
+ 347   1      	uint8 speedpin1=SPEEDPIN1;
+ 348   1      	uint8 speedpin2=SPEEDPIN2;
+ 349   1      	uint8 speedpin3=SPEEDPIN3;
+ 350   1      	uint8 chkblack0=CHKBLACK0;
+ 351   1      	uint8 chkblack1=CHKBLACK1;
+ 352   1      	uint8 chkblack2=CHKBLACK2;
+ 353   1      	uint8 chktime=CHKBLACK_SURETIME_01MS;
+ 354   1      
+ 355   1      
+ 356   1         	if(speedpin0!=speedpin0_state_old)
+ 357   1      	{	
+ 358   2      		speedpin0_state_old=speedpin0;		
+ 359   2      		if(speedpin0)
+ 360   2      		{		
+ 361   3      			time_buf[0][0]=time_buf[0][1];
+ 362   3      			time_buf[0][1]=time_buf[0][2];
+ 363   3      			time_buf[0][2]=time_buf[0][3];
+ 364   3      			time_buf[0][3]=time_buf[0][4];
+ 365   3      			time_buf[0][4]=t01ms;
+C51 COMPILER V6.12  MAIN                                                                   08/09/2013 18:58:17 PAGE 7   
+
+ 366   3      		}
+ 367   2      		//dist++;
+ 368   2      	}
+ 369   1         	if(speedpin1!=speedpin1_state_old)
+ 370   1      	{	
+ 371   2      		speedpin1_state_old=speedpin1;		
+ 372   2      		if(speedpin1)
+ 373   2      		{		
+ 374   3      			time_buf[1][0]=time_buf[1][1];
+ 375   3      			time_buf[1][1]=time_buf[1][2];
+ 376   3      			time_buf[1][2]=time_buf[1][3];
+ 377   3      			time_buf[1][3]=time_buf[1][4];
+ 378   3      			time_buf[1][4]=t01ms;
+ 379   3      		}
+ 380   2      		//dist++;
+ 381   2      	}
+ 382   1         	if(speedpin2!=speedpin2_state_old)
+ 383   1      	{	
+ 384   2      		speedpin2_state_old=speedpin2;		
+ 385   2      		if(speedpin2)
+ 386   2      		{		
+ 387   3      			time_buf[2][0]=time_buf[2][1];
+ 388   3      			time_buf[2][1]=time_buf[2][2];
+ 389   3      			time_buf[2][2]=time_buf[2][3];
+ 390   3      			time_buf[2][3]=time_buf[2][4];
+ 391   3      			time_buf[2][4]=t01ms;
+ 392   3      		}
+ 393   2      	//	dist++;
+ 394   2      	}
+ 395   1      	if(speedpin3!=speedpin3_state_old)
+ 396   1      	{	
+ 397   2      		speedpin3_state_old=speedpin3;		
+ 398   2      		if(speedpin3)
+ 399   2      		{		
+ 400   3      			time_buf[3][0]=time_buf[3][1];
+ 401   3      			time_buf[3][1]=time_buf[3][2];
+ 402   3      			time_buf[3][2]=time_buf[3][3];
+ 403   3      			time_buf[3][3]=time_buf[3][4];
+ 404   3      			time_buf[3][4]=t01ms;
+ 405   3      		}
+ 406   2      		dist++;
+ 407   2      	}
+ 408   1      	
+ 409   1      	if(car_state!=0)
+ 410   1      	{
+ 411   2      		chktime=CHKBLACK_SURETIME_01MS*2;
+ 412   2      	}
+ 413   1      	if(chkblack0!=chkblack0_state_old)
+ 414   1      	{	
+ 415   2      		chkblack0_state_old=chkblack0;		
+ 416   2      		if(!chkblack0)
+ 417   2      		{		
+ 418   3      			blackchk_time_buf[0]=t01ms;
+ 419   3      		}else
+ 420   2      		{
+ 421   3      			uint16 t01ms_now=t01ms;
+ 422   3      			if(((((unsigned long int)t01ms_now+0x10000L-(unsigned long int)blackchk_time_buf[0]))&0xffff)>=chktime)
+ 423   3      			{
+ 424   4      				diiiisp=((((unsigned long int)t01ms_now+0x10000L-(unsigned long int)blackchk_time_buf[0]))&0xffff);
+ 425   4      				black_times[0]++;
+ 426   4      			}
+ 427   3      		}
+C51 COMPILER V6.12  MAIN                                                                   08/09/2013 18:58:17 PAGE 8   
+
+ 428   2      	}
+ 429   1      	if(chkblack1!=chkblack1_state_old)
+ 430   1      	{	
+ 431   2      		chkblack1_state_old=chkblack1;		
+ 432   2      		if(!chkblack1)
+ 433   2      		{		
+ 434   3      			blackchk_time_buf[1]=t01ms;
+ 435   3      		}else
+ 436   2      		{
+ 437   3      			uint16 t01ms_now=t01ms;
+ 438   3      			if(((((unsigned long int)t01ms_now+0x10000L-(unsigned long int)blackchk_time_buf[1]))&0xffff)>=chktime)
+ 439   3      			{
+ 440   4      
+ 441   4      				black_times[1]++;
+ 442   4      			}
+ 443   3      		}
+ 444   2      	}
+ 445   1      	if(chkblack2!=chkblack2_state_old)
+ 446   1      	{	
+ 447   2      		uint16 t01ms_now=t01ms;
+ 448   2      		chkblack2_state_old=chkblack2;		
+ 449   2      		if(!chkblack2)
+ 450   2      		{		
+ 451   3      			blackchk_time_buf[2]=t01ms_now;
+ 452   3      		}else
+ 453   2      		{
+ 454   3      			
+ 455   3      			if(((((unsigned long int)t01ms_now+0x10000L-(unsigned long int)blackchk_time_buf[2]))&0xffff)>=chktime)
+ 456   3      			{
+ 457   4      				black_times[2]++;
+ 458   4      			}
+ 459   3      		}
+ 460   2      	}
+ 461   1      	pwm_counter++;
+ 462   1      	if(pwm_counter>=1000)
+ 463   1      	{
+ 464   2      		pwm_counter=0;
+ 465   2      	}
+ 466   1      	if(pwm_counter<=(PWMINIT0+pwmset0)*1000L/255)
+ 467   1      	{
+ 468   2      		PWMOUT0=0;
+ 469   2      	}else
+ 470   1      	{
+ 471   2      		PWMOUT0=1;
+ 472   2      	}
+ 473   1      	if(pwm_counter<=(PWMINIT1+pwmset1)*1000L/255)
+ 474   1      	{
+ 475   2      		PWMOUT1=0;
+ 476   2      	}else
+ 477   1      	{
+ 478   2      		PWMOUT1=1;
+ 479   2      	}
+ 480   1      	
+ 481   1      	TL1 = 0xEC;		//设置定时初值
+ 482   1      	TH1 = 0xFE;		//设置定时初值
+ 483   1      
+ 484   1      }
+ 485          void uartintrrupt()interrupt 5
+ 486          {
+ 487   1      }
+
+
+C51 COMPILER V6.12  MAIN                                                                   08/09/2013 18:58:17 PAGE 9   
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   2094    ----
+   CONSTANT SIZE    =     17    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     31      27
+   IDATA SIZE       =    105    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

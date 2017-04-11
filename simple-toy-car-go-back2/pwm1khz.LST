@@ -1,0 +1,72 @@
+C51 COMPILER V6.12  PWM1KHZ                                                                08/06/2013 00:20:14 PAGE 1   
+
+
+C51 COMPILER V6.12, COMPILATION OF MODULE PWM1KHZ
+OBJECT MODULE PLACED IN .\pwm1khz.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE .\pwm1khz.c DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          /*
+   2          驱动电机编写的直流电机pwm驱动程序，与timer0配合使用，pwm周期略小于1khz。by 77695
+   3          ch0为p1^3,ch1为P1^4
+   4          */
+   5          #include"STC_NEW_8051.h"
+   6          #include"defines.h"
+   7          #include"pwm1khz.h"
+   8          void Timer0InitPWM(void)		//4微秒@11.0592MHz
+   9          {
+  10   1      	AUXR |= 0x80;		//定时器时钟1T模式
+  11   1      	TMOD &= 0xF0;		//设置定时器模式
+  12   1      	TMOD |= 0x02;		//设置定时器模式
+  13   1      	TL0 = 0xD4;		//设置定时初值
+  14   1      	TH0 = 0xD4;		//设置定时重载值
+  15   1      	TF0 = 0;		//清除TF0标志
+  16   1      	TR0 = 1;		//定时器0开始计时
+  17   1      
+  18   1      	ET0=1;
+  19   1      	EA=1;
+  20   1      }
+  21          void init_pwm()
+  22          {
+  23   1      	CCON = 0;                       //Initial PCA control register
+  24   1      	                            //PCA timer stop running
+  25   1      	                            //Clear CF flag
+  26   1      	                            //Clear all module interrupt flag
+  27   1      	CL = 0;                         //Reset PCA base timer
+  28   1      	CH = 0;
+  29   1      	CMOD = 0x04;                    //Set PCA timer clock source as timer0          0000 0100
+  30   1      	                                //Disable PCA timer overflow interrupt
+  31   1      	CCAP0H = CCAP0L = 0;         //PWM0 port output 50% duty cycle square wave
+  32   1      	CCAPM0 = 0x42;                  //PCA module-0 work in 8-bit PWM mode and no PCA interrupt
+  33   1      	CCAP1H = CCAP1L = 0;         //PWM1 port output 0% duty cycle square wave
+  34   1      	CCAPM1 = 0x42;                  //PCA module-1 work in 8-bit PWM mode and no PCA interrupt
+  35   1      	CR = 1;                         //PCA timer start run
+  36   1      }
+  37          
+  38          void set_pwm(uint8 ch,uint8 var)
+  39          {
+  40   1      	if(ch==0)
+  41   1      	{
+  42   2      		CCAP0H = CCAP0L = var;
+  43   2      	}else if(ch==1)
+  44   1      	{
+  45   2      		CCAP1H = CCAP1L = var;
+  46   2      	}
+  47   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     73    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+C51 COMPILER V6.12  PWM1KHZ                                                                08/06/2013 00:20:14 PAGE 2   
+
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

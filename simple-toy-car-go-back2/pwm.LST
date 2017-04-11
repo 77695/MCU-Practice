@@ -1,0 +1,58 @@
+C51 COMPILER V6.12  PWM                                                                    08/09/2013 13:08:45 PAGE 1   
+
+
+C51 COMPILER V6.12, COMPILATION OF MODULE PWM
+OBJECT MODULE PLACED IN .\pwm.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE .\pwm.c DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          /*
+   2          驱动电机编写的直流电机pwm驱动程序，与timer0配合使用，pwm周期略小于1khz。by 77695
+   3          ch0为p1^3,ch1为P1^4
+   4          */
+   5          #include"STC_NEW_8051.h"
+   6          #include"defines.h"
+   7          #include"pwm.h"
+   8          
+   9          void init_pwm()
+  10          {
+  11   1      	CCON = 0;                       //Initial PCA control register
+  12   1      	                            //PCA timer stop running
+  13   1      	                            //Clear CF flag
+  14   1      	                            //Clear all module interrupt flag
+  15   1      	CL = 0;                         //Reset PCA base timer
+  16   1      	CH = 0;
+  17   1      	CMOD = 0x00;                    //Set PCA timer clock source as timer0      =    0000 0000
+  18   1      	                                //Disable PCA timer overflow interrupt
+  19   1      	CCAP0H = CCAP0L = 0;         //PWM0 port output 50% duty cycle square wave
+  20   1      	CCAPM0 = 0x42;                  //PCA module-0 work in 8-bit PWM mode and no PCA interrupt
+  21   1      	CCAP1H = CCAP1L = 0;         //PWM1 port output 0% duty cycle square wave
+  22   1      	CCAPM1 = 0x42;                  //PCA module-1 work in 8-bit PWM mode and no PCA interrupt
+  23   1      	CR = 1;                         //PCA timer start run
+  24   1      }
+  25          
+  26          void set_pwm(uint8 ch,uint8 var)
+  27          {
+  28   1      	if(ch==0)
+  29   1      	{
+  30   2      		CCAP0H = CCAP0L = var;
+  31   2      	}else if(ch==1)
+  32   1      	{
+  33   2      		CCAP1H = CCAP1L = var;
+  34   2      	}
+  35   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     48    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
